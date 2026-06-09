@@ -1,5 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
-import { buildPrompt } from './prompt.js'
+import { buildPrompt } from './prompt'
 import type { NewsItem, AnalysisReport, ETFSignal } from '@/types'
 
 type AnalysisResult = Omit<AnalysisReport, 'id' | 'date' | 'createdAt'>

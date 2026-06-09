@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { SignalCard } from '@/components/dashboard/SignalCard'
 import { SentimentMeter } from '@/components/dashboard/SentimentMeter'
+import { HeadlineList } from '@/components/dashboard/HeadlineList'
 import type { AnalysisReport } from '@/types'
 
 async function getReport(date: string): Promise<AnalysisReport | null> {
@@ -52,14 +53,7 @@ export default async function ReportPage({ params }: { params: Promise<{ date: s
         <Card className="bg-[#0C1221] border-white/[0.06]">
           <CardHeader className="pb-3"><CardTitle className="text-base text-slate-200">重點新聞</CardTitle></CardHeader>
           <CardContent>
-            <ol className="space-y-3">
-              {report.topHeadlines.map((h, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="font-mono text-xs text-slate-600 mt-0.5 w-5 shrink-0">{String(i+1).padStart(2,'0')}</span>
-                  <span className="text-sm text-slate-400 leading-relaxed">{h}</span>
-                </li>
-              ))}
-            </ol>
+            <HeadlineList headlines={report.topHeadlines} />
           </CardContent>
         </Card>
       </div>

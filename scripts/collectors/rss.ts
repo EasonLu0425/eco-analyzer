@@ -1,6 +1,6 @@
 import Parser from 'rss-parser'
 import type { NewsItem } from '@/types'
-import { RSS_SOURCES, RELEVANCE_KEYWORDS } from './sources.js'
+import { RSS_SOURCES, RELEVANCE_KEYWORDS } from './sources'
 
 const FETCH_TIMEOUT_MS = 5000
 const MAX_ITEMS = 100

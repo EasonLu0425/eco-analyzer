@@ -8,6 +8,12 @@ export interface NewsItem {
   source: string
 }
 
+export interface HeadlineDetail {
+  title: string
+  summary: string
+  marketImpact: string
+}
+
 export interface AnalysisReport {
   id: string
   date: string           // YYYY-MM-DD
@@ -15,7 +21,7 @@ export interface AnalysisReport {
   signal: ETFSignal
   summary: string
   risks: string[]
-  topHeadlines: string[]
+  topHeadlines: HeadlineDetail[] | string[]
   newsCount: number
   createdAt: string      // ISO-8601
 }

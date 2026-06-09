@@ -1,2 +1,2 @@
-export { collectNews } from './rss.js'
-export type { RssSource } from './sources.js'
+export { collectNews } from './rss'
+export type { RssSource } from './sources'

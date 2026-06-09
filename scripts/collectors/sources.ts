@@ -4,10 +4,10 @@ export interface RssSource {
 }
 
 export const RSS_SOURCES: RssSource[] = [
-  { name: '鉅亨網', url: 'https://feeds.cnyes.com/market/tw/news.xml' },
   { name: 'Yahoo財經', url: 'https://tw.news.yahoo.com/rss/finance' },
-  { name: 'MoneyDJ', url: 'https://www.moneydj.com/rss/news/' },
-  { name: '工商時報', url: 'https://ctee.com.tw/feed' },
+  { name: '自由財經', url: 'https://ec.ltn.com.tw/rss/news.xml' },
+  { name: '經濟日報科技', url: 'https://money.udn.com/rssfeed/news/1001/5591?ch=money' },
+  { name: 'UDN科技', url: 'https://udn.com/rssfeed/news/2/6644?ch=news' },
 ]
 
 export const RELEVANCE_KEYWORDS = [

@@ -1,1 +1,1 @@
-export { analyzeNews } from './claude.js'
+export { analyzeNews } from './claude'

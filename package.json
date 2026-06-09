@@ -9,6 +9,7 @@
     "lint": "eslint",
     "scheduler": "tsx scripts/scheduler.ts",
     "analyze": "tsx scripts/scheduler.ts",
+    "collect-news": "tsx scripts/collect-news.ts",
     "dev:db": "tsx scripts/scheduler.ts"
   },
   "dependencies": {
