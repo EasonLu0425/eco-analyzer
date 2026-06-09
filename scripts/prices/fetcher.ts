@@ -1,12 +1,14 @@
-import yahooFinance from 'yahoo-finance2'
+import YahooFinance from 'yahoo-finance2'
 import type { PriceRecord } from '@/types'
+
+const yf = new YahooFinance()
 
 export async function fetchPriceData(
   ticker: string,
   fromDate: Date,
   toDate: Date
 ): Promise<PriceRecord[]> {
-  const rows = await yahooFinance.historical(ticker, {
+  const rows = await yf.historical(ticker, {
     period1: fromDate,
     period2: toDate,
     interval: '1d' as const,

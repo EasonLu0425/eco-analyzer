@@ -1,15 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
+const mockHistorical = vi.hoisted(() => vi.fn())
+
 vi.mock('yahoo-finance2', () => ({
-  default: {
-    historical: vi.fn(),
+  default: class {
+    historical = mockHistorical
   },
 }))
 
-import yahooFinance from 'yahoo-finance2'
 import { fetchPriceData } from '../fetcher'
-
-const mockHistorical = vi.mocked(yahooFinance.historical)
 
 describe('fetchPriceData', () => {
   beforeEach(() => {

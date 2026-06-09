@@ -57,3 +57,43 @@ export interface PaginatedReports {
   page: number
   limit: number
 }
+
+export interface PeriodPricePerformance {
+  ticker: string
+  startClose: number
+  endClose: number
+  changePct: number  // %
+  high: number
+  low: number
+}
+
+export interface WeeklyReport {
+  id: string
+  weekStart: string   // YYYY-MM-DD (Monday)
+  weekEnd: string     // YYYY-MM-DD (Sunday)
+  avgSentimentScore: number
+  dominantSignal: ETFSignal
+  tradingDays: number
+  pricePerformance: PeriodPricePerformance[]
+  keyThemes: string[]
+  topRisks: string[]
+  weeklyInsight: string
+  vsLastWeek: string
+  createdAt: string
+}
+
+export interface MonthlyReport {
+  id: string
+  month: string       // YYYY-MM
+  tradingDays: number
+  avgSentimentScore: number
+  dominantSignal: ETFSignal
+  sentimentTrend: 'improving' | 'declining' | 'stable'
+  pricePerformance: PeriodPricePerformance[]
+  keyEvents: string[]
+  sectorRotation: string[]
+  topRisks: string[]
+  monthlyInsight: string
+  investmentOutlook: string
+  createdAt: string
+}
