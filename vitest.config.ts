@@ -9,7 +9,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'lcov'],
       thresholds: { lines: 80, functions: 80, branches: 80 },
-      include: ['scripts/prices/**', 'lib/price-store.ts'],
+      include: ['scripts/prices/**', 'lib/price-store.ts', 'lib/report-aggregator.ts'],
     },
   },
   resolve: {

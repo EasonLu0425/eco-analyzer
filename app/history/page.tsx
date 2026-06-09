@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { SentimentChart } from '@/components/history/SentimentChart'
 import type { AnalysisReport, PaginatedReports } from '@/types'
@@ -34,7 +34,7 @@ function Row({ r }: { r: AnalysisReport }) {
         <Badge variant="outline" className="text-slate-600 border-white/10 text-xs shrink-0">{r.newsCount}則</Badge>
       </div>
     </Link>
-  )
+  ) 
 }
 
 export default async function HistoryPage() {
