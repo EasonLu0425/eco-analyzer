@@ -26,6 +26,24 @@ export interface AnalysisReport {
   createdAt: string      // ISO-8601
 }
 
+export interface PriceRecord {
+  date: string       // YYYY-MM-DD
+  open: number
+  high: number
+  low: number
+  close: number
+  volume: number
+}
+
+export interface PriceTrend {
+  ticker: string
+  currentClose: number
+  change30d: number  // % vs 30 trading days ago
+  change90d: number  // % vs 90 trading days ago
+  high52w: number
+  low52w: number
+}
+
 export interface ApiResponse<T> {
   success: boolean
   data: T | null
