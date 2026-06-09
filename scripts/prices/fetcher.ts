@@ -9,7 +9,8 @@ export async function fetchPriceData(
   const rows = await yahooFinance.historical(ticker, {
     period1: fromDate,
     period2: toDate,
-    interval: '1d',
+    interval: '1d' as const,
+    events: 'history' as const,
   })
 
   return rows

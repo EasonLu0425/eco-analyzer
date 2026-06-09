@@ -8,6 +8,7 @@ import { SignalCard } from '@/components/dashboard/SignalCard'
 import { SentimentMeter } from '@/components/dashboard/SentimentMeter'
 import { HeadlineList } from '@/components/dashboard/HeadlineList'
 import { RiskList } from '@/components/dashboard/RiskList'
+import { PriceTrendPanel } from '@/components/dashboard/PriceTrendPanel'
 import type { AnalysisReport } from '@/types'
 
 async function getLatestReport(): Promise<AnalysisReport | null> {
@@ -86,7 +87,7 @@ async function DashboardContent() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="overview" className="mt-4">
+        <TabsContent value="overview" className="mt-4 space-y-4">
           <Card className="bg-[#0C1221] border-white/[0.06]">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold text-slate-200">市場概況</CardTitle>
@@ -101,6 +102,16 @@ async function DashboardContent() {
                   <Badge variant="outline" className="text-slate-500 border-white/10 text-xs">情緒分數：{report.sentimentScore} / 10</Badge>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#0C1221] border-white/[0.06]">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base font-semibold text-slate-200">ETF 價格趨勢</CardTitle>
+              <p className="text-xs text-slate-500">相對 52 週高低點位置與近期漲跌幅</p>
+            </CardHeader>
+            <CardContent>
+              <PriceTrendPanel trends={report.priceTrends ?? []} />
             </CardContent>
           </Card>
         </TabsContent>
