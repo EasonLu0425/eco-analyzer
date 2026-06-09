@@ -24,6 +24,7 @@ export interface AnalysisReport {
   topHeadlines: HeadlineDetail[] | string[]
   newsCount: number
   createdAt: string      // ISO-8601
+  priceTrends?: PriceTrend[]
 }
 
 export interface PriceRecord {
