@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# data directory — historical data and SQLite DB not tracked in git
+/data/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,9 +1,23 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { mkdirSync, writeFileSync, rmSync, existsSync } from 'fs'
-import { join } from 'path'
+import { describe, it, expect, beforeEach } from 'vitest'
+import Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
+import { runMigrations } from '@/lib/db'
+import { getPriceHistory, getPriceTrend } from '@/lib/price-store'
 
-const TEST_DIR = join(process.cwd(), 'data', 'prices-test-store')
+function makeDb() {
+  const db = new Database(':memory:')
+  runMigrations(db)
+  return db
+}
+
+function seedPrices(db: Database.Database, ticker: string, records: PriceRecord[]) {
+  const insert = db.prepare(
+    'INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)',
+  )
+  db.transaction(() => {
+    for (const r of records) insert.run(ticker, r.date, r.open, r.high, r.low, r.close, r.volume)
+  })()
+}
 
 function makeHistory(days: number, endDateStr: string, baseClose = 100): PriceRecord[] {
   const records: PriceRecord[] = []
@@ -24,67 +38,45 @@ function makeHistory(days: number, endDateStr: string, baseClose = 100): PriceRe
 }
 
 describe('getPriceHistory', () => {
-  beforeEach(() => {
-    if (existsSync(TEST_DIR)) rmSync(TEST_DIR, { recursive: true })
-    mkdirSync(TEST_DIR, { recursive: true })
-  })
-  afterEach(() => {
-    rmSync(TEST_DIR, { recursive: true })
-  })
+  let db: Database.Database
 
-  it('returns last N days of records sorted ascending', async () => {
+  beforeEach(() => { db = makeDb() })
+
+  it('returns last N days of records sorted ascending', () => {
     const records = makeHistory(200, '2026-06-09')
-    writeFileSync(join(TEST_DIR, 'QQQ.json'), JSON.stringify(records))
+    seedPrices(db, 'QQQ', records)
 
-    const { getPriceHistory } = await import('../price-store')
-    const result = getPriceHistory('QQQ', 30, TEST_DIR)
+    const result = getPriceHistory('QQQ', 30, db)
 
     expect(result).toHaveLength(30)
     expect(result[0].date < result[29].date).toBe(true)
   })
 
-  it('returns all records when requested days exceeds file length', async () => {
+  it('returns all records when requested days exceeds available', () => {
     const records = makeHistory(10, '2026-06-09')
-    writeFileSync(join(TEST_DIR, 'QQQ.json'), JSON.stringify(records))
+    seedPrices(db, 'QQQ', records)
 
-    const { getPriceHistory } = await import('../price-store')
-    const result = getPriceHistory('QQQ', 90, TEST_DIR)
+    const result = getPriceHistory('QQQ', 90, db)
 
     expect(result).toHaveLength(10)
   })
 
-  it('returns empty array when file does not exist', async () => {
-    const { getPriceHistory } = await import('../price-store')
-    const result = getPriceHistory('MISSING', 30, TEST_DIR)
-
-    expect(result).toEqual([])
-  })
-
-  it('returns empty array when file contains invalid JSON', async () => {
-    writeFileSync(join(TEST_DIR, 'CORRUPT.json'), 'not-valid-json')
-
-    const { getPriceHistory } = await import('../price-store')
-    const result = getPriceHistory('CORRUPT', 30, TEST_DIR)
-
+  it('returns empty array when no data for ticker', () => {
+    const result = getPriceHistory('MISSING', 30, db)
     expect(result).toEqual([])
   })
 })
 
 describe('getPriceTrend', () => {
-  beforeEach(() => {
-    if (existsSync(TEST_DIR)) rmSync(TEST_DIR, { recursive: true })
-    mkdirSync(TEST_DIR, { recursive: true })
-  })
-  afterEach(() => {
-    rmSync(TEST_DIR, { recursive: true })
-  })
+  let db: Database.Database
 
-  it('calculates 30d and 90d change correctly', async () => {
+  beforeEach(() => { db = makeDb() })
+
+  it('calculates 30d and 90d change correctly', () => {
     const records = makeHistory(120, '2026-06-09', 90)
-    writeFileSync(join(TEST_DIR, 'QQQ.json'), JSON.stringify(records))
+    seedPrices(db, 'QQQ', records)
 
-    const { getPriceTrend } = await import('../price-store')
-    const trend = getPriceTrend('QQQ', TEST_DIR)
+    const trend = getPriceTrend('QQQ', db)
 
     expect(trend).not.toBeNull()
     expect(trend!.currentClose).toBeTypeOf('number')
@@ -92,25 +84,23 @@ describe('getPriceTrend', () => {
     expect(trend!.change90d).toBeTypeOf('number')
   })
 
-  it('includes 52-week high and low', async () => {
+  it('includes 52-week high and low', () => {
     const records = makeHistory(365, '2026-06-09', 50)
     records[100].high = 200
     records[200].low = 10
-    writeFileSync(join(TEST_DIR, 'QQQ.json'), JSON.stringify(records))
+    seedPrices(db, 'QQQ', records)
 
-    const { getPriceTrend } = await import('../price-store')
-    const trend = getPriceTrend('QQQ', TEST_DIR)
+    const trend = getPriceTrend('QQQ', db)
 
     expect(trend!.high52w).toBe(200)
     expect(trend!.low52w).toBe(10)
   })
 
-  it('returns null when fewer than 31 records', async () => {
+  it('returns null when fewer than 31 records', () => {
     const records = makeHistory(5, '2026-06-09')
-    writeFileSync(join(TEST_DIR, 'QQQ.json'), JSON.stringify(records))
+    seedPrices(db, 'QQQ', records)
 
-    const { getPriceTrend } = await import('../price-store')
-    const trend = getPriceTrend('QQQ', TEST_DIR)
+    const trend = getPriceTrend('QQQ', db)
 
     expect(trend).toBeNull()
   })

@@ -14,7 +14,8 @@
     "dev:db": "tsx scripts/scheduler.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "migrate-db": "tsx scripts/migrate-json-to-db.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",

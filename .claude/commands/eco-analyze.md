@@ -27,23 +27,17 @@ pnpm collect-news
 
 ### 讀取價格資料
 
-讀取以下三個檔案（若存在）：
-- `data/prices/00662.TW.json`
-- `data/prices/QQQ.json`
-- `data/prices/^TWII.json`
+呼叫 `getPriceTrend(ticker)` from `lib/price-store.ts`，對每個 ticker（00662.TW、QQQ、^TWII）取得：
+- **currentClose**: 最新收盤價
+- **change30d**: 近 30 日漲跌幅 %
+- **change90d**: 近 90 日漲跌幅 %
+- **high52w** / **low52w**: 52 週高低點
 
-每個檔案為 `PriceRecord[]`，格式：`{date, open, high, low, close, volume}`，按日期升序排列。
-
-對每個 ticker，計算：
-- **currentClose**: 最後一筆 close
-- **change30d**: `(currentClose - records[length-31].close) / records[length-31].close * 100`（若記錄不足 31 筆則標示 N/A）
-- **change90d**: `(currentClose - records[length-91].close) / records[length-91].close * 100`（不足 91 筆則 N/A）
-- **high52w**: 最後 365 筆的 high 最大值
-- **low52w**: 最後 365 筆的 low 最小值
+若 `getPriceTrend()` 回傳 `null`（資料不足 31 筆），該 ticker 以 null 填入。
 
 ### 讀取近 6 個月歷史情緒
 
-讀取 `data/reports/` 目錄下所有 JSON 檔，取最近 180 天的報告，提取 `date`、`sentimentScore`、`signal` 欄位，形成時序列表（最舊→最新）。
+呼叫 `getReports(1, 180)` from `lib/report-store.ts`，取最近 180 筆報告，提取 `date`、`sentimentScore`、`signal` 欄位，形成時序列表（最舊→最新）。
 
 ## Step 3 — 綜合分析
 
@@ -107,6 +101,6 @@ topHeadlines 選取最重要的 5 則新聞，每則需包含：
 
 ## Step 4 — 儲存結果
 
-將 Step 3 產出的 JSON 寫入：`data/reports/<YYYY-MM-DD>.json`
+呼叫 `saveReport(report)` from `lib/report-store.ts` 將 Step 3 產出的報告寫入 SQLite。
 
-寫入後確認檔案內容正確，並告訴我分析結果（訊號、分數、摘要，以及各 ticker 的價格趨勢摘要）。
+寫入後確認成功（無例外），並告訴我分析結果（訊號、分數、摘要，以及各 ticker 的價格趨勢摘要）。

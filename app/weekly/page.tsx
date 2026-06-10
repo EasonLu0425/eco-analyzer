@@ -1,126 +1,106 @@
-import { readFileSync, readdirSync, existsSync } from 'fs'
-import { join } from 'path'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import type { WeeklyReport } from '@/types'
+import { getWeeklyReports } from '@/lib/report-store'
 
-const SIG: Record<string, { label: string; color: string }> = {
-  'strong-buy':   { label: '強力買進', color: 'text-emerald-400' },
-  'buy':          { label: '建議買進', color: 'text-emerald-400' },
-  'hold':         { label: '觀望',    color: 'text-amber-400'  },
-  'avoid':        { label: '避開',    color: 'text-rose-400'   },
-  'strong-avoid': { label: '強烈避開', color: 'text-rose-400'  },
+const SIG: Record<string, { label: string; colorClass: string }> = {
+  'strong-buy':   { label: '強力買進', colorClass: 'text-buy' },
+  'buy':          { label: '建議買進', colorClass: 'text-buy' },
+  'hold':         { label: '觀望',    colorClass: 'text-hold' },
+  'avoid':        { label: '避開',    colorClass: 'text-avoid' },
+  'strong-avoid': { label: '強烈避開', colorClass: 'text-avoid' },
 }
 
-function loadWeeklyReports(): WeeklyReport[] {
-  const dir = join(process.cwd(), 'data', 'weekly')
-  if (!existsSync(dir)) return []
-  try {
-    return readdirSync(dir)
-      .filter(f => f.endsWith('.json'))
-      .map(f => JSON.parse(readFileSync(join(dir, f), 'utf-8')) as WeeklyReport)
-      .sort((a, b) => b.weekStart.localeCompare(a.weekStart))
-  } catch { return [] }
-}
 
 function ChangeChip({ pct }: { pct: number }) {
   const pos = pct >= 0
   return (
-    <span className={`font-mono text-xs px-2 py-0.5 rounded-full ${pos ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'}`}>
+    <span className={`font-mono text-xs ${pos ? 'text-buy' : 'text-avoid'}`}>
       {pos ? '+' : ''}{pct.toFixed(2)}%
     </span>
   )
 }
 
-function WeekCard({ report }: { report: WeeklyReport }) {
+function WeekSection({ report, last }: { report: WeeklyReport; last: boolean }) {
   const sig = SIG[report.dominantSignal]
-  const scoreColor = report.avgSentimentScore >= 7 ? '#10b981' : report.avgSentimentScore >= 4 ? '#f59e0b' : '#f43f5e'
+  const scoreClass = report.avgSentimentScore >= 7 ? 'text-buy' : report.avgSentimentScore >= 4 ? 'text-hold' : 'text-avoid'
 
   return (
-    <Card className="bg-[#0C1221] border-white/[0.06]">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-slate-500 text-xs font-mono mb-1">{report.weekStart} — {report.weekEnd}</p>
-            <span className={`text-lg font-bold ${sig.color}`}>{sig.label}</span>
-          </div>
-          <div className="text-right">
-            <p className="text-slate-500 text-xs mb-0.5">情緒分數</p>
-            <span className="text-2xl font-mono font-bold" style={{ color: scoreColor }}>
-              {report.avgSentimentScore.toFixed(1)}
-            </span>
-          </div>
+    <div className={`py-8 ${last ? '' : 'border-b border-edge'}`}>
+      <div className="flex items-baseline justify-between gap-4 mb-5">
+        <div>
+          <p className="font-mono text-xs text-ghost mb-1.5">
+            {report.weekStart} — {report.weekEnd} · {report.tradingDays} 個交易日
+          </p>
+          <span className={`text-2xl font-semibold ${sig.colorClass}`}>{sig.label}</span>
         </div>
-        <div className="flex items-center gap-2 mt-2 flex-wrap">
-          <Badge variant="outline" className="text-slate-500 border-white/10 text-xs">{report.tradingDays} 個交易日</Badge>
-          {report.keyThemes.map(t => (
-            <Badge key={t} variant="outline" className="text-cyan-400 border-cyan-500/30 text-xs">{t}</Badge>
+        <div className="text-right shrink-0">
+          <span className={`font-mono text-3xl font-bold ${scoreClass}`}>{report.avgSentimentScore.toFixed(1)}</span>
+          <p className="font-mono text-xs text-ghost">/10</p>
+        </div>
+      </div>
+
+      {report.pricePerformance.length > 0 && (
+        <div className="flex flex-wrap gap-4 mb-4">
+          {report.pricePerformance.map(p => (
+            <div key={p.ticker} className="flex items-center gap-2">
+              <span className="font-mono text-xs text-ghost">{p.ticker}</span>
+              <ChangeChip pct={p.changePct} />
+            </div>
           ))}
         </div>
-      </CardHeader>
+      )}
 
-      <CardContent className="space-y-4">
-        {report.pricePerformance.length > 0 && (
-          <div>
-            <p className="text-slate-500 text-xs mb-2">週漲跌幅</p>
-            <div className="flex flex-wrap gap-3">
-              {report.pricePerformance.map(p => (
-                <div key={p.ticker} className="flex items-center gap-2">
-                  <span className="text-slate-400 text-xs font-mono">{p.ticker}</span>
-                  <ChangeChip pct={p.changePct} />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+      <p className="text-dim text-sm leading-relaxed mb-3">{report.weeklyInsight}</p>
 
-        <p className="text-slate-300 text-sm leading-relaxed">{report.weeklyInsight}</p>
+      {report.vsLastWeek && (
+        <p className="text-ghost text-xs italic mb-4">{report.vsLastWeek}</p>
+      )}
 
-        {report.vsLastWeek && (
-          <p className="text-slate-500 text-xs border-l-2 border-white/10 pl-3">{report.vsLastWeek}</p>
-        )}
+      {report.topRisks.length > 0 && (
+        <ul className="space-y-1 mb-3">
+          {report.topRisks.map(r => (
+            <li key={r} className="text-xs text-ghost flex gap-2">
+              <span className="text-avoid">—</span>{r}
+            </li>
+          ))}
+        </ul>
+      )}
 
-        {report.topRisks.length > 0 && (
-          <div>
-            <p className="text-slate-500 text-xs mb-2">主要風險</p>
-            <ul className="space-y-1">
-              {report.topRisks.map(r => (
-                <li key={r} className="text-slate-400 text-xs flex gap-2">
-                  <span className="text-rose-400 shrink-0">▸</span>{r}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+      {report.keyThemes.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {report.keyThemes.map(t => (
+            <span key={t} className="font-mono text-xs text-ghost border border-edge px-2 py-0.5 rounded-sm">{t}</span>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
 
 export default function WeeklyPage() {
-  const reports = loadWeeklyReports()
+  const reports = getWeeklyReports()
 
   if (reports.length === 0) {
     return (
-      <div className="space-y-6">
-        <h1 className="text-2xl font-bold tracking-tight">每週深度報告</h1>
-        <div className="text-center py-24 text-slate-500">
-          <p>尚無週報資料</p>
-          <p className="text-xs mt-2">請在 Claude Code 執行 <code className="font-mono bg-white/5 px-1 rounded">/eco-weekly</code> 產生週報</p>
+      <div>
+        <h1 className="text-xl font-semibold tracking-tight mb-8">每週深度報告</h1>
+        <div className="py-16 text-center space-y-2">
+          <p className="text-dim text-sm">尚無週報資料</p>
+          <p className="text-ghost text-xs">執行 <code className="font-mono">/eco-weekly</code> 產生</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">每週深度報告</h1>
-        <p className="text-slate-500 text-sm mt-1">共 {reports.length} 份週報</p>
+    <div>
+      <div className="mb-8">
+        <h1 className="text-xl font-semibold tracking-tight">每週深度報告</h1>
+        <p className="font-mono text-xs text-ghost mt-1">{reports.length} 份週報</p>
       </div>
-      <div className="space-y-4">
-        {reports.map(r => <WeekCard key={r.id} report={r} />)}
-      </div>
+      <hr />
+      {reports.map((r, i) => (
+        <WeekSection key={r.id} report={r} last={i === reports.length - 1} />
+      ))}
     </div>
   )
 }

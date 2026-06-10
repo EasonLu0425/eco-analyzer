@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getLatestReport, getReportByDate, getReports } from '@/lib/file-store'
+import { getLatestReport, getReportByDate, getReports } from '@/lib/report-store'
 import type { ApiResponse, PaginatedReports, AnalysisReport } from '@/types'
 
 export const dynamic = 'force-dynamic'

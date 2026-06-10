@@ -1,22 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070B14;
-  --foreground: #e2e8f0;
-  --muted: #1e293b;
-  --muted-foreground: #64748b;
-  --border: rgba(255, 255, 255, 0.06);
-  --ring: rgba(255, 255, 255, 0.2);
-  --input: rgba(255, 255, 255, 0.08);
+  --bg:    oklch(0.080 0.006 248);
+  --lift:  oklch(0.110 0.007 248);
+  --edge:  oklch(0.200 0.006 248);
+  --ink:   oklch(0.920 0.005  95);
+  --dim:   oklch(0.580 0.010 248);
+  --ghost: oklch(0.380 0.007 248);
+  --buy:   oklch(0.720 0.160 143);
+  --hold:  oklch(0.760 0.140  76);
+  --avoid: oklch(0.640 0.180  22);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg:    var(--bg);
+  --color-lift:  var(--lift);
+  --color-edge:  var(--edge);
+  --color-ink:   var(--ink);
+  --color-dim:   var(--dim);
+  --color-ghost: var(--ghost);
+  --color-buy:   var(--buy);
+  --color-hold:  var(--hold);
+  --color-avoid: var(--avoid);
+  --font-sans:    var(--font-geist-sans);
+  --font-mono:    var(--font-geist-mono);
+  --font-display: var(--font-instrument-serif), Georgia, serif;
 }
 
 *,
@@ -27,9 +35,15 @@
 
 html,
 body {
-  background-color: #070B14;
-  color: var(--foreground);
+  background-color: var(--bg);
+  color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--edge);
+  margin: 0;
 }

@@ -3,7 +3,9 @@ import cron from 'node-cron'
 import { randomUUID } from 'crypto'
 import { collectNews } from './collectors/index.js'
 import { analyzeNews } from './analyzers/index.js'
+import { updatePrices } from './prices/index.js'
 import { getDb } from '../lib/db.js'
+import { saveReport, getReportByDate } from '../lib/report-store.js'
 
 async function runDailyPipeline() {
   const start = Date.now()
@@ -11,47 +13,48 @@ async function runDailyPipeline() {
   console.log(`[${new Date().toISOString()}] 開始每日分析 pipeline — ${today}`)
 
   const db = getDb()
-  const existing = db.prepare('SELECT id FROM reports WHERE date = ?').get(today)
-  if (existing) {
+  if (getReportByDate(today, db)) {
     console.log(`[pipeline] ${today} 已有報告，略過`)
     return
   }
 
-  // Step 1: 蒐集新聞
-  console.log('[1/3] 蒐集中文財經新聞...')
+  // Step 1: 更新價格資料
+  console.log('[1/4] 更新價格資料...')
+  await updatePrices(db)
+  console.log('[1/4] 價格更新完成')
+
+  // Step 2: 蒐集新聞
+  console.log('[2/4] 蒐集中文財經新聞...')
   const news = await collectNews()
-  console.log(`[1/3] 蒐集完成：${news.length} 則相關新聞`)
+  console.log(`[2/4] 蒐集完成：${news.length} 則相關新聞`)
 
   if (news.length === 0) {
     console.warn('[pipeline] 無新聞資料，略過分析')
     return
   }
 
-  // Step 2: AI 分析
-  console.log('[2/3] 呼叫 Claude AI 分析趨勢...')
+  // Step 3: AI 分析
+  console.log('[3/4] 呼叫 Claude AI 分析趨勢...')
   const result = await analyzeNews(news)
-  console.log(`[2/3] 分析完成：訊號=${result.signal}，分數=${result.sentimentScore}`)
+  console.log(`[3/4] 分析完成：訊號=${result.signal}，分數=${result.sentimentScore}`)
 
-  // Step 3: 寫入 SQLite
-  console.log('[3/3] 寫入資料庫...')
+  // Step 4: 寫入 SQLite
+  console.log('[4/4] 寫入資料庫...')
   const report = {
     id: randomUUID(),
     date: today,
-    sentiment_score: result.sentimentScore,
+    sentimentScore: result.sentimentScore,
     signal: result.signal,
     summary: result.summary,
-    risks: JSON.stringify(result.risks),
-    top_headlines: JSON.stringify(result.topHeadlines),
-    news_count: result.newsCount,
-    created_at: new Date().toISOString(),
+    risks: result.risks,
+    topHeadlines: result.topHeadlines,
+    newsCount: result.newsCount,
+    createdAt: new Date().toISOString(),
+    priceTrends: result.priceTrends,
   }
+  saveReport(report, db)
 
-  db.prepare(`
-    INSERT INTO reports (id, date, sentiment_score, signal, summary, risks, top_headlines, news_count, created_at)
-    VALUES (@id, @date, @sentiment_score, @signal, @summary, @risks, @top_headlines, @news_count, @created_at)
-  `).run(report)
-
-  console.log(`[3/3] 寫入完成 (id=${report.id})`)
+  console.log(`[4/4] 寫入完成 (id=${report.id})`)
   console.log(`[pipeline] 完成，耗時 ${((Date.now() - start) / 1000).toFixed(1)}s`)
 }
 

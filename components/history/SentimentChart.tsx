@@ -24,7 +24,7 @@ export function SentimentChart({ reports }: { reports: AnalysisReport[] }) {
 
   return (
     <div className="space-y-1">
-      <p className="text-xs text-slate-500 uppercase tracking-wider">近 {sorted.length} 日情緒走勢</p>
+      <p className="font-mono text-xs text-ghost">近 {sorted.length} 日情緒走勢</p>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-16">
         <defs>
           <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
@@ -38,7 +38,7 @@ export function SentimentChart({ reports }: { reports: AnalysisReport[] }) {
           <circle key={i} cx={p.x} cy={p.y} r="3" fill={SIGNAL_COLOR[p.r.signal]} />
         ))}
       </svg>
-      <div className="flex justify-between text-xs text-slate-600">
+      <div className="flex justify-between text-xs text-ghost">
         <span>{sorted[0].date.slice(5)}</span>
         <span>{sorted[sorted.length-1].date.slice(5)}</span>
       </div>

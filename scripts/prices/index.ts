@@ -1,20 +1,11 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
-import { join } from 'path'
+import type Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
+import { getDb } from '@/lib/db'
 import { fetchPriceData } from './fetcher'
 
 export const TICKERS = ['00662.TW', 'QQQ', '^TWII'] as const
 
-const DEFAULT_DIR = join(process.cwd(), 'data', 'prices')
 const BOOTSTRAP_DAYS = 365
-
-function readExisting(filePath: string): PriceRecord[] {
-  try {
-    return JSON.parse(readFileSync(filePath, 'utf-8')) as PriceRecord[]
-  } catch {
-    return []
-  }
-}
 
 function nextDay(dateStr: string): Date {
   const d = new Date(dateStr)
@@ -22,23 +13,23 @@ function nextDay(dateStr: string): Date {
   return d
 }
 
-export async function updatePrices(dir = DEFAULT_DIR): Promise<void> {
-  mkdirSync(dir, { recursive: true })
+export async function updatePrices(db?: Database.Database): Promise<void> {
+  const d = db ?? getDb()
 
   for (const ticker of TICKERS) {
-    const filePath = join(dir, `${ticker}.json`)
-    const existing = readExisting(filePath)
+    const lastRow = d.prepare(
+      'SELECT date FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT 1',
+    ).get(ticker) as { date: string } | undefined
 
     const today = new Date()
     today.setUTCHours(0, 0, 0, 0)
 
     let fromDate: Date
-    if (existing.length === 0) {
+    if (!lastRow) {
       fromDate = new Date(today)
       fromDate.setUTCDate(fromDate.getUTCDate() - BOOTSTRAP_DAYS)
     } else {
-      const lastDate = existing[existing.length - 1].date
-      fromDate = nextDay(lastDate)
+      fromDate = nextDay(lastRow.date)
     }
 
     if (fromDate > today) {
@@ -53,12 +44,14 @@ export async function updatePrices(dir = DEFAULT_DIR): Promise<void> {
         continue
       }
 
-      const existingDates = new Set(existing.map(r => r.date))
-      const toAppend = newRecords.filter(r => !existingDates.has(r.date))
+      const insert = d.prepare(
+        'INSERT OR REPLACE INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      )
+      d.transaction((records: PriceRecord[]) => {
+        for (const r of records) insert.run(ticker, r.date, r.open, r.high, r.low, r.close, r.volume)
+      })(newRecords)
 
-      const merged = [...existing, ...toAppend].sort((a, b) => a.date.localeCompare(b.date))
-      writeFileSync(filePath, JSON.stringify(merged, null, 2), 'utf-8')
-      console.log(`[prices] ${ticker} +${toAppend.length} records → total ${merged.length}`)
+      console.log(`[prices] ${ticker} +${newRecords.length} records`)
     } catch (err) {
       console.error(`[prices] ${ticker} fetch failed:`, (err as Error).message)
     }

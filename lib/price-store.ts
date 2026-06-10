@@ -1,27 +1,21 @@
-import { existsSync, readFileSync } from 'fs'
-import { join } from 'path'
+import type Database from 'better-sqlite3'
 import type { PriceRecord, PriceTrend } from '@/types'
+import { getDb } from './db'
 
-const DEFAULT_DIR = join(process.cwd(), 'data', 'prices')
-
-function readAll(ticker: string, dir: string): PriceRecord[] {
-  const filePath = join(dir, `${ticker}.json`)
-  if (!existsSync(filePath)) return []
-  try {
-    const raw = JSON.parse(readFileSync(filePath, 'utf-8')) as PriceRecord[]
-    return raw.sort((a, b) => a.date.localeCompare(b.date))
-  } catch {
-    return []
-  }
+export function getPriceHistory(ticker: string, days: number, db?: Database.Database): PriceRecord[] {
+  const d = db ?? getDb()
+  const rows = d.prepare(
+    'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
+  ).all(ticker) as PriceRecord[]
+  return rows.slice(-days)
 }
 
-export function getPriceHistory(ticker: string, days: number, dir = DEFAULT_DIR): PriceRecord[] {
-  const all = readAll(ticker, dir)
-  return all.slice(-days)
-}
+export function getPriceTrend(ticker: string, db?: Database.Database): PriceTrend | null {
+  const d = db ?? getDb()
+  const all = d.prepare(
+    'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
+  ).all(ticker) as PriceRecord[]
 
-export function getPriceTrend(ticker: string, dir = DEFAULT_DIR): PriceTrend | null {
-  const all = readAll(ticker, dir)
   if (all.length < 31) return null
 
   const current = all[all.length - 1]
@@ -38,8 +32,8 @@ export function getPriceTrend(ticker: string, dir = DEFAULT_DIR): PriceTrend | n
   return {
     ticker,
     currentClose: current.close,
-    change30d: Math.round(change30d * 100) / 100,
-    change90d: Math.round(change90d * 100) / 100,
+    change30d:    Math.round(change30d * 100) / 100,
+    change90d:    Math.round(change90d * 100) / 100,
     high52w,
     low52w,
   }

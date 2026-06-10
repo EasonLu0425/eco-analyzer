@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { mkdirSync, writeFileSync, rmSync, existsSync, readFileSync } from 'fs'
-import { join } from 'path'
+import Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
+import { runMigrations } from '@/lib/db'
 
 vi.mock('../fetcher', () => ({
   fetchPriceData: vi.fn(),
@@ -11,7 +11,6 @@ import { fetchPriceData } from '../fetcher'
 import { updatePrices, TICKERS } from '../index'
 
 const mockFetch = vi.mocked(fetchPriceData)
-const TEST_DIR = join(process.cwd(), 'data', 'prices-test')
 
 const makeRecord = (date: string, close = 100): PriceRecord => ({
   date,
@@ -22,17 +21,30 @@ const makeRecord = (date: string, close = 100): PriceRecord => ({
   volume: 500000,
 })
 
+function makeDb() {
+  const db = new Database(':memory:')
+  runMigrations(db)
+  return db
+}
+
+function getRows(db: Database.Database, ticker: string): PriceRecord[] {
+  return db.prepare(
+    'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
+  ).all(ticker) as PriceRecord[]
+}
+
 describe('updatePrices', () => {
+  let db: Database.Database
+
   beforeEach(() => {
     vi.clearAllMocks()
-    if (existsSync(TEST_DIR)) rmSync(TEST_DIR, { recursive: true })
-    mkdirSync(TEST_DIR, { recursive: true })
+    db = makeDb()
   })
 
-  it('bootstrap: fetches ~365 days when price file does not exist', async () => {
+  it('bootstrap: fetches ~365 days when no rows exist for ticker', async () => {
     mockFetch.mockResolvedValue([makeRecord('2026-06-09')])
 
-    await updatePrices(TEST_DIR)
+    await updatePrices(db)
 
     expect(mockFetch).toHaveBeenCalledTimes(TICKERS.length)
     const [, fromDate] = mockFetch.mock.calls[0] as [string, Date, Date]
@@ -41,50 +53,59 @@ describe('updatePrices', () => {
     expect(daysDiff).toBeLessThanOrEqual(370)
   })
 
-  it('incremental: fetches only from lastDate+1 when file already exists', async () => {
-    const existing: PriceRecord[] = [makeRecord('2026-06-07'), makeRecord('2026-06-08')]
-    writeFileSync(join(TEST_DIR, '00662.TW.json'), JSON.stringify(existing))
+  it('incremental: fetches only from lastDate+1 when rows already exist', async () => {
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      '00662.TW', '2026-06-07', 99, 101, 98, 100, 500000,
+    )
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      '00662.TW', '2026-06-08', 100, 102, 99, 101, 500000,
+    )
 
     mockFetch.mockResolvedValue([makeRecord('2026-06-09')])
 
-    await updatePrices(TEST_DIR)
+    await updatePrices(db)
 
     const [, fromDate] = mockFetch.mock.calls[0] as [string, Date, Date]
     expect(fromDate.toISOString().slice(0, 10)).toBe('2026-06-09')
   })
 
-  it('appends new records to existing file without duplicates', async () => {
-    const existing: PriceRecord[] = [makeRecord('2026-06-07'), makeRecord('2026-06-08')]
-    writeFileSync(join(TEST_DIR, '00662.TW.json'), JSON.stringify(existing))
+  it('inserts new records into the database', async () => {
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      '00662.TW', '2026-06-07', 99, 101, 98, 100, 500000,
+    )
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      '00662.TW', '2026-06-08', 100, 102, 99, 101, 500000,
+    )
 
     mockFetch.mockResolvedValue([makeRecord('2026-06-09', 102)])
 
-    await updatePrices(TEST_DIR)
+    await updatePrices(db)
 
-    const saved: PriceRecord[] = JSON.parse(readFileSync(join(TEST_DIR, '00662.TW.json'), 'utf-8'))
-    expect(saved).toHaveLength(3)
-    expect(saved[2].date).toBe('2026-06-09')
-    expect(saved[2].close).toBe(102)
+    const rows = getRows(db, '00662.TW')
+    expect(rows).toHaveLength(3)
+    expect(rows[2].date).toBe('2026-06-09')
+    expect(rows[2].close).toBe(102)
   })
 
-  it('skips write when fetchPriceData returns empty (no new data)', async () => {
-    const existing: PriceRecord[] = [makeRecord('2026-06-09')]
-    writeFileSync(join(TEST_DIR, '00662.TW.json'), JSON.stringify(existing))
+  it('skips insert when fetchPriceData returns empty', async () => {
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      '00662.TW', '2026-06-09', 99, 101, 98, 100, 500000,
+    )
 
     mockFetch.mockResolvedValue([])
 
-    await updatePrices(TEST_DIR)
+    await updatePrices(db)
 
-    const saved: PriceRecord[] = JSON.parse(readFileSync(join(TEST_DIR, '00662.TW.json'), 'utf-8'))
-    expect(saved).toHaveLength(1)
+    const rows = getRows(db, '00662.TW')
+    expect(rows).toHaveLength(1)
   })
 
-  it('continues with other tickers when one ticker fetch fails', async () => {
+  it('continues with other tickers when one fails', async () => {
     mockFetch
       .mockRejectedValueOnce(new Error('rate limited'))
       .mockResolvedValue([makeRecord('2026-06-09')])
 
-    await expect(updatePrices(TEST_DIR)).resolves.not.toThrow()
+    await expect(updatePrices(db)).resolves.not.toThrow()
     expect(mockFetch).toHaveBeenCalledTimes(TICKERS.length)
   })
 })

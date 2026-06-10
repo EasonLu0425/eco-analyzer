@@ -1,15 +1,15 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+export const dynamic = 'force-dynamic'
+
 import { SentimentChart } from '@/components/history/SentimentChart'
 import type { AnalysisReport, PaginatedReports } from '@/types'
 import Link from 'next/link'
 
-const SIG: Record<string, { label: string; color: string }> = {
-  'strong-buy':  { label: '強力買進', color: 'text-emerald-400' },
-  'buy':         { label: '建議買進', color: 'text-emerald-400' },
-  'hold':        { label: '觀望',    color: 'text-amber-400' },
-  'avoid':       { label: '避開',    color: 'text-rose-400' },
-  'strong-avoid':{ label: '強烈避開', color: 'text-rose-400' },
+const SIG: Record<string, { label: string; colorClass: string }> = {
+  'strong-buy':   { label: '強力買進', colorClass: 'text-buy' },
+  'buy':          { label: '建議買進', colorClass: 'text-buy' },
+  'hold':         { label: '觀望',    colorClass: 'text-hold' },
+  'avoid':        { label: '避開',    colorClass: 'text-avoid' },
+  'strong-avoid': { label: '強烈避開', colorClass: 'text-avoid' },
 }
 
 async function getReports(): Promise<PaginatedReports | null> {
@@ -22,55 +22,57 @@ async function getReports(): Promise<PaginatedReports | null> {
 
 function Row({ r }: { r: AnalysisReport }) {
   const s = SIG[r.signal]
-  const scoreColor = r.sentimentScore >= 7 ? '#10b981' : r.sentimentScore >= 4 ? '#f59e0b' : '#f43f5e'
+  const scoreClass = r.sentimentScore >= 7 ? 'text-buy' : r.sentimentScore >= 4 ? 'text-hold' : 'text-avoid'
   const date = new Date(r.date).toLocaleDateString('zh-TW', { month: 'short', day: 'numeric', weekday: 'short' })
   return (
-    <Link href={`/history/${r.date}`}>
-      <div className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-white/[0.03] transition-colors cursor-pointer border border-transparent hover:border-white/[0.06]">
-        <span className="text-slate-500 text-sm font-mono w-20 shrink-0">{date}</span>
-        <span className={`text-sm font-medium w-20 shrink-0 ${s.color}`}>{s.label}</span>
-        <p className="text-slate-500 text-sm truncate flex-1">{r.summary}</p>
-        <span className="font-mono text-sm font-semibold shrink-0" style={{ color: scoreColor }}>{r.sentimentScore.toFixed(1)}</span>
-        <Badge variant="outline" className="text-slate-600 border-white/10 text-xs shrink-0">{r.newsCount}則</Badge>
-      </div>
+    <Link
+      href={`/history/${r.date}`}
+      className="flex items-center gap-4 py-3 border-b border-edge hover:bg-lift transition-colors px-2 -mx-2 rounded-sm"
+    >
+      <span className="font-mono text-xs text-ghost w-20 shrink-0">{date}</span>
+      <span className={`text-sm font-medium w-20 shrink-0 ${s.colorClass}`}>{s.label}</span>
+      <p className="text-dim text-sm truncate flex-1">{r.summary}</p>
+      <span className={`font-mono text-sm font-semibold shrink-0 ${scoreClass}`}>{r.sentimentScore.toFixed(1)}</span>
     </Link>
-  ) 
+  )
 }
 
 export default async function HistoryPage() {
   const data = await getReports()
+
   if (!data || data.reports.length === 0) {
     return (
-      <div className="space-y-6">
-        <h1 className="text-2xl font-bold tracking-tight">歷史記錄</h1>
-        <div className="text-center py-24 text-slate-500">尚無歷史記錄</div>
+      <div>
+        <h1 className="text-xl font-semibold tracking-tight mb-8">歷史記錄</h1>
+        <p className="text-dim text-sm">尚無歷史記錄</p>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">歷史記錄</h1>
-        <p className="text-slate-500 text-sm mt-1">共 {data.total} 份報告，每日 08:30 自動分析</p>
+    <div>
+      <div className="mb-8">
+        <h1 className="text-xl font-semibold tracking-tight">歷史記錄</h1>
+        <p className="font-mono text-xs text-ghost mt-1">{data.total} 份報告 · 每日 08:30 自動分析</p>
       </div>
 
-      <Card className="bg-[#0C1221] border-white/[0.06]">
-        <CardContent className="p-6">
+      {data.reports.length >= 2 && (
+        <div className="mb-8">
+          <p className="font-mono text-xs text-ghost mb-4">近 30 日情緒走勢</p>
           <SentimentChart reports={data.reports} />
-        </CardContent>
-      </Card>
+        </div>
+      )}
 
-      <Card className="bg-[#0C1221] border-white/[0.06]">
-        <CardHeader className="pb-2">
-          <div className="flex justify-between text-xs text-slate-600 px-4">
-            <span>日期</span><span>訊號</span><span className="flex-1 ml-4">摘要</span><span>分數</span>
-          </div>
-        </CardHeader>
-        <CardContent className="p-2 space-y-0.5">
-          {data.reports.map(r => <Row key={r.id} r={r} />)}
-        </CardContent>
-      </Card>
+      <hr />
+
+      <div className="flex items-center gap-4 py-2 px-2 -mx-2 mt-1">
+        <span className="font-mono text-xs text-ghost w-20 shrink-0">日期</span>
+        <span className="text-xs text-ghost w-20 shrink-0">訊號</span>
+        <span className="text-xs text-ghost flex-1">摘要</span>
+        <span className="text-xs text-ghost shrink-0">分數</span>
+      </div>
+
+      {data.reports.map(r => <Row key={r.id} r={r} />)}
     </div>
   )
 }
