@@ -1,28 +1,28 @@
 import YahooFinance from 'yahoo-finance2'
 import type { PriceRecord } from '@/types'
 
-const yf = new YahooFinance()
+const yf = new YahooFinance({ suppressNotices: ['ripHistorical'] })
 
 export async function fetchPriceData(
   ticker: string,
   fromDate: Date,
   toDate: Date
 ): Promise<PriceRecord[]> {
-  const rows = await yf.historical(ticker, {
+  const result = await yf.chart(ticker, {
     period1: fromDate,
     period2: toDate,
-    interval: '1d' as const,
-    events: 'history' as const,
+    interval: '1d',
   })
 
-  return rows
-    .map((r): PriceRecord => ({
-      date: r.date.toISOString().slice(0, 10),
-      open: r.open ?? 0,
-      high: r.high ?? 0,
-      low: r.low ?? 0,
-      close: r.close ?? 0,
-      volume: r.volume ?? 0,
+  return (result.quotes ?? [])
+    .filter(q => q.close != null)
+    .map((q): PriceRecord => ({
+      date: new Date(q.date).toISOString().slice(0, 10),
+      open: q.open ?? 0,
+      high: q.high ?? 0,
+      low: q.low ?? 0,
+      close: q.close!,
+      volume: q.volume ?? 0,
     }))
     .sort((a, b) => a.date.localeCompare(b.date))
 }
