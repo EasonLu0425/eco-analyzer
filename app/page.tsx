@@ -6,6 +6,13 @@ import { SignalCard } from '@/components/dashboard/SignalCard'
 import { HeadlineList } from '@/components/dashboard/HeadlineList'
 import { RiskList } from '@/components/dashboard/RiskList'
 import { PriceTrendPanel } from '@/components/dashboard/PriceTrendPanel'
+import { FearGreedGauge } from '@/components/dashboard/FearGreedGauge'
+import { IndicatorPanel } from '@/components/dashboard/IndicatorPanel'
+import { CorrelationBadge } from '@/components/dashboard/CorrelationBadge'
+import { computeFearGreed } from '@/lib/fear-greed'
+import { computeIndicators } from '@/lib/indicators'
+import { computeCorrelation } from '@/lib/correlation'
+import { getPriceHistory } from '@/lib/price-store'
 import type { AnalysisReport } from '@/types'
 
 async function getLatestReport(): Promise<AnalysisReport | null> {
@@ -32,6 +39,11 @@ function DashboardSkeleton() {
 
 async function DashboardContent() {
   const report = await getLatestReport()
+  const priceRecords = getPriceHistory('0050.TW', 90)
+  const indicators = computeIndicators(priceRecords, '0050.TW')
+  const primaryTrend = report?.priceTrends?.find(t => t.ticker === '0050.TW') ?? null
+  const fearGreed = report ? computeFearGreed(report.sentimentScore, primaryTrend, report.date) : null
+  const correlation = computeCorrelation('0050.TW', '^GSPC', 30)
 
   if (!report) {
     return (
@@ -86,6 +98,27 @@ async function DashboardContent() {
           </div>
         </>
       )}
+
+      <hr />
+      <div className="py-6">
+        <p className="font-mono text-xs text-ghost mb-5">技術指標 · 0050.TW</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+          {fearGreed && (
+            <div>
+              <p className="font-mono text-[10px] text-zinc-600 mb-2">恐懼貪婪指數</p>
+              <FearGreedGauge fearGreed={fearGreed} />
+            </div>
+          )}
+          <div>
+            <p className="font-mono text-[10px] text-zinc-600 mb-2">技術指標</p>
+            <IndicatorPanel indicators={indicators} />
+          </div>
+          <div>
+            <p className="font-mono text-[10px] text-zinc-600 mb-2">與標普相關性</p>
+            <CorrelationBadge correlation={correlation} benchmarkTicker="^GSPC" />
+          </div>
+        </div>
+      </div>
 
       <hr />
       <p className="py-4 text-xs text-ghost">

@@ -39,6 +39,31 @@ pnpm collect-news
 
 呼叫 `getReports(1, 180)` from `lib/report-store.ts`，取最近 180 筆報告，提取 `date`、`sentimentScore`、`signal` 欄位，形成時序列表（最舊→最新）。
 
+## Step 2.6 — 計算技術指標與市場深度
+
+### 技術指標（0050.TW 為主）
+
+呼叫 `getPriceHistory('0050.TW', 90)` from `lib/price-store.ts`，取近 90 筆日線。
+呼叫 `computeIndicators(records, '0050.TW')` from `lib/indicators.ts`，取最後一筆：
+- **rsi14**: RSI(14)，≥70 超買 / ≤30 超賣
+- **macdHistogram**: 正 → 動能轉強，負 → 動能轉弱
+- **bbPosition**: 0–100%，≥80 超買 / ≤20 超賣
+
+資料不足（< 15 筆）則各欄位為 null，跳過。
+
+### 恐懼貪婪指數
+
+呼叫 `computeFearGreed(sentimentScore, primaryTrend, date)` from `lib/fear-greed.ts`
+（sentimentScore 用 Step 3 的值；primaryTrend = `getPriceTrend('0050.TW')`）。
+得 `score`（0–100）與 `label`。
+
+### 與標普相關性
+
+呼叫 `computeCorrelation('0050.TW', '^GSPC', 30)` from `lib/correlation.ts`。
+null 時標注「相關性資料不足」。
+
+以上三項結果整合入 Step 3 分析文字作補充（不影響 JSON 輸出欄位）。
+
 ## Step 3 — 綜合分析
 
 結合以下三項資訊，以繁體中文分析台灣 ETF（0050、00692、00878）的買進時機：
