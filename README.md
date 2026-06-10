@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoNews — 台灣 ETF 財經分析儀
 
-## Getting Started
+每日蒐集台灣財經新聞，透過 AI 分析市場情緒，產出 ETF 買賣訊號與風險提示，以 Next.js 儀表板呈現。
 
-First, run the development server:
+追蹤標的：**0050**（元大台灣50）、**00692**（富邦公司治理）、**00878**（國泰永續高股息）、**台灣加權指數**
+
+---
+
+## 功能
+
+- 每日從多個中文 RSS 源蒐集財經新聞（鉅亨網、Yahoo Finance TW、MoneyDJ 等）
+- AI 分析新聞情緒 + ETF 價格趨勢，輸出 `strong-buy / buy / hold / avoid / strong-avoid` 訊號
+- 情緒分數（0–10）、風險因素、重點新聞與市場影響說明
+- 52 週高低點位置、30日/90日漲跌幅視覺化
+- 週報與月報深度分析
+- 歷史情緒走勢圖（近 30 日）
+
+---
+
+## 技術棧
+
+| 層 | 技術 |
+|----|------|
+| 前端 | Next.js 16 App Router + Tailwind CSS v4 + shadcn/ui |
+| 資料庫 | SQLite（`better-sqlite3`），存於 `data/eco-news.db` |
+| 排程 | `node-cron`，每日 08:30 Asia/Taipei 自動執行 |
+| AI 分析 | Claude Haiku（`@anthropic-ai/sdk`）或 Claude Code 本地互動 |
+| 價格資料 | `yahoo-finance2`（增量更新，首次抓取近一年歷史） |
+| 新聞來源 | `rss-parser` |
+
+---
+
+## 快速開始
+
+### 1. 安裝依賴
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. 設定環境變數
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+編輯 `.env`：
 
-## Learn More
+```env
+ANTHROPIC_API_KEY=sk-ant-...      # Claude API 金鑰（排程自動分析用）
+DATABASE_PATH=./data/eco-news.db  # SQLite 路徑
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. 啟動開發伺服器
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+開啟 [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 使用方式
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 手動分析（Claude Code）
+
+在 Claude Code 中執行以下斜線指令，進行互動式分析：
+
+```
+/eco-analyze    # 蒐集今日新聞 → 更新價格 → AI 綜合分析 → 存入 DB
+/eco-weekly     # 產生上週深度週報（聚合日報 + 週漲跌幅 + AI 洞察）
+/eco-monthly    # 產生上月深度月報（趨勢轉折 + 資金輪動 + 投資展望）
+```
+
+### 自動排程
+
+```bash
+pnpm scheduler  # 啟動排程，每日 08:30 自動執行完整 pipeline
+```
+
+pipeline 流程：`蒐集新聞 → 更新 ETF 價格 → Claude API 分析 → 寫入 SQLite`
+
+### 其他指令
+
+```bash
+pnpm dev            # 啟動 Next.js dev server（port 3000）
+pnpm collect-news   # 只蒐集今日新聞（存至 data/news/YYYY-MM-DD.json）
+pnpm fetch-prices   # 只更新四支標的最新價格資料
+pnpm build          # 生產建置
+pnpm test           # 執行測試（vitest）
+pnpm test:coverage  # 測試 + 覆蓋率報告
+```
+
+---
+
+## 頁面
+
+| 路徑 | 說明 |
+|------|------|
+| `/` | 今日儀表板：訊號、情緒分數、摘要、重點新聞、ETF 價格 |
+| `/history` | 歷史記錄：所有日報列表 + 近 30 日情緒走勢圖 |
+| `/weekly` | 週報列表：各週平均分數、主導訊號、ETF 週漲跌幅 |
+| `/monthly` | 月報列表：月度分析、情緒趨勢、投資展望 |
+
+---
+
+## API
+
+```
+GET /api/reports?latest=true          # 最新一筆報告
+GET /api/reports?date=YYYY-MM-DD      # 指定日期報告
+GET /api/reports?page=1&limit=30      # 分頁列表
+```
+
+---
+
+## 目錄結構
+
+```
+eco-news/
+├── app/
+│   ├── page.tsx                  # 今日儀表板
+│   ├── history/page.tsx          # 歷史列表
+│   ├── weekly/page.tsx           # 週報列表
+│   ├── monthly/page.tsx          # 月報列表
+│   └── api/reports/route.ts      # REST API
+├── components/dashboard/         # 儀表板元件（SignalCard、PriceTrendPanel 等）
+├── components/history/           # 歷史頁元件（SentimentChart）
+├── lib/
+│   ├── db.ts                     # SQLite 連線與 migrations
+│   ├── report-store.ts           # 報告讀寫（日報/週報/月報）
+│   └── price-store.ts            # 價格趨勢查詢
+├── scripts/
+│   ├── collectors/               # RSS 新聞蒐集
+│   ├── analyzers/                # Claude API 分析
+│   ├── prices/                   # Yahoo Finance 價格更新
+│   └── scheduler.ts              # 每日排程
+├── types/index.ts                # 共用型別定義
+└── data/
+    ├── eco-news.db               # SQLite 資料庫（gitignored）
+    └── news/                     # 每日新聞暫存（gitignored）
+```
+
+---
+
+## 資料模型
+
+```typescript
+interface AnalysisReport {
+  id: string
+  date: string              // YYYY-MM-DD
+  sentimentScore: number    // 0–10，10 最正面
+  signal: 'strong-buy' | 'buy' | 'hold' | 'avoid' | 'strong-avoid'
+  summary: string           // 120 字內繁中摘要
+  risks: string[]           // 3 個風險因素
+  topHeadlines: Headline[]  // 前 5 大重點新聞（含標題、摘要、市場影響）
+  newsCount: number
+  createdAt: string         // ISO-8601 +08:00
+  priceTrends: PriceTrend[] // 四支標的最新價格與漲跌幅
+}
+```
+
+---
+
+## 注意事項
+
+- `data/` 目錄已加入 `.gitignore`，歷史資料與 SQLite DB 不會進入版本控制
+- 首次執行 `pnpm fetch-prices` 會抓取近一年歷史價格（約 243 筆/標的）
+- 若無 `ANTHROPIC_API_KEY`，排程分析會回傳預設 `hold` 訊號；使用 `/eco-analyze` 則不受影響
