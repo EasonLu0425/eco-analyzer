@@ -1,14 +1,16 @@
 import type { PriceTrend } from '@/types'
 
 const TICKER_LABELS: Record<string, string> = {
-  '00662.TW': '元大富時科技 (00662)',
-  'QQQ':      'Nasdaq 100 ETF (QQQ)',
+  '0050.TW':  '元大台灣50 (0050)',
+  '00692.TW': '富邦公司治理 (00692)',
+  '00878.TW': '國泰永續高股息 (00878)',
   '^TWII':    '台灣加權指數 (TWII)',
 }
 
 const TICKER_SHORT: Record<string, string> = {
-  '00662.TW': '00662',
-  'QQQ':      'QQQ',
+  '0050.TW':  '0050',
+  '00692.TW': '00692',
+  '00878.TW': '00878',
   '^TWII':    'TWII',
 }
 

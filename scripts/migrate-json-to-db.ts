@@ -38,7 +38,7 @@ async function main() {
   console.log(`[migrate] reports: ${count.reports}`)
 
   // Prices
-  const TICKERS = ['00662.TW', 'QQQ', '^TWII']
+  const TICKERS = ['0050.TW', '00692.TW', '00878.TW', '^TWII']
   const insert = db.prepare(
     'INSERT OR REPLACE INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)',
   )

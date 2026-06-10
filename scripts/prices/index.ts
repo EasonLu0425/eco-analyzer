@@ -3,7 +3,7 @@ import type { PriceRecord } from '@/types'
 import { getDb } from '@/lib/db'
 import { fetchPriceData } from './fetcher'
 
-export const TICKERS = ['00662.TW', 'QQQ', '^TWII'] as const
+export const TICKERS = ['0050.TW', '00692.TW', '00878.TW', '^TWII'] as const
 
 const BOOTSTRAP_DAYS = 365
 

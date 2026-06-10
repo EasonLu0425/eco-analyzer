@@ -20,7 +20,7 @@
 
 ## Step 3 — 讀取價格資料
 
-從 `data/prices/00662.TW.json`、`data/prices/QQQ.json`、`data/prices/^TWII.json`
+從 `data/prices/0050.TW.json`、`data/prices/00692.TW.json`、`data/prices/00878.TW.json`、`data/prices/^TWII.json`
 取出月份範圍內的價格記錄（依 `date` 篩選）。
 
 ## Step 4 — 聚合分析
@@ -57,13 +57,13 @@ investmentOutlook: 下個月的投資展望，包含具體的 ETF 操作建議�
   "dominantSignal": "buy",
   "sentimentTrend": "improving",
   "pricePerformance": [
-    { "ticker": "00662.TW", "startClose": 105.0, "endClose": 118.15, "changePct": 12.52, "high": 124.0, "low": 102.0 }
+    { "ticker": "0050.TW", "startClose": 185.0, "endClose": 196.0, "changePct": 5.95, "high": 198.0, "low": 183.0 }
   ],
   "keyEvents": ["Fed 暫停升息帶動科技股反彈", "台積電法說上調全年營收展望", "AI 伺服器需求超出預期"],
   "sectorRotation": ["外資加碼半導體 ETF", "資金由債券轉向科技成長股"],
   "topRisks": ["美國出口管制", "Fed 鷹派轉向", "地緣政治風險"],
   "monthlyInsight": "5 月台股在 AI 需求驅動下...",
-  "investmentOutlook": "展望 6 月，建議逢回分批佈局 00662...",
+  "investmentOutlook": "展望 6 月，建議逢回分批佈局 0050、00692...",
   "createdAt": "2026-06-01T08:00:00.000+08:00"
 }
 ```

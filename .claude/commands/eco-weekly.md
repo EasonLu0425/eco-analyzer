@@ -16,7 +16,7 @@
 
 ## Step 2 — 讀取價格資料
 
-從 `data/prices/00662.TW.json`、`data/prices/QQQ.json`、`data/prices/^TWII.json`
+從 `data/prices/0050.TW.json`、`data/prices/00692.TW.json`、`data/prices/00878.TW.json`、`data/prices/^TWII.json`
 取出 weekStart～weekEnd 內的價格記錄（依 `date` 篩選）。
 
 ## Step 3 — 聚合分析
@@ -53,7 +53,7 @@ vsLastWeek: 與上週比較的一句話總結（如有上週資料，否則省�
   "dominantSignal": "buy",
   "tradingDays": 5,
   "pricePerformance": [
-    { "ticker": "00662.TW", "startClose": 110.0, "endClose": 118.15, "changePct": 7.41, "high": 120.0, "low": 109.0 }
+    { "ticker": "0050.TW", "startClose": 190.0, "endClose": 195.5, "changePct": 2.89, "high": 197.0, "low": 188.0 }
   ],
   "keyThemes": ["AI算力", "Fed升息", "台股反彈"],
   "topRisks": ["利率風險", "出口管制", "超買風險"],
