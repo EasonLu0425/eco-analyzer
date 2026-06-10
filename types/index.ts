@@ -97,3 +97,58 @@ export interface MonthlyReport {
   investmentOutlook: string
   createdAt: string
 }
+
+export interface TechnicalIndicators {
+  ticker: string
+  date: string
+  rsi14: number | null
+  macdLine: number | null
+  macdSignal: number | null
+  macdHistogram: number | null
+  bbUpper: number | null
+  bbMiddle: number | null
+  bbLower: number | null
+  bbPosition: number | null  // 0–100%
+}
+
+export interface FearGreedIndex {
+  date: string
+  score: number  // 0–100
+  label: 'extreme-fear' | 'fear' | 'neutral' | 'greed' | 'extreme-greed'
+  components: {
+    sentiment: number       // sentimentScore * 10
+    weeklyPosition: number  // 52w position 0–100
+    momentum: number        // 30d momentum 0–100
+  }
+}
+
+export interface CorrelationResult {
+  ticker: string
+  correlation: number  // –1 to 1 (Pearson on log returns)
+  period: number       // number of data points used
+  fromDate: string
+  toDate: string
+}
+
+export interface Trade {
+  entryDate: string
+  exitDate: string
+  entryPrice: number
+  exitPrice: number
+  returnPct: number
+  holdingDays: number
+  signal: ETFSignal
+}
+
+export interface BacktestResult {
+  ticker: string
+  fromDate: string
+  toDate: string
+  totalReturn: number       // %
+  annualizedReturn: number  // %
+  maxDrawdown: number       // %
+  winRate: number           // %
+  tradeCount: number
+  trades: Trade[]
+  equityCurve: { date: string; value: number }[]  // base 100
+}

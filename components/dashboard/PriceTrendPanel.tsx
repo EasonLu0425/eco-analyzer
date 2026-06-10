@@ -5,6 +5,7 @@ const TICKER_LABELS: Record<string, string> = {
   '00692.TW': '富邦公司治理 (00692)',
   '00878.TW': '國泰永續高股息 (00878)',
   '^TWII':    '台灣加權指數 (TWII)',
+  '^GSPC':    'S&P 500 指數 (GSPC)',
 }
 
 const TICKER_SHORT: Record<string, string> = {
@@ -12,6 +13,7 @@ const TICKER_SHORT: Record<string, string> = {
   '00692.TW': '00692',
   '00878.TW': '00878',
   '^TWII':    'TWII',
+  '^GSPC':    'GSPC',
 }
 
 function ChangeChip({ value }: { value: number | null | undefined }) {
