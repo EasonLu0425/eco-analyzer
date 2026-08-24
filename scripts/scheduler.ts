@@ -6,6 +6,11 @@ import { analyzeNews } from './analyzers/index.js'
 import { updatePrices } from './prices/index.js'
 import { getDb } from '../lib/db.js'
 import { saveReport, getReportByDate } from '../lib/report-store.js'
+import { getPriceHistory } from '../lib/price-store.js'
+import { computeIndicators } from '../lib/indicators.js'
+import { computeTechnicalScore, computeFinalSignal, scoreToSignal } from '../lib/signal.js'
+
+const PRIMARY_TICKER = '0050.TW'
 
 async function runDailyPipeline() {
   const start = Date.now()
@@ -36,7 +41,16 @@ async function runDailyPipeline() {
   // Step 3: AI 分析
   console.log('[3/4] 呼叫 Claude AI 分析趨勢...')
   const result = await analyzeNews(news)
-  console.log(`[3/4] 分析完成：訊號=${result.signal}，分數=${result.sentimentScore}`)
+  console.log(`[3/4] 新聞情緒分析完成：分數=${result.sentimentScore}`)
+
+  // Step 3b: 結合技術指標交叉驗證，決定最終訊號
+  const priceHistory = getPriceHistory(PRIMARY_TICKER, 60, db, today)
+  const latestIndicators = priceHistory.length
+    ? computeIndicators(priceHistory, PRIMARY_TICKER).at(-1) ?? null
+    : null
+  const technicalScore = computeTechnicalScore(latestIndicators)
+  const signal = computeFinalSignal(result.sentimentScore, technicalScore)
+  console.log(`[3b/4] 技術指標分數=${technicalScore.toFixed(2)}，最終訊號=${signal}（新聞面訊號=${scoreToSignal(result.sentimentScore)}）`)
 
   // Step 4: 寫入 SQLite
   console.log('[4/4] 寫入資料庫...')
@@ -44,7 +58,7 @@ async function runDailyPipeline() {
     id: randomUUID(),
     date: today,
     sentimentScore: result.sentimentScore,
-    signal: result.signal,
+    signal,
     summary: result.summary,
     risks: result.risks,
     topHeadlines: result.topHeadlines,

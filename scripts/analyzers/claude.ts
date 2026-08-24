@@ -1,5 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { buildPrompt } from './prompt'
+import { scoreToSignal } from '@/lib/signal'
 import type { NewsItem, AnalysisReport, ETFSignal } from '@/types'
 
 type AnalysisResult = Omit<AnalysisReport, 'id' | 'date' | 'createdAt'>
@@ -45,9 +46,11 @@ export async function analyzeNews(items: NewsItem[]): Promise<AnalysisResult> {
       topHeadlines: string[]
     }
 
+    const sentimentScore = Math.min(10, Math.max(0, Number(parsed.sentimentScore)))
+
     return {
-      sentimentScore: Math.min(10, Math.max(0, Number(parsed.sentimentScore))),
-      signal: parsed.signal,
+      sentimentScore,
+      signal: scoreToSignal(sentimentScore),
       summary: parsed.summary ?? '',
       risks: (parsed.risks ?? []).slice(0, 3),
       topHeadlines: (parsed.topHeadlines ?? []).slice(0, 5),
