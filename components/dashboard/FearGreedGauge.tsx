@@ -25,12 +25,11 @@ export function FearGreedGauge({ fearGreed }: { fearGreed: FearGreedIndex }) {
   const angle = (1 - score / 100) * Math.PI
   const px = cx + r * Math.cos(angle)
   const py = cy - r * Math.sin(angle)
-  const largeArc = score > 50 ? 1 : 0
-
+  // Fill arc from left to needle is always ≤ 180° → largeArc always 0
   const track = `M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`
   const fill = score === 0
     ? ''
-    : `M ${cx - r} ${cy} A ${r} ${r} 0 ${largeArc} 1 ${px.toFixed(1)} ${py.toFixed(1)}`
+    : `M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${px.toFixed(1)} ${py.toFixed(1)}`
 
   return (
     <div className="flex flex-col items-center gap-1">

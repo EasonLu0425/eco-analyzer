@@ -36,6 +36,42 @@ export function getReportByDate(date: string, db?: Database.Database): AnalysisR
   return row ? rowToReport(row as Record<string, unknown>) : null
 }
 
+function taipeiToday(): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date())
+}
+
+export function getMissingReportDates(
+  maxDays: number,
+  db?: Database.Database,
+  today?: string,
+): string[] {
+  const d = db ?? getDb()
+  const todayStr = today ?? taipeiToday()
+  const windowStart = new Date(todayStr)
+  windowStart.setUTCDate(windowStart.getUTCDate() - (maxDays - 1))
+  const windowStartStr = windowStart.toISOString().slice(0, 10)
+
+  const tradingDates = d.prepare(
+    'SELECT DISTINCT date FROM prices WHERE date >= ? AND date <= ? ORDER BY date ASC',
+  ).all(windowStartStr, todayStr) as { date: string }[]
+
+  // Today is always a candidate even if `prices` has no row for it yet — Step 0
+  // (fetch-prices) only runs *inside* the gated command, so relying solely on
+  // `prices` here would let the cron gate see "no gap" and never invoke it.
+  const candidateDates = new Set(tradingDates.map(r => r.date))
+  candidateDates.add(todayStr)
+
+  const existingDates = new Set(
+    (d.prepare(
+      'SELECT date FROM reports WHERE date >= ? AND date <= ?',
+    ).all(windowStartStr, todayStr) as { date: string }[]).map(r => r.date),
+  )
+
+  return Array.from(candidateDates)
+    .filter(date => !existingDates.has(date))
+    .sort()
+}
+
 export function getReports(
   page: number,
   limit: number,

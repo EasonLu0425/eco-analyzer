@@ -13,6 +13,7 @@ import { computeFearGreed } from '@/lib/fear-greed'
 import { computeIndicators } from '@/lib/indicators'
 import { computeCorrelation } from '@/lib/correlation'
 import { getPriceHistory } from '@/lib/price-store'
+import { getMeta } from '@/lib/meta-store'
 import type { AnalysisReport } from '@/types'
 
 async function getLatestReport(): Promise<AnalysisReport | null> {
@@ -43,7 +44,8 @@ async function DashboardContent() {
   const indicators = computeIndicators(priceRecords, '0050.TW')
   const primaryTrend = report?.priceTrends?.find(t => t.ticker === '0050.TW') ?? null
   const fearGreed = report ? computeFearGreed(report.sentimentScore, primaryTrend, report.date) : null
-  const correlation = computeCorrelation('0050.TW', '^GSPC', 30)
+  const correlation = computeCorrelation('^TWII', '^GSPC', 30)
+  const pricesFetchedAt = getMeta('prices_fetched_at')
 
   if (!report) {
     return (
@@ -123,6 +125,9 @@ async function DashboardContent() {
       <hr />
       <p className="py-4 text-xs text-ghost">
         更新於 {new Date(report.createdAt).toLocaleString('zh-TW')}
+        {pricesFetchedAt && (
+          <> · 價格資料更新於 {new Date(pricesFetchedAt).toLocaleString('zh-TW')}</>
+        )}
         <a href="/history" className="ml-2 hover:text-dim transition-colors">歷史記錄 →</a>
       </p>
     </div>

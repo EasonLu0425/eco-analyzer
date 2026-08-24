@@ -15,7 +15,7 @@ export async function fetchPriceData(
   })
 
   return (result.quotes ?? [])
-    .filter(q => q.close != null)
+    .filter(q => q.close != null && q.open != null && q.high != null && q.low != null)
     .map((q): PriceRecord => ({
       date: new Date(q.date).toISOString().slice(0, 10),
       open: q.open ?? 0,

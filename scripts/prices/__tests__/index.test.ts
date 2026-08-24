@@ -9,6 +9,7 @@ vi.mock('../fetcher', () => ({
 
 import { fetchPriceData } from '../fetcher'
 import { updatePrices, TICKERS } from '../index'
+import { getMeta } from '@/lib/meta-store'
 
 const mockFetch = vi.mocked(fetchPriceData)
 
@@ -107,5 +108,17 @@ describe('updatePrices', () => {
 
     await expect(updatePrices(db)).resolves.not.toThrow()
     expect(mockFetch).toHaveBeenCalledTimes(TICKERS.length)
+  })
+
+  it('records prices_fetched_at metadata after a run', async () => {
+    mockFetch.mockResolvedValue([makeRecord('2026-06-09')])
+
+    expect(getMeta('prices_fetched_at', db)).toBeNull()
+
+    await updatePrices(db)
+
+    const fetchedAt = getMeta('prices_fetched_at', db)
+    expect(fetchedAt).not.toBeNull()
+    expect(Number.isNaN(new Date(fetchedAt as string).getTime())).toBe(false)
   })
 })

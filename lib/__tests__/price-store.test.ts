@@ -65,6 +65,16 @@ describe('getPriceHistory', () => {
     const result = getPriceHistory('MISSING', 30, db)
     expect(result).toEqual([])
   })
+
+  it('excludes records after asOfDate when provided', () => {
+    const records = makeHistory(200, '2026-06-09')
+    seedPrices(db, 'QQQ', records)
+
+    const result = getPriceHistory('QQQ', 30, db, '2026-05-01')
+
+    expect(result).toHaveLength(30)
+    expect(result.every(r => r.date <= '2026-05-01')).toBe(true)
+  })
 })
 
 describe('getPriceTrend', () => {
@@ -101,6 +111,30 @@ describe('getPriceTrend', () => {
     seedPrices(db, 'QQQ', records)
 
     const trend = getPriceTrend('QQQ', db)
+
+    expect(trend).toBeNull()
+  })
+
+  it('computes trend as of a historical date, ignoring later records', () => {
+    const records = makeHistory(120, '2026-06-09', 90)
+    seedPrices(db, 'QQQ', records)
+
+    const asOfDate = '2026-05-01'
+    const trend = getPriceTrend('QQQ', db, asOfDate)
+    const liveTrend = getPriceTrend('QQQ', db)
+
+    expect(trend).not.toBeNull()
+    expect(trend!.currentClose).not.toBe(liveTrend!.currentClose)
+
+    const asOfRow = records.find(r => r.date === asOfDate)!
+    expect(trend!.currentClose).toBe(asOfRow.close)
+  })
+
+  it('returns null when fewer than 31 records exist as of the given date', () => {
+    const records = makeHistory(120, '2026-06-09', 90)
+    seedPrices(db, 'QQQ', records)
+
+    const trend = getPriceTrend('QQQ', db, records[10].date)
 
     expect(trend).toBeNull()
   })

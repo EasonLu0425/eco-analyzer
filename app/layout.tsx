@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/history" className="hover:text-ink transition-colors">歷史</Link>
               <Link href="/weekly" className="hover:text-ink transition-colors">週報</Link>
               <Link href="/monthly" className="hover:text-ink transition-colors">月報</Link>
+              <Link href="/chat" className="hover:text-ink transition-colors">助手</Link>
             </div>
           </div>
         </nav>

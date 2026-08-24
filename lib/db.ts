@@ -58,6 +58,11 @@ export function runMigrations(db: Database.Database): void {
       created_at TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS idx_monthly_month ON monthly_reports(month DESC);
+
+    CREATE TABLE IF NOT EXISTS meta (
+      key   TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    );
   `)
 
   // Add price_trends to existing reports tables that predate this column

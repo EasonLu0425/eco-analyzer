@@ -79,4 +79,17 @@ describe('computeCorrelation', () => {
       toDate: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/),
     })
   })
+
+  it('excludes records after asOfDate when provided', () => {
+    const closes = Array.from({ length: 35 }, (_, i) => 100 + i)
+    seedPrices(db, 'A', closes)
+    seedPrices(db, 'B', closes)
+
+    // 2026-01-01 + 20 days = 2026-01-21, well before the full 35-day series ends
+    const asOfDate = '2026-01-21'
+    const result = computeCorrelation('A', 'B', 30, db, asOfDate)
+
+    expect(result).not.toBeNull()
+    expect(result!.toDate <= asOfDate).toBe(true)
+  })
 })

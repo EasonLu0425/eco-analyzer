@@ -1,6 +1,7 @@
 import type Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
 import { getDb } from '@/lib/db'
+import { setMeta } from '@/lib/meta-store'
 import { fetchPriceData } from './fetcher'
 
 export const TICKERS = ['0050.TW', '00692.TW', '00878.TW', '^TWII', '^GSPC'] as const
@@ -21,7 +22,8 @@ export async function updatePrices(db?: Database.Database): Promise<void> {
       'SELECT date FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT 1',
     ).get(ticker) as { date: string } | undefined
 
-    const today = new Date()
+    const now = new Date()
+    const today = new Date(now)
     today.setUTCHours(0, 0, 0, 0)
 
     let fromDate: Date
@@ -38,7 +40,7 @@ export async function updatePrices(db?: Database.Database): Promise<void> {
     }
 
     try {
-      const newRecords = await fetchPriceData(ticker, fromDate, today)
+      const newRecords = await fetchPriceData(ticker, fromDate, now)
       if (newRecords.length === 0) {
         console.log(`[prices] ${ticker} no new data`)
         continue
@@ -56,4 +58,6 @@ export async function updatePrices(db?: Database.Database): Promise<void> {
       console.error(`[prices] ${ticker} fetch failed:`, (err as Error).message)
     }
   }
+
+  setMeta('prices_fetched_at', new Date().toISOString(), d)
 }

@@ -55,14 +55,25 @@ export function IndicatorPanel({ indicators }: { indicators: TechnicalIndicators
           <p className={`font-mono text-sm font-bold ${rsiColor(last.rsi14)}`}>
             {fmt(last.rsi14, 1)}
           </p>
+          <p className="font-mono text-[9px] text-zinc-600 mt-1 leading-tight">
+            {last.rsi14 != null && last.rsi14 >= 70
+              ? '漲太多，市場過熱，可能即將下跌'
+              : last.rsi14 != null && last.rsi14 <= 30
+              ? '跌太多，市場超賣，可能即將反彈'
+              : '漲跌幅正常，無明顯訊號'}
+          </p>
         </div>
         <div className="bg-zinc-900 rounded p-2">
           <p className="font-mono text-[10px] text-zinc-500 mb-0.5">MACD 柱</p>
           <p className={`font-mono text-sm font-bold ${macdColor(last.macdHistogram)}`}>
             {fmt(last.macdHistogram, 2)}
           </p>
-          <p className="font-mono text-[9px] text-zinc-600">
-            線 {fmt(last.macdLine)} / 訊 {fmt(last.macdSignal)}
+          <p className="font-mono text-[9px] text-zinc-600 mt-1 leading-tight">
+            {last.macdHistogram != null && last.macdHistogram > 0
+              ? '上漲動能增強，買盤持續進場'
+              : last.macdHistogram != null && last.macdHistogram < 0
+              ? '上漲動能減弱，賣盤壓力浮現'
+              : '動能平衡，方向尚未明確'}
           </p>
         </div>
         <div className="bg-zinc-900 rounded p-2">
@@ -70,10 +81,26 @@ export function IndicatorPanel({ indicators }: { indicators: TechnicalIndicators
           <p className={`font-mono text-sm font-bold ${bbColor(last.bbPosition)}`}>
             {last.bbPosition != null ? `${last.bbPosition.toFixed(0)}%` : 'N/A'}
           </p>
-          <p className={`font-mono text-[9px] ${bbColor(last.bbPosition)}`}>
-            {bbLabel(last.bbPosition)}
+          <p className="font-mono text-[9px] text-zinc-600 mt-1 leading-tight">
+            {last.bbPosition != null && last.bbPosition >= 80
+              ? '價格偏高，接近歷史高波動上緣'
+              : last.bbPosition != null && last.bbPosition <= 20
+              ? '價格偏低，接近歷史低波動下緣'
+              : '價格在正常波動區間內'}
           </p>
         </div>
+      </div>
+
+      <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+        <p className="font-mono text-[9px] text-zinc-700 leading-tight px-1">
+          <span className="text-zinc-500">RSI</span> 衡量近期漲跌速度。數值越高代表漲越猛，超過 70 通常是警訊；低於 30 可能是撿便宜時機。
+        </p>
+        <p className="font-mono text-[9px] text-zinc-700 leading-tight px-1">
+          <span className="text-zinc-500">MACD</span> 看買賣力道變化。柱狀往正值走代表多頭力量增強；轉負代表空頭開始主導。
+        </p>
+        <p className="font-mono text-[9px] text-zinc-700 leading-tight px-1">
+          <span className="text-zinc-500">布林帶</span> 把價格放在近期波動範圍內定位。80% 以上代表接近波動上緣，偏貴；20% 以下代表接近下緣，偏便宜。
+        </p>
       </div>
     </div>
   )

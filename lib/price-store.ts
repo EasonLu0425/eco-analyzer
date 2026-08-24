@@ -2,19 +2,36 @@ import type Database from 'better-sqlite3'
 import type { PriceRecord, PriceTrend } from '@/types'
 import { getDb } from './db'
 
-export function getPriceHistory(ticker: string, days: number, db?: Database.Database): PriceRecord[] {
+export function getPriceHistory(
+  ticker: string,
+  days: number,
+  db?: Database.Database,
+  asOfDate?: string,
+): PriceRecord[] {
   const d = db ?? getDb()
-  const rows = d.prepare(
-    'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
-  ).all(ticker) as PriceRecord[]
+  const rows = asOfDate
+    ? d.prepare(
+        'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? AND date <= ? ORDER BY date ASC',
+      ).all(ticker, asOfDate) as PriceRecord[]
+    : d.prepare(
+        'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
+      ).all(ticker) as PriceRecord[]
   return rows.slice(-days)
 }
 
-export function getPriceTrend(ticker: string, db?: Database.Database): PriceTrend | null {
+export function getPriceTrend(
+  ticker: string,
+  db?: Database.Database,
+  asOfDate?: string,
+): PriceTrend | null {
   const d = db ?? getDb()
-  const all = d.prepare(
-    'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
-  ).all(ticker) as PriceRecord[]
+  const all = asOfDate
+    ? d.prepare(
+        'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? AND date <= ? ORDER BY date ASC',
+      ).all(ticker, asOfDate) as PriceRecord[]
+    : d.prepare(
+        'SELECT date, open, high, low, close, volume FROM prices WHERE ticker = ? ORDER BY date ASC',
+      ).all(ticker) as PriceRecord[]
 
   if (all.length < 31) return null
 

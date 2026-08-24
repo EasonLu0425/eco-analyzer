@@ -28,16 +28,21 @@ export function computeCorrelation(
   benchmarkTicker: string,
   days = 30,
   db?: Database.Database,
+  asOfDate?: string,
 ): CorrelationResult | null {
   const d = db ?? getDb()
 
-  const rows1 = d
-    .prepare('SELECT date, close FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT ?')
-    .all(ticker, days + 1) as PriceRow[]
+  const rows1 = asOfDate
+    ? d.prepare('SELECT date, close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT ?')
+        .all(ticker, asOfDate, days + 1) as PriceRow[]
+    : d.prepare('SELECT date, close FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT ?')
+        .all(ticker, days + 1) as PriceRow[]
 
-  const rows2 = d
-    .prepare('SELECT date, close FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT ?')
-    .all(benchmarkTicker, days + 1) as PriceRow[]
+  const rows2 = asOfDate
+    ? d.prepare('SELECT date, close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT ?')
+        .all(benchmarkTicker, asOfDate, days + 1) as PriceRow[]
+    : d.prepare('SELECT date, close FROM prices WHERE ticker = ? ORDER BY date DESC LIMIT ?')
+        .all(benchmarkTicker, days + 1) as PriceRow[]
 
   if (rows1.length < 2 || rows2.length < 2) return null
 
