@@ -914,3 +914,2123 @@ npm notice
 [check-missing-dates] 無缺漏，略過
 [check-missing-dates] 無缺漏，略過
 [check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-08-25
+[cron-eco-analyze] 2026-08-25T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Report saved. Summary:
+
+**補齊 1 天：2026-08-25**
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-08-25 | hold | 5.5 |
+
+當日新聞蒐集完整（20則，RSS即時），非回溯補漏。
+
+判斷依據：輝達財報（8/26）前 AI 伺服器傳漲價逾15%，拖累那斯達克(-0.77%)與晶片股情緒；但台廠供應鏈利多不斷（英特爾先進封裝、Tesla供應鏈、輝達注資Perplexity）。0050 近30日回檔1.89%、90日仍漲23%，RSI中性(50.3)、MACD微幅轉強，價格近52週高點整理中 → 觀望（hold）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-08-26
+[cron-eco-analyze] 2026-08-26T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Saved OK. Summary:
+
+**補齊 1 天：2026-08-26**
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-08-26 | buy | 6.5 |
+
+新聞充足（33則，即時 RSS），非回溯搜尋。重點：輝達今晚盤後財報為關鍵變數，AI供應鏈需求（蘋果M6、超微、SpaceX、光通訊）強勁，但台股今早開低震盪逾200點、台積電回跌，加上韓股AI泡沫疑慮升溫，技術面中性（RSI 51、MACD轉正、恐懼貪婪指數64偏貪婪），故判buy而非strong-buy，建議逢低分批、留意財報後波動。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-08-27
+[cron-eco-analyze] 2026-08-27T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## Step 5 — 總結
+
+**本次補齊：1 天** — `2026-08-27`（今日，即時 RSS 新聞，非回溯）
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-08-27 | **buy** | 7 / 10 | 輝達財報+2028展望俱佳、盤後漲近5%激勵AI供應鏈；台股收45832點漲1.47%，0050 MACD翻正、RSI中性未過熱。惟三檔ETF逼近52週高點、30日動能轉平，追高風險升。 |
+
+**關鍵數據（as of 2026-08-27，基準 08-26 收盤）**
+- 0050.TW: 105.9，30日 -0.09%，90日 +24.59%，52週位置 ~90%
+- 00692.TW: 91，30日 -1.14%，90日 +22.31%
+- 00878.TW: 32.82，30日 -0.94%，90日 +37.9%
+- ^TWII: 45832，30日 +2.45%，90日 +23.43%
+- 技術指標(0050): RSI 55.5 中性 / MACD柱 +0.20 動能轉強 / BB位置 70.6%
+- 恐懼貪婪: ~70（greed）
+- 與 ^GSPC 相關性: 0.329（弱正相關，28日）
+- 歷史情緒: 8月多在 5.5–8 震盪偏多，08-19 曾單日跌至 2.5 後回穩
+
+**無回溯補漏日**（所有報告皆有即時新聞，無「以價格趨勢為主」情況）
+
+暫時腳本已刪除，報告已寫入 SQLite（`data/eco-news.db`）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-08-28
+[cron-eco-analyze] 2026-08-28T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## Step 5 — 總結
+
+補齊 **1 天**：2026-08-28（今天）。
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-08-28 | **buy** | 7.5 | 輝達財報爆量+8.7%、Salesforce +22.6%、AWS 200萬顆AI晶片大單挹注台鏈，台股開盤漲逾500點、台積電漲35元。動能偏多（MACD柱轉正、RSI 58未過熱）但0050在52週高點92%位置、恐懼貪婪77「貪婪」區 → 偏多但宜分批避免追高 |
+
+價格趨勢（as of 08-28）：0050 收 107.2（30d +2.68% / 90d +27.39%，距52週高112.3約4.5%）、00692 91.95、00878 32.96、^TWII 46507。技術指標 RSI14 58.4、MACD hist +0.30、BB位置 76.8%。恐懼貪婪 77（greed）。與 ^GSPC 相關性 0.333（偏低）。
+
+新聞來源：RSS 即時蒐集 23 則（工商時報 feed 解析失敗，其餘正常）。無以「價格趨勢為主」的回溯補漏日。
+
+未 commit（工作區有 db / log / news JSON 變動，依慣例不自動提交）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-08-31
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
+[cron-eco-analyze] 2026-08-31T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 總結
+
+補齊 **1 天**：`2026-08-31`（僅今天缺，無回溯補漏日；新聞為即時 RSS 蒐集，32 則）
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-08-31 | `avoid` | 3.5 | 華許鷹派→升息預期，費半 -3.5%、台積電 ADR -2.29%；台股開低摜逾700點失守46000，台積電 -40、日月光 -5%、欣興遭搜跌停。AI 晶片/記憶體結構性需求 + SEMICON展 + 除息潮撐盤，但 0050 距52週高點僅約6%、動能轉弱、情緒偏貪婪（恐懼貪婪指數 61），9月風險密集 → 追高風險大於機會，觀望等月線收復 |
+
+技術面佐證（0050.TW，截至 targetDate）：RSI 53（中性）、MACD 柱狀 +0.22（動能轉弱）、布林位置 62%、與 ^GSPC 相關性 0.25（偏低）。歷史情緒：8/24–8/28 由 6.5 一路升至 7.5，今日急轉直下 → 轉折信號。
+
+無「因搜尋不到新聞而以價格趨勢為主」的日期。暫時腳本已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-01
+[cron-eco-analyze] 2026-09-01T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 完成 — 補齊 1 天（2026-09-01）
+
+價格資料已更新（5 檔各 +1 筆）。缺漏日僅今天，走即時 RSS 流程，抓到 30 則新聞。
+
+### 訊號摘要
+
+| 日期 | 訊號 | 分數 | 一句話 |
+|------|------|------|--------|
+| 2026-09-01 | **hold** | 6.5 | 輝達千億入股聯發科＋台積電喊AI算力年增5倍＋SEMI上修，科技利多明確、台股開高逾400點；惟0050/00692/00878三檔皆逼近52週高點、布林93%超買、恐懼貪婪68「貪婪」，加上Fed九月升息疑慮與美伊衝突，短線追高風險高。 |
+
+### 佐證數據（以 2026-09-01 為基準）
+- **0050**：107.7，30d +1.22%、90d +25.23%，52週高 112.3（貼近高點）
+- **技術面**：RSI 58（中性）、MACD 柱狀 +0.30（動能偏多）、布林位置 93.6%（偏超買）
+- **恐懼貪婪指數**：68「貪婪」
+- **與標普相關性**：0.261（偏弱）
+- **歷史情緒**：8月多為 buy/hold 6–7，8/31 因美伊+Fed鷹派急殺至 3.5 avoid，今日科技利多部分回補
+
+無「因搜尋不到新聞而以價格趨勢為主」的日期 — 今天新聞充足（30 則）。報告已寫入 SQLite。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-02
+[cron-eco-analyze] 2026-09-02T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 總結
+
+補齊 **1 天**：`2026-09-02`（僅今天缺，無回溯補漏日）
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-09-02 | `hold` | 5.0 | 美伊衝突升溫、油價急漲、美股收黑 + 聯準會鷹派 → 台股開盤挫近300點、台積電走弱；惟輝達/Google/Anthropic AI 訂單題材續撐。0050 逼近52週高點、布林位置89%偏過熱、恐懼貪婪落在貪婪區 → 逢低分批、勿追高 |
+
+**技術面補充（0050.TW）**：RSI14 58.3（中性）、MACD 柱狀 +0.33（動能偏多）、布林位置 88.6%（過熱）、與 ^GSPC 相關性 0.186（低度相關，台股相對脫鉤）
+
+新聞來源皆為即時 RSS（27 則），無「以價格趨勢為主」的低可信度報告。價格資料齊全，`priceTrends` 4 檔皆有值。報告已寫入 SQLite 並驗證成功。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-03
+[cron-eco-analyze] 2026-09-03T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## eco-analyze 完成
+
+補齊 **1 天**：2026-09-03（僅今天缺漏，無回溯補漏日）
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-09-03 | `hold` | 6.0 | SEMICON Taiwan 強烈 AI 利多（台積電擴產追不上、博通 AI 晶片 +221%、聯發科獲輝達+Alphabet 注資），但台股 9/2 重挫 784 點、Fed 9 月升息機率 ~65-70%、三檔 ETF 逼近 52 週高點、恐懼貪婪 71 偏貪婪 → 新聞情緒與價格背離，短線觀望 |
+
+**技術面參考**（0050，截至 9/2）：RSI14 55.8 中性、MACD 柱狀 +0.27 動能偏多、布林位置 78 近超買、與 S&P500 相關性 0.183 偏低（台股走自身 AI 行情）。
+
+新聞來源全為即時 RSS（33 則），無「以價格趨勢為主」的降級報告。價格資料完整（33 則新聞 + 4 檔 priceTrends 全部有值）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-04
+[cron-eco-analyze] 2026-09-04T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 完成 — 補齊 1 天
+
+**缺漏日期清單：** `2026-09-04`（今日，即時 RSS 新聞，34 則）
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-09-04 | `hold` | 6.5 | 新聞強烈偏多（Fed Waller 鴿派、輝達收購 Hugging Face、台積電漲 25 元、台股反彈 740+ 點重返 46K），但 0050 收 107.35 已達 52 週高點 ~92% 位置、布林位置 82.7 超買、恐懼貪婪 81 極度貪婪 → 追高風險升，宜持有不追買 |
+
+**技術面參考（0050，as of 09-04）：** RSI14 57（中性偏多）、MACD 柱狀 +0.27（動能轉強）、布林位置 82.7（超買）、恐懼貪婪 81「極度貪婪」、與 ^GSPC 相關性 0.19（資料僅 26 日，偏低）。
+
+**價格趨勢：** 0050 +8.2%/30d +24.3%/90d；00878 距高點僅 ~2%（+37%/90d，最貼前高）；^TWII +18.9%/90d。四檔全數逼近 52 週高點。
+
+**回溯補漏：** 無。所有日期均以即時新聞 + 完整價格資料產生，無「以價格趨勢為主」的低可信度報告。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-07
+[cron-eco-analyze] 2026-09-07T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+✅ 完成。缺漏檢查回溯 14 天，只缺今天。
+
+## 本次補齊：1 天
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|---|---|---|---|
+| 2026-09-07 | **hold** | 7/10 | 新聞強多（OpenAI 題材、台積電 3nm Q3 產值創高、AWS AI 拉貨、半導體擴產潮），但三檔 ETF 價格逼近 52 週高點、0050 突破布林上緣、恐懼貪婪 76 偏貪婪、本週美 CPI + Fed 升息預期為變數 → 基本面佳但追高風險高。 |
+
+**技術面 (0050)**: RSI 60.5（中性）、MACD 柱 +0.35（動能轉強）、bbPosition 104%（布林超買）。恐懼貪婪 76「greed」。與 ^GSPC 30 日相關性 0.193（偏低）。
+
+**價格位置**: 0050 109（52w 高 112.3，~97%）、00878 34.17（~99%，90 日 +36.7%，最延伸）、^TWII 47028（~97.5%）。
+
+**歷史情緒**: 9/01–9/04 連 4 天 hold（5–6.5），今日新聞情緒回升至偏多。
+
+- 新聞蒐集：28 則（RSS，鉅亨網 feed 解析失敗一支，其餘正常）。
+- 無回溯補漏日，全部以即時 RSS 新聞產生，無「以價格趨勢為主」報告。
+- 已寫入 SQLite，確認成功。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-08
+[cron-eco-analyze] 2026-09-08T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## eco-analyze 完成
+
+**補齊天數**：1 天
+- `2026-09-08`
+
+**每日訊號**：
+
+| 日期 | 訊號 | 分數 | 新聞數 |
+|------|------|------|--------|
+| 2026-09-08 | `hold` | 7 / 10 | 22 則（RSS 即時） |
+
+**摘要**：新聞面高度偏多 — OpenAI GPT-6「Astra」問世、黃仁勳宣告 AGI 時代 + 40 萬顆 GPU 上線、面板報價止跌迎旺季、摺疊 iPhone 供應鏈題材、旺矽獲三星採用。但價格面拉警報：0050 / 00692 / 00878 三檔 ETF 全部逼近 52 週高點（00878 幾乎觸頂），0050 布林位置 >100%、恐懼貪婪指數 77（貪婪）；宏觀風險升溫（美債殖利率逼近 5%、德銀示警升息力度遭低估）。新聞多頭但價格超買 → `hold`，拉回再加碼。
+
+**技術補充**：RSI14 62（未超買）、MACD 柱狀 +0.41（動能偏強）、0050 vs ^GSPC 相關性 0.19（資料僅 26 筆，偏低）。
+
+**價格趨勢**（截至 targetDate）：0050 +7.2%/30d、+22.2%/90d；00878 +37.6%/90d 最猛但已觸頂。
+
+無「以價格趨勢為主」的回溯補漏日 — 今天走即時 RSS 蒐集，資料充足。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-09
+[cron-eco-analyze] 2026-09-09T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 總結
+
+**本次補齊：1 天** — `2026-09-09`（今日，即時 RSS 新聞，非回溯）
+
+| 日期 | 訊號 | 分數 | 一句話 |
+|------|------|------|--------|
+| 2026-09-09 | `hold` | 5.0 | 科技ETF逼近52週高點、突破布林上軌短線超買；台積電毛利創高+AI題材撐盤，但道瓊挫628點、油價近百美元、聯準會升息機率逾五成——新聞與價格背離，宜持有不追高 |
+
+**補充指標（0050.TW 基準）：**
+- RSI14 61.4（中性偏強）／ MACD 柱狀 +0.45（動能仍增）／ 布林位置 100.3%（突破上軌，超買）
+- 恐懼貪婪指數 68「greed」（52週位置 96 + 動能 64 + 情緒 50）
+- 與 ^GSPC 相關性 0.158（26 日，偏低）
+
+**價格趨勢：** 0050 +5.6%/30d、+17.9%/90d；00878 +36.3%/90d 最強；四標的皆距 52 週高點 <3%。
+
+無回溯補漏日，所有報告均以即時新聞 + 價格趨勢綜合判斷。
+
+註：`collect-news` 有一個 RSS feed 解析失敗（`Invalid character in tag name`），仍成功蒐集 29 則其他來源新聞，不影響分析。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-10
+[cron-eco-analyze] 2026-09-10T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## Step 5 — 總結
+
+補齊 **1 天**：`2026-09-10`（僅今日缺漏，無回溯補漏日）。
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|------|------|------|------|
+| 2026-09-10 | hold | 6/10 | 台積電代工市占72.5%創高、iPhone 18 用2奈米，AI 半導體題材偏多；惟油價破百、殖利率/房貸利率走高、關稅爭議 + 九月季節性弱。三檔 ETF 逼近52週高點、布林94%、恐懼貪婪72偏貪婪 → 持有待回檔。 |
+
+技術面佐證：0050 RSI14 61.4、MACD 柱狀圖 +0.45（動能仍正）、布林位置 94%（近超買）；與標普500 相關性 0.18（偏低）；歷史情緒由 8 月的 buy 轉為近一週 hold。
+
+- 新聞來源全為即時 RSS（23 則），無以「價格趨勢為主」產生的報告。
+- 蒐集時鉅亨網 feed 解析失敗（XML tag 錯誤），其餘來源正常，不影響結果。
+- 已寫入 SQLite，`getReportByDate('2026-09-10')` 驗證成功。暫時腳本已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-11
+[cron-eco-analyze] 2026-09-11T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+**完成。補齊 1 天：**
+
+- **2026-09-11**：score 4.5，訊號 **hold**。中東戰事推油價破百、Fed升息預期升溫，台股早盤重挫逾800點、台積電殺逾30元；但台積電8月營收破5000億創新高，AI伺服器供應鏈資本支出續強，0050 近3月仍漲18%、逼近52週高。短線總經逆風壓過基本面，建議觀望。
+
+無回溯搜尋補漏日（唯一缺漏即今天，走即時 RSS 流程，35則新聞）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-12
+[cron-eco-analyze] 2026-09-12T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Done. 1 day補齊：
+
+**2026-09-12** — sentimentScore 6.5，signal **buy**。0050/00692/00878逼近52週高點，MACD轉強、RSI中性；台積電重申56%毛利率+微軟擴產利多，但下週FOMC升息機率近9成、台股遭外資狂砍為主要風險。新聞19則，非回溯日，資料充足。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-13
+[cron-eco-analyze] 2026-09-13T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+**完成。補齊 1 天（2026-09-13）：**
+
+- **09-13**：sentiment 6.0，訊號 **hold**。半導體基本面偏多（矽晶圓/記憶體缺貨、聯發科2奈米、AI資料中心需求）vs CPI升溫+Fed下週升息機率90%，加上0050/00692/00878都逼近52週高點、9/11單日重挫755點，訊號中性偏觀望。
+
+無回溯搜尋日（本次只缺今天，走即時RSS）。價格資料、技術指標（RSI55中性、MACD正、BB位置67.6%）、恐懼貪婪(67貪婪)、相關性(0.066)均已納入分析。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-14
+[cron-eco-analyze] 2026-09-14T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 總結
+
+補齊 1 天：**2026-09-14**
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-09-14 | buy | 7 |
+
+摘要：台積電擴產+甲骨文AI資本支出點火半導體族群，惟AI三巨頭呼籲放緩研發+聯準會升息機率升至86%構成短線變數。0050逼近52週高點(相對位置93%)，恐懼貪婪指數75「貪婪」，動能仍強但拉回風險增加。
+
+無回溯補漏日（僅今日），新聞資料齊全（28則），非「價格趨勢為主」報告。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-15
+[cron-eco-analyze] 2026-09-15T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Failed to authenticate: OAuth session expired and could not be refreshed
+[check-missing-dates] 缺漏 1 天：2026-09-15
+[cron-eco-analyze] 2026-09-15T10:00:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Report saved, tmp scripts removed cleanly.
+
+**總結：本次補齊 1 天（2026-09-15，僅缺當日，即時 RSS 蒐集）**
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|---|---|---|---|
+| 2026-09-15 | hold | 5.5 | 美股AI股與費半重挫近6%引發「AI煞車」疑慮，台股開低翻紅、台積電止穩展現韌性；0050近30/90日漲5.2%/17.9%已貼近52週高點，追高風險增，升息預期添波動，建議觀望逢回布局 |
+
+新聞資料充足（35則RSS），非回溯補漏，訊號可信度正常。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-16
+[cron-eco-analyze] 2026-09-16T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+**補齊完成 — 共1天（2026-09-16）**
+
+| 日期 | 訊號 | 分數 | 摘要 |
+|---|---|---|---|
+| 2026-09-16 | hold | 6/10 | 半導體供應鏈利多（DRAM缺貨、聯發科新品）vs 台積電除息失靈、Fed決策前觀望、ETF貼近52週高點、0050 MACD轉負 |
+
+無日期因搜尋不到新聞需用價格趨勢主導（今天即時RSS蒐集成功，26則新聞）。技術面：0050 RSI14=50.6中性，MACD histogram轉負（動能降溫），Fear-Greed指數69→greed（近高位）。與S&P相關性極低(-0.026)，台股短期走勢脫鉤美股。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-17
+[cron-eco-analyze] 2026-09-17T10:00:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+## 總結
+
+補齊 1 天缺漏（2026-09-17，即時 RSS，非回溯）：
+
+| 日期 | 訊號 | 分數 | 備註 |
+|---|---|---|---|
+| 2026-09-17 | buy | 7.5 | Fed鷹派升息但台股大漲逾800點，AI需求強勁至2027-28年；0050逼近52週高點+技術面偏超買，建議逢回布局 |
+
+無日期因搜尋不到新聞走「價格趨勢為主」（今天用即時 RSS，33則新聞正常蒐集）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-18
+[cron-eco-analyze] 2026-09-18T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+完成. 總結:
+
+補齊1天 (2026-09-18, 今天, 即時RSS新聞27則, 非回溯):
+
+- **2026-09-18**: sentimentScore 8, signal **buy**。台股大漲逾700點重登47000點，台積電近歷史高點，AI題材強；惟0050逼近52週高點、恐懼貪婪指數達「極度貪婪」(88)，追高風險列入risks。
+
+無回溯搜尋日期，全部日新聞資料充足。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-21
+[cron-eco-analyze] 2026-09-21T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+**結果**
+
+補齊 1 天：2026-09-21（今日，即時 RSS，非回溯）
+
+- **2026-09-21**：buy，score 7.5 — 川普AI軍+黃仁勳AI樂觀論帶動台積電噴漲，惟0050/00692/00878/加權指數皆逼近52週高點，BB位置93%超買，訊號偏正但需留意追高風險。
+
+無日期因搜尋不到新聞而降級處理。
+[check-missing-dates] 無缺漏，略過
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-22
+[cron-eco-analyze] 2026-09-22T10:00:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Report saved OK.
+
+## 總結
+
+補齊 1 天（今天 2026-09-22），無回溯缺漏日。
+
+**2026-09-22**：score=8, signal=**buy**。台股早盤創新高突破48,600點，台積電、聯發科齊漲，AI供應鏈題材強勁；惟股價已逼近52週高點、BB位置略超買（108.6%），建議逢回布局優於追高。風險：短線獲利了結、蘋果折疊機量產卡關拖累蘋概鏈、美元走強/日圓貶值總經不確定性。
+
+無新聞不足需標註的日期（RSS 正常抓到23則）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-23
+[cron-eco-analyze] 2026-09-23T09:00:55+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Failed to refresh OAuth token: another Claude Code process is refreshing it or exited mid-refresh. This is usually transient; retry in a minute, and if it persists close other Claude Code processes or sign in again
+[check-missing-dates] 缺漏 1 天：2026-09-23
+[cron-eco-analyze] 2026-09-23T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+完成。補齊 1 天（2026-09-23，今日）：
+
+- **2026-09-23**：分數 7.5，訊號 **buy**。台股創新高（48327點）、台積電盤中站穩2500元、2奈米擴產、Meta Muse帶動AI供應鏈全面走揚。0050/TWII逼近52週高點、RSI 66接近超買、恐懼貪婪指數82（極度貪婪），偏多但留意短期回吐風險。
+
+無回溯補漏日（缺漏僅今天，RSS正常抓到），無「新聞不足」情況需標註。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-24
+[cron-eco-analyze] 2026-09-24T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Temp scripts gone, no leftovers.
+
+## 總結
+
+補齊 1 天：2026-09-24
+
+- **2026-09-24**：sentiment 6.0 → **hold**。台積電OIP生態系擴大、高通採台積2奈米強化長線基本面，惟美債10年期殖利率破5%引發全球科技股獲利了結，台股早盤重挫逾400點；0050逼近52週高點（bbPosition 84.8%，接近超買）且動能轉弱徵兆，短線宜觀望待拉回。
+
+無日期因搜尋不到新聞而僅靠價格趨勢判斷（RSS 蒐集正常，18則新聞）。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-29
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.1.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+npm notice To update run: npm install -g npm@12.1.0
+npm notice
+[cron-eco-analyze] 2026-09-29T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+All caught up, no gaps left. Summary:
+
+補齊 3 天報告：
+
+| 日期 | 訊號 | 分數 | 備註 |
+|---|---|---|---|
+| 2026-09-25 | buy | 6.5 | 回溯（web-search），逼近52週高點偏超買，Fed升息後資金回流 |
+| 2026-09-28 | hold | 4.5 | 回溯（web-search），美股/台積電ADR盤前重挫、油價殖利率走高、外資賣超 |
+| 2026-09-29 | buy | 7.0 | 即時RSS（32則），台積電逆勢撐盤、傳擴建德州廠、摩根大通轉多，價格創波段新高 |
+
+09-25、09-28 因回溯日搜尋不到即時新聞，新聞來源標記為 `web-search`，訊號可信度較即時RSS低，已在risks中註明。價格資料庫在09-25、09-28兩日無交易紀錄（用前一交易日09-24收盤值代替），09-29已有當日實際收盤。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-09-30
+[cron-eco-analyze] 2026-09-30T10:00:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-09-30**。
+
+| 日期 | 訊號 | 分數 | 新聞數 |
+|---|---|---|---|
+| 2026-09-30 | hold | 6.5 | 26 則（RSS） |
+
+- **缺漏檢查：** 只缺今天，前面日期已齊全。
+- **新聞來源：** 走 RSS（`pnpm collect-news`），有 1 個來源逾時（5 秒），其餘正常。沒有靠 WebSearch 回溯，所以沒有「以價格為主」的報告。
+- **新聞面：** 偏正面。輝達加碼回購 1,500 億美元、AMD 併購 World Labs、那斯達克 100 逼近新高，台股在前一日跌 392 點後反彈逾 600 點。
+- **技術面：**
+  - 0050 收 112.75，距 52 週高點 113.75 約 1%。
+  - RSI 63.9，布林位置 87%，MACD 柱狀體為正（0.31）。
+  - 技術分數約 3.96，低於 4，在 `lib/signal.ts` 的規則下會把買進級訊號降一級。
+- **其他指標：** 恐懼貪婪指數約 76（貪婪），與標普 30 日相關性 0.36。
+- **結論：** 新聞偏多但價格已近高點，給 6.5 分、hold。
+
+報告已寫入 SQLite，讀回確認成功。暫時腳本已刪除。
+
+`data/news/2026-09-30.json`、`data/eco-news.db` 和 `logs/eco-analyze.log` 有變動，我沒有 commit。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-01
+[cron-eco-analyze] 2026-10-01T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-01**。報告已存入 SQLite，暫時腳本已刪。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-01 | hold | 6.5 |
+
+- **新聞**：用 RSS 抓到 24 則。有一個 RSS 來源 XML 解析失敗（sax 報錯），其餘來源正常。
+- **新聞面**：偏多。美國 8 月核心 PCE 低於預期、台積電開高、記憶體報價續漲，加權指數重返 48000 點。
+- **價格面**：偏高檔。
+  - 0050 收 112.35，距 52 週高點 113.75 只差一點（位階約 98%）。
+  - 0050 的 30 日漲 7.77%，90 日漲 17.77%。
+  - RSI 62，MACD 柱狀為正，布林位置 80%（剛到超買門檻）。
+  - 恐懼貪婪指數 76，屬貪婪。
+  - 與標普 30 日相關性 0.32，偏低。
+- **為何是 hold 而非 buy**：新聞偏多，但價格已逼近 52 週高點，技術指標也到超買邊緣，所以判斷為觀望、不追高。
+- **新聞充足**：今天有 24 則即時新聞，不是靠價格趨勢單獨判斷，不需特別標註。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-02
+[cron-eco-analyze] 2026-10-02T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次只補了 1 天：**2026-10-02**，也就是今天。0.5 步驗出的缺漏日期只有這一天。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-02 | **buy** | 7.0 |
+
+**新聞：** 今天走正常 RSS 流程，共 27 則。有一個 RSS 來源 XML 解析失敗（`Line: 75 / Column: 38` 的 SAX 錯誤），但其餘來源都抓到了。因為是即時新聞，沒有用「價格趨勢為主」的備援，也沒有走 WebSearch。
+
+**價格與指標：**
+- 0050.TW 收 112.5，近 30 日 +7.55%，近 90 日 +18.55%，距 52 週高點 113.75 只差約 1%。
+- 技術指標：RSI14 為 62.7，MACD 柱狀為正（0.177），布林位置 78.6%。
+- 技術分數 4.29，高於 4 的門檻，所以 `applyTechnicalVeto` 沒有把 buy 降級。
+- 恐懼貪婪指數 78（greed）。
+- 與 S&P 500 的 30 日相關性只有 0.27（22 筆樣本），依賴度偏低。
+
+**判斷：**
+- 偏多：費半 +1.59%、美光看記憶體供給緊俏兩年、甲骨文奪下騰訊算力大單。
+- 偏空：價格已接近 52 週高點，波動率控管基金曝險逼近紀錄，川普的投資言論讓台積電盤中一度跌到 2500。
+- 分數 7.0 剛好落在 buy 門檻，是偏樂觀的邊界判斷。前兩天是 6.5 / hold。
+
+報告已寫入 SQLite，讀回確認 id 為 `9fea910f-…`，4 檔 `priceTrends` 都在。三個暫時腳本已刪除。
+
+`git status` 中 `data/eco-news.db`、`logs/eco-analyze.log` 和 `data/news/2026-10-02.json` 有變動，我沒有 commit。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-05
+[cron-eco-analyze] 2026-10-05T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-05**。其餘日期都沒缺漏，10-03、10-04 是週末。
+
+| 日期 | 訊號 | 分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-05 | hold | 6.5 | 30 |
+
+- **判斷依據**：新聞偏多（非農降溫、台積電創新高）。但 0050 收 116.10，貼近 52 週高點 116.15，RSI 70.5 超買，布林位置 106%。技術分約 3.3，低於 4，依 `lib/signal.ts` 的規則會把 buy 降一級，所以評為 hold。
+- **其他指標**：恐懼貪婪指數 79（greed）。0050 與標普 30 日相關性 0.25（資料只有 23 筆）。
+- **新聞來源**：這天是即時 RSS 蒐集，不是回溯搜尋，所以沒有「以價格趨勢為主」的報告。
+- **RSS 失敗**：`pnpm collect-news` 有一個 RSS 來源 XML 解析失敗（sax 在 Line 75 報錯，輸出被截斷，看不出是哪個來源），其餘來源共蒐集 30 則。這幾天可以檢查一下是哪個來源壞了。
+- **價格資料**：今天的價格紀錄是在開盤後約 09:30 抓的，可能是盤中價，不是收盤價。
+- **暫存腳本**：`tmp-*` 三個腳本都已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-06
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+[cron-eco-analyze] 2026-10-06T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天：2026-10-06。報告已寫入 SQLite，讀回確認成功。
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-10-06 | hold | 6.5 |
+
+- **新聞**：蒐集到 28 則。台積電 ADR 與台指期夜盤創高、鴻海 9 月營收首度破兆，新聞偏多。
+- **價格**：0050 收 116.3，貼近 52 週高點 116.6，30 日漲 9%、90 日漲 25.73%。RSI14 為 70.9（超買），布林位置 99%，MACD 柱狀為正。
+- **訊號**：新聞偏多，但價格已在高檔、技術面超買，所以判 hold，分數 6.5。
+- **風險**：技術面超買、美債殖利率高檔（30 年期恐破 6%）與聯準會偏鷹、AI 資料中心電力缺口與標普回落預測。
+- **輔助指標**：與標普相關性 0.305（只有 23 筆有效資料）。恐懼貪婪指數我只用 5、6、7 分試算，約 72–80，落在貪婪到極度貪婪，沒有用 6.5 重算。這項不寫入報告欄位。
+- **新聞來源**：今天走 RSS 流程，沒有用 WebSearch 回溯的日期，因此沒有以價格為主的報告。
+
+`pnpm collect-news` 有一個 RSS 來源解析失敗（XML 格式錯誤），其餘來源正常，沒影響結果。暫時腳本都已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-07
+[cron-eco-analyze] 2026-10-07T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-07**。報告已寫入 SQLite，讀回確認成功。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-07 | **hold** | 6.5 |
+
+- **缺漏日期：** 回溯 14 天內只缺今天，其他天都有報告。
+- **新聞來源：** 今天走 RSS，共 26 則相關新聞。因為是今天，沒有用 WebSearch。沒有任何一天是靠「價格趨勢為主」補出來的。
+- **RSS 失敗：** 其中一個 feed 解析失敗（XML 在第 75 行出現語法錯誤），其餘來源正常。
+- **價格面：** 0050 收 116.35，貼近 52 週高點 116.60。30 日漲 9.35%，90 日漲 21.39%。
+- **技術指標：** RSI 71、布林位置 94%，屬超買。MACD 柱狀體 +0.44，動能仍偏強。
+- **技術面分數：** 3.5（低於否決門檻 4）。情緒分數 6.5 本來就落在 hold 區間，所以否決沒有改變訊號。
+- **市場深度：**
+  - 恐懼貪婪指數 78，屬 greed。
+  - 0050 與標普 500 的 30 日相關性只有 0.28（實際只有 23 個交易日的資料）。
+- **新聞面：** 利多是高盛上修台積電目標價、三星 Q3 獲利預估近 9 倍、超微加碼台灣。利空是台積電 ADR 翻黑、Fed 升息疑慮、有人示警美股可能回檔。
+- **結論：** 價格偏高、技術面過熱，建議持有不追高。
+
+暫存腳本都已刪除，`git status` 只剩 `data/eco-news.db` 和 `logs/eco-analyze.log` 有變動，另外有 `data/news/` 下的新聞 JSON。我沒有 commit。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-08
+[cron-eco-analyze] 2026-10-08T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊完成，今天 2026-10-08 的報告已存進 SQLite，寫入後讀回確認。
+
+**補齊天數：** 1 天（2026-10-08）。缺漏日期檢查只回傳今天，沒有更早的缺漏。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-08 | hold | 5 |
+
+- **新聞：** 今天走即時 RSS 流程，共 32 則。有一個 RSS 來源的 XML 解析失敗，其餘來源正常，沒有影響流程。完整的來源名稱和錯誤訊息我沒細看。
+- **利多：** 廣達、智邦、國巨營收創高，SK 海力士釋出 AI 儲存大單。
+- **利空：** 台積電盤中重挫，美債 5、10、30 年期殖利率都突破 5%，Fed 偏鷹，美股收跌。
+- **價格：**
+  - 0050 收 115.10，近 30 日漲 8.13%，近 90 日漲 18.29%。
+  - 0050 在 52 週區間的位置約 98%，接近高點。
+  - 0050 的 RSI(14) 是 65.1，布林位置 80.2%，MACD 柱狀體 +0.33。
+  - 0050 與標普近 30 日的相關性只有 0.27，但這個值只用了 23 筆資料。
+- **恐懼貪婪指數：** 以情緒分數 5 算出 70，屬於「貪婪」。
+- **為什麼是 hold：** 新聞好壞各半，價格又接近 52 週高點，追價風險偏高。前幾天的分數是 6.5，這次降到 5，反映大盤開盤下殺和殖利率上升。
+- **新聞充足：** 今天不屬於「搜尋不到新聞、以價格趨勢為主」的情況，沒有需要特別標註的日期。
+
+這次建立的暫時腳本都已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-12
+[cron-eco-analyze] 2026-10-12T10:00:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 2 天：2026-10-09、2026-10-12。兩份報告都已存進 SQLite，重跑缺漏檢查顯示無缺漏，暫時腳本也已刪除。
+
+| 日期 | 訊號 | 情緒分數 | 備註 |
+|---|---|---|---|
+| 2026-10-09 | hold | 5 | 國慶補假，台股休市。新聞只有 2 則，完全以價格趨勢為主 |
+| 2026-10-12 | hold | 5 | 連假後補跌，0050 收 114.1，距 52 週高點約 2% |
+
+- **10-09（以價格趨勢為主）：** 這份報告的新聞太少。搜尋到的新聞只有台積電 9 月營收和休市公告，價格取 10-08 收盤（0050 為 115.1）。報告的 summary 和 risks 已註明「新聞資料有限、訊號可信度較低」。
+- **10-12：** 用 RSS 蒐集到 29 則新聞。偏空的是連假後台股補跌、費半連假期間累跌 3.77%、台積電 ADR 連四跌，也有美國 337 調查。偏多的是 AI 封測漲價潮和台積電營收強勁。價格仍在高檔，0050 的 RSI 為 61，所以給 hold。
+- **搜尋結果有誤：** 搜尋 10-09 大盤收盤時，結果是 2025 年的資料（加權指數 27,301 點，我們資料庫裡 2026 年約 49,000 點），我沒有採用。
+- **相關性資料偏舊：** 0050 與標普 500 的相關性只算到 10-08，因為 10-12 的 ^GSPC 價格還沒有。
+
+這次檢查缺漏日期是直接用現有的 `scripts/check-missing-dates.ts`，沒有另外寫暫時腳本。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-13
+[cron-eco-analyze] 2026-10-13T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-13**。報告已存入 SQLite，暫時腳本也已刪除。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-13 | hold | 4.5 |
+
+**缺漏日期：** 只有今天缺，所以走即時 RSS 流程，沒有回溯補漏日，也不需要靠 WebSearch。
+
+**新聞：** 共蒐集 28 則。有一個 RSS 來源 XML 解析失敗，其餘來源正常，不影響結果。
+
+**判斷依據：**
+- **偏負面：**
+  - 費半連 4 個交易日下跌，日經跌逾 2%，韓股跌逾 4%。
+  - 外資連 4 日賣超，台股跌破十日線。
+  - 沙國機場遇襲推升油價，Fed 與澳洲央行（RBA）都在升息。
+- **偏正面：** 南亞科第 3 季毛利率 85.7%，AI 伺服器與光通訊供應鏈營收強勁。
+- **價格：** 0050 收 113，離 52 週高點 116.6 只差約 3%，30 日漲 8.9%。
+- **技術指標：** RSI 56、MACD 柱狀圖微負（-0.05），布林位置 59%。
+- **恐懼貪婪指數：** 68，屬貪婪。
+- **與標普相關性：** 0.249，只有 24 筆資料。
+- **歷史情緒：** 最近三天都是 5 分，今天降到 4.5，仍在 4–7 分的 hold 區間。
+
+`createdAt` 是 2026-10-13T09:30:53+08:00。`git status` 目前只剩 `data/eco-news.db` 和 `logs/eco-analyze.log` 有變動，沒有 commit。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-14
+[cron-eco-analyze] 2026-10-14T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天：2026-10-14，也就是今天。`getMissingReportDates(14)` 只回傳這一天，沒有更早的缺漏日。
+
+- **2026-10-14**：`hold`（觀望），情緒分數 5.5。報告已寫入 SQLite，讀回確認成功。
+- **沒有回溯補漏日**：沒有用網路搜尋補新聞的日期，也沒有以價格趨勢為主產生的報告。新聞走 RSS，共 30 則。
+
+**判斷依據**
+- **新聞偏多的部分**：微軟 Maia 300 晶片、輝達預付款給京元電、台積電法說前反彈。
+- **新聞偏空的部分**：費半連 5 天收黑、花旗撤回美股加碼評等、Rosenberg 示警泡沫、PIMCO 示警 Fed 可能再升息 1–2 次。
+- **價格**：0050 收 112.8，距 52 週高點 116.6 約 3%；30 日 +7.8%，90 日 +10%。
+- **技術指標**：RSI 55.6，MACD 柱狀體 -0.21（動能略轉弱），布林位置 56%。
+- **恐懼貪婪指數**：71（貪婪）。價格接近高點，不宜追價。
+- **與標普相關性**：0.22，偏低。這是只有 24 筆資料的短期值。
+
+**其他**
+- **RSS 解析錯誤**：`pnpm collect-news` 有一個來源出現 XML 解析錯誤（`Line: 75, Column: 38`），我只看到錯誤堆疊的結尾，沒查是哪個來源。其餘來源都有抓到，總共 30 則，所以我沒有中斷流程。
+- **暫時腳本**：已全部刪除。`git status` 只剩 `data/eco-news.db` 和 `logs/eco-analyze.log` 有變動，加上新聞 JSON 檔。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-15
+[cron-eco-analyze] 2026-10-15T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-15**。其他日期都沒缺漏，報告已寫入 SQLite，暫時腳本已刪除。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-15 | **avoid** | 3 / 10 |
+
+- **新聞面（29 則）**：
+  - 偏負面：美國 9 月通膨高於預期，市場擔心 Fed 升息。費半指數跌 4.3%，台股開盤暴跌約 1400 點，台積電法說會前跳空下殺 60～70 元。日經、KOSPI 同步重挫（KOSPI 早盤跌逾 6%）。微軟雲端傳出要削減 20% 支出。
+  - 少數正面：ASML 三度上調全年財測。
+- **價格面**：
+  - 0050 收 109.5，30 日 +5.49%，90 日 +8.96%，位於 52 週區間約 90% 的位置。
+  - RSI(14) 為 44.4，MACD 柱狀為負（−0.53），布林位置 26%，短線動能轉弱。
+  - 與 S&P 500 的 30 日相關性為 0.33，這個值只用了 24 筆資料。
+- **恐懼貪婪指數**：58（中性）。
+- **風險因素**：
+  - Fed 升息預期壓縮科技股估值。
+  - AI 資本支出報酬疑慮外溢到亞洲供應鏈。
+  - 台積電法說會若不如高預期，權值股賣壓會加大。
+
+**沒有以價格趨勢為主的補漏日**：今天有即時 RSS 新聞，沒走回溯搜尋。
+
+- **訊號來源**：訊號是依 `lib/signal.ts` 的 `scoreToSignal` 由分數 3 推出（2～4 為 avoid），沒有另外覆寫。
+- **RSS 失敗**：`pnpm collect-news` 有一個 RSS 來源 XML 解析失敗（`sax` 報錯，Line 75），其餘來源正常，總共蒐集到 29 則。如果想補上那個來源，我可以查是哪一個。
+- **價格資料**：今天的價格紀錄是盤中資料，收盤後數字可能會變。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-16
+[cron-eco-analyze] 2026-10-16T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-16**。缺漏日只有今天，沒有回溯日，所以沒用到 WebSearch。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-16 | hold | 6.0 | 35 |
+
+- **新聞面偏正面：**
+  - 台積電法說會 Q3 純益創高（7,630 億），並宣布台南再增建一座 3 奈米廠。
+  - 美光、聯發科也有利多。
+  - 但台積電法說後股價反而下跌，費半小跌 0.88%，美 PPI 偏高引發升息疑慮。
+- **價格面：**
+  - 0050 收 109.25，離 52 週高點約 6%。
+  - 00878 收 35.43，貼近 52 週高點。
+  - 0050 的 RSI(14) 為 43.7，MACD 柱狀為負（動能偏弱），布林位置約 21%（接近下軌）。
+- **恐懼貪婪指數：** 68，屬 greed。
+- **與標普 500 相關性：** 0.276，只有 24 筆資料，樣本偏少。
+- **歷史情緒：** 昨日 3.0（avoid）、前日 5.5，今日回升到 6.0。
+
+訊號給 hold 的原因是新聞偏多，但 MACD 仍偏弱，台股昨天單日重挫 3.41%，今天只是反彈，還沒站穩。
+
+- **RSS 解析失敗：** `pnpm collect-news` 有一個 RSS 來源解析失敗（XML 在第 75 行出錯），但仍抓到 35 則。哪個來源出錯我沒查，這次沒處理。
+- **暫時腳本：** 三個暫時腳本都已刪除。
+- **Git 狀態：** 沒有 commit，`data/news/2026-10-16.json` 和 DB 的變更都還在工作目錄裡。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-19
+[cron-eco-analyze] 2026-10-19T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-19**。過去 14 天內只有今天缺報告，報告已寫入 SQLite，暫時腳本都已刪除。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-19 | avoid | 3.5 |
+
+- **新聞**：RSS 收到 27 則，其中一個來源的 XML 解析失敗，其餘正常。沒有走網搜補漏，所以沒有「以價格趨勢為主」的日期。
+- **新聞面偏負面**：
+  - 美股費半大跌 3.83%，連 8 黑。
+  - 中東戰事和 AI 舉債疑慮拖累科技股。
+  - 台股開盤重挫逾 800 點，台積電領跌。
+  - 外資上週賣超 5862 億。
+- **價格面**：0050 收 107.45，距 52 週高點 116.6 約差 7.8%，30 日漲幅 +0.23%。RSI(14) 為 38.9，MACD 柱狀體 −0.96，轉弱。布林位置 0.58%，貼近下軌，接近超賣。
+- **訊號判斷**：新聞負面但價格接近超賣，落在評分表的「3–5 分，hold 或 avoid」區間。我選 avoid，因為費半連跌和夜盤重挫還沒止穩。你可以改判 hold，這是我的主觀判斷。
+- **恐懼貪婪指數**：55，中性。情緒 35，52 週位置 87，動能 51。
+- **與標普相關性**：0.27，只有 24 天資料（不足 30 天），參考性有限。
+- **資料時間點**：價格資料已含 10/19 的一筆，現在是 09:30 盤中，所以 10/19 的數字可能不是最終收盤價。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-20
+[cron-eco-analyze] 2026-10-20T09:00:53+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天：**2026-10-20**。其他 13 天都已有報告。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-20 | hold | 4.5 / 10 |
+
+- **新聞**：RSS 蒐集到 38 則相關新聞。其中一個 RSS 來源解析失敗（XML 格式錯誤），不過其他來源已足夠。
+- **判斷依據**：
+  - 偏多：費半終止八連黑，台積電 ADR 漲 1.84%。
+  - 偏空：台股自高點回檔近 4000 點、外資賣超，美債 10 年期殖利率 5.14%，避險基金大幅減碼科技股。
+- **0050 技術面**：RSI 40.7，MACD 柱狀體 -0.91 轉弱，布林位置 6%，貼近下軌。
+- **補充指標**：恐懼貪婪指數 60（偏貪婪）。與標普 30 日相關性僅 0.24，資料實際只有 25 筆。
+- **價格資料**：0050、00692、00878、^TWII 都已寫入報告。最新收盤是 10/19，10/20 盤中尚未收盤。
+- **無需特別標註**：今天有新聞，沒有以「價格趨勢為主」產生的日期。
+- **暫存檔**：三個暫存腳本都已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-21
+[cron-eco-analyze] 2026-10-21T09:00:47+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-21**。查缺漏只有今天，不用回溯補漏。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-21 | hold | 4.5 | 25（RSS） |
+
+**判斷依據**
+- **新聞偏負面：**
+  - 台股 20 日跌 529 點，收 46,293，回測季線。
+  - 外資連 10 賣。
+  - CoreWeave 信用疑慮和 AI 題材降溫拖累情緒。
+  - 美國制裁 5 家中企並禁用 DeepSeek，中方警告反制。
+  - 正面消息有輝達量子運算突破、PCB 五雄看好 AI 帶動產值。
+- **價格偏弱但接近超賣：**
+  - 0050 收 107.25，30 日 +1.8%，90 日 +1.5%，距 52 週高點約 -8%。
+  - RSI14 為 38，MACD 柱狀體 -1.05（動能轉弱）。
+  - 布林位置約 1%（貼近下軌）。
+  - 加權指數自高點 49,969 回落約 7%。
+- **其他指標：**
+  - 恐懼貪婪指數 60（greed）。這個分數偏高，原因是權重落在 52 週位置（87）。
+  - 與標普 25 日相關性 0.31，偏低。
+- **結論：** 新聞偏負面，但價格接近超賣，依評分標準落在中下區間，給 hold。
+- **前 12 天情緒分數：** 在 3～6.5 之間，沒有明顯轉折。
+
+**其他**
+- `pnpm collect-news` 有一個 RSS 來源 XML 解析失敗（sax 錯誤，Line 75），其餘來源正常取得 25 則。我沒有查是哪一個來源，需要的話可以再查。
+- 今天的 10-21 收盤價還沒進資料庫，價格資料最新到 10-20，所以報告以 10-20 收盤為基準。
+- 暫時腳本已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-22
+[cron-eco-analyze] 2026-10-22T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天，只有今天 2026-10-22。最多回溯 14 天內沒有其他缺漏日。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-22 | hold | 6.5 | 29 |
+
+- **新聞面偏多：** 美股受 SpaceX、美超微財報和輝達 GTC 柏林大會帶動收紅，費半漲 1.97%。台股今天開高走高，台積電漲 15 元。
+- **技術面未確認：**
+  - 0050 收 109.05，離 52 週高點 116.6 約 6.5%。
+  - RSI 為 45.2，布林位置為 18.9%。
+  - MACD 柱狀體為 -0.98，動能偏弱。
+  - 技術分數 5.53，沒有觸發降級。
+- **其他指標：**
+  - 恐懼貪婪指數約 67，屬貪婪區。這是我用情緒分數 6 估的，不是用最終的 6.5。
+  - 0050 與標普 500 的 30 日相關性為 0.313，但實際只有 24 筆資料。
+  - 近兩週情緒分數大多在 3 到 6.5 之間，今天是明顯的反彈。
+- **沒有以價格為主的補漏報告：** 今天用的是即時 RSS 新聞，不是回溯搜尋。
+
+`pnpm collect-news` 執行時有一個 RSS 來源解析失敗（XML 格式錯誤），輸出被截斷，看不出是哪一個。其他來源仍抓到 29 則，報告已寫入資料庫並讀回確認。
+
+暫時腳本 `tmp-missing-dates.ts`、`tmp-prices.ts`、`tmp-save.ts` 都已刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-23
+[cron-eco-analyze] 2026-10-23T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：2026-10-23。其餘日期沒有缺漏，過去 14 天內只缺今天。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-23 | avoid | 3.8 | 22 |
+
+- **新聞**：RSS 抓到 22 則。其中有一個來源的 XML 解析出錯（sax 報錯），但其他來源正常，最後仍存成 `data/news/2026-10-23.json`。
+- **訊號**：美股 AI 股遭拋售，費半跌近 7%，那指跌 2.6%，台指期夜盤跌約 580 點。0050 收 106.9，離 52 週高點 116.6 約 8%。RSI 37、MACD 柱狀體轉負，價位貼近布林下軌，短線偏超賣，但動能仍弱。
+- **其他指標**：恐懼貪婪指數 56（neutral）。與標普 500 的相關性是 0.347，但只有 24 筆資料可算。
+- **價格資料**：0050 的最新收盤是 10/22，今天盤中的價格還沒進來。
+- **評分取捨**：我把分數定在 3.8，訊號由 `scoreToSignal` 依分數推出，所以是 avoid。新聞重挫但價格已偏超賣，我取 3–5 區間偏低的一端。
+- **回溯補漏**：沒有日期需要回溯，所以沒有用 WebSearch，也沒有以價格趨勢為主的報告。
+- **暫存腳本**：`tmp-missing-dates.ts`、`tmp-prices.ts`、`tmp-save.ts` 都已刪除。
+
+我沒有 commit。目前有變更的檔案是 `data/eco-news.db`、`logs/eco-analyze.log` 和新增的 `data/weekly/2026-W41.json`。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-24
+[cron-eco-analyze] 2026-10-24T08:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-24**。報告已存入 SQLite，讀回驗證通過，暫時腳本已刪除。
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-10-24 | hold | 4.5 |
+
+- **缺漏日期：** 只有今天。10/24 是週六，走即時 RSS 流程（`pnpm collect-news`），共 25 則新聞，沒有走回溯搜尋的日期。
+- **RSS 錯誤：** 蒐集時有一個來源 XML 解析失敗（`sax` 報 Line 75 / Column 38）。其餘來源正常。我沒有查是哪個來源，需要的話可以再看。
+- **價格資料：** `fetch-prices` 的最新價格停在 10/22，沒有 10/23 的收盤，所以技術指標與趨勢都以 10/22 為準。
+- **0050 價格趨勢（10/22）：** 收盤 106.9，30 日 −0.74%，90 日 −0.65%。離 52 週高點約 8%。
+- **0050 技術指標（10/22）：** RSI 37、MACD 柱狀體 −1.11、布林位置 2.3%，短線偏超賣。
+- **其他數字：** 恐懼貪婪指數 58（neutral）。與標普相關性 0.35，只有 24 筆樣本。
+- **判斷依據：**
+  - 偏空：美股道瓊跌 652 點、油價破 116 美元、川普再提對伊朗動武。
+  - 偏多：AI 供應鏈利多、9 月工業生產創高。
+  - 新聞多空交雜，加上技術面短線偏超賣，所以給 hold、4.5 分。
+
+沒有任何日期因搜尋不到新聞而以價格趨勢為主，這次不需要標註。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-25
+[cron-eco-analyze] 2026-10-25T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-25**。回溯 14 天內只有今天缺報告，其餘都已存在。
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-10-25 | hold | 5.5 |
+
+- **新聞：** 用 RSS 蒐集到 15 則相關新聞，有 1 個 RSS 來源 XML 解析失敗，其餘不受影響。所有報告都有當日新聞，沒有任何一天靠「價格趨勢為主」產生。
+- **利多：** AI 供應鏈訂單、外銷訂單創高、技嘉 9 月營收創新高。
+- **利空：** 美歐日央行本週決策後 12 月可能升息、強美元與油價上漲、新台幣偏弱。
+- **價格：** 最新價格資料只到 10/23（週五）。0050 收 106.9，約在 52 週區間的 86% 位置，30 日漲跌幅 +0.09%、90 日 +0.75%。00878 逼近 52 週高點（35.27 對 35.57）。
+- **技術指標（0050）：**
+  - RSI 為 37。
+  - MACD 柱狀體為負，動能轉弱。
+  - 布林通道位置 7%，貼近下軌。
+- **恐懼貪婪指數：** 63，屬「貪婪」區間。
+- **與標普相關性：** 近 25 日為 0.342。
+- **報告內容：** 風險列出 12 月升息、強美元加外資調節、短線動能轉弱三項。
+- **儲存與清理：** 已用 `saveReport` 寫入 SQLite，並讀回確認。暫時腳本已全部刪除。
+
+`data/weekly/2026-W41.json` 在這次執行前就已存在，我沒動它。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-26
+[cron-eco-analyze] 2026-10-26T08:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-26**。報告已寫入 SQLite，讀回確認成功。暫時腳本都已刪除。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-10-26 | hold | 4.5 |
+
+- **新聞**：用 RSS 抓到 26 則。有一個 feed 的 XML 解析失敗，但其餘來源足夠，不影響分析。
+- **價格**：0050 收 106.9，30 日漲跌 +0.09%，90 日 +0.75%，位在 52 週區間約 86% 的位置。00878 接近 52 週高點。
+- **技術指標（0050）**：RSI 37.4，MACD 柱狀 -1.10（動能偏弱），布林位置約 7%（貼近下軌）。
+- **其他**：恐懼貪婪指數 59（中性）。與標普 500 的 25 日相關性為 0.342。
+- **判斷**：AI 供應鏈新聞偏正面，但美股費半重挫逾 6%，週二台股恐補跌。技術面也偏弱，所以給 hold。
+- **新聞來源**：這天用的是即時 RSS，不是回溯搜尋，所以沒有「以價格趨勢為主」的報告。
+
+0050 的 52 週低點是 46.2，高點是 116.6。這個區間很寬，可能是分割還原的資料問題。我沒有查證，但它會讓 52 週位置和恐懼貪婪指數的分量偏高。
+
+26 日是光復節休市，23 日因颱風休市，所以價格資料只更新到 10/22–10/23。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-27
+[cron-eco-analyze] 2026-10-27T08:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+只補了 1 天：2026-10-27，今天。缺漏檢查只回傳這一天，所以沒有回溯日。報告已寫入 SQLite，暫時腳本已刪除。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-10-27 | hold | 5.5 | 25 |
+
+- **新聞**：25 則來自即時 RSS。蒐集時有一個 RSS 來源解析失敗（XML 錯誤），另外幾個來源仍抓到新聞。
+- **利多**：SpaceX 與 Meta 擴大 AI 資本支出、輝達先進封裝帶動供應鏈、台積電 ADR 漲 1.4%、美股四大指數收漲。
+- **利空**：Fed 本週決議前美國 10 年債殖利率在 5%、匯豐把全球股市評級下調為中性、KOSPI 創 7 個月新低。
+- **0050 技術面**：價格資料只到 10/23，收盤 106.9，貼近布林下緣（位置 7%）。RSI 約 37，MACD 柱狀體為負，動能偏弱。
+- **恐懼貪婪指數**：63，屬貪婪區。
+- **與標普相關性**：0.317，只有 24 個交易日的資料，不到 30 日。
+- **判斷**：新聞偏多但技術面偏弱，且 Fed 結果未出，所以給 hold。
+
+沒有任何日期是以價格趨勢為主產生的，今天的新聞資料充足。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-28
+[cron-eco-analyze] 2026-10-28T09:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-28**。其他日期都沒缺漏。
+
+- **訊號**：hold，情緒分數 6.5。低於 buy 門檻 7，所以是觀望。
+- **新聞面偏正面**：
+  - 費半連三紅、台積電 ADR 漲近 3%，台指期夜盤大漲 774 點。
+  - 台股開盤漲逾 700 點。
+  - Anthropic IPO 招股書顯示運算支出龐大，輝達 VR 平台放量，鴻海訂單增加。
+- **技術面偏弱**：
+  - 0050 收 108.15，離 52 週高點 116.6 約 7%。
+  - RSI 43，MACD 柱狀為負，布林位置約 21%。
+  - 外資現貨仍賣超。
+- **其他指標**：
+  - 恐懼貪婪指數 68（greed）。
+  - 與標普 30 日相關性 0.317，但只有 24 筆資料。
+- **新聞來源**：用的是即時 RSS（26 則），沒有走 WebSearch 回溯，所以沒有「以價格趨勢為主」的報告。
+- **RSS 解析錯誤**：`pnpm collect-news` 有一個來源丟出 XML 解析錯誤，其餘來源正常蒐集。我只看到錯誤堆疊的尾段，不知道是哪個來源，也沒有追查。
+
+暫時腳本已刪除。工作目錄有 `data/eco-news.db` 與 `logs/eco-analyze.log` 的修改，還有未追蹤的 `data/news/*.json` 和 `data/weekly/2026-W41.json`，我沒有 commit。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-29
+[cron-eco-analyze] 2026-10-29T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+補齊 1 天：**2026-10-29**（今天）。報告已寫入 SQLite，寫入後重新讀回確認成功。
+
+- **訊號**：hold，sentimentScore 5.5（前一日 6.5）。
+- **新聞面**：
+  - 偏多：Fed 維持利率不變、美股連三紅、甲骨文與 Google TPU 帶動 AI 供應鏈、聯電預告成熟製程明年漲價。
+  - 偏空：台股開低失守 47000 點，昨日反彈量能僅 7221 億，被專家視為空頭反彈。另外市場押注 12 月升息機率超過 80%。
+- **0050 技術面**：收 108.5，30 日 -1.27%，90 日 +7.48%。RSI 44.5，MACD 柱狀 -0.81（動能轉弱），布林位置 26%。
+- **恐懼貪婪**：63（greed），其中 weeklyPosition 為 88。這是因為 0050 的 52 週低點只有 46.22，位置因此被墊高，這項分量可能高估。
+- **相關性**：與 ^GSPC 的相關係數為 0.351，期間 24 個交易日。
+
+**執行中的狀況**：
+- **缺漏檢查**：只有今天缺，沒有需要回溯的日期，所以沒用 WebSearch 補新聞。
+- **新聞來源**：`pnpm collect-news` 有一個 RSS 來源 XML 解析失敗，輸出只顯示 `Line: 75 / Column: 38`，我沒看到是哪個來源。其餘來源仍蒐集到 25 則，已存到 `data/news/2026-10-29.json`。
+- **暫時腳本**：已全部刪除。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-10-30
+[cron-eco-analyze] 2026-10-30T09:30:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Done. Report saved, temp scripts removed.
+
+**補齊結果**
+- 本次補齊 1 天：`2026-10-30`（缺漏檢查只回傳今天，無歷史缺漏）。
+- 2026-10-30：**avoid**，sentimentScore **3.5**。
+
+**判斷依據**
+- 新聞：Alphabet、亞馬遜、英特爾財報失望，AI 變現疑慮升溫。台股早盤重挫逾 1500 點並失守半年線，台達電跌停，日韓股同步下殺。
+- 價格：0050 收 104.15，30 日 -5.0%，90 日 +0.6%。
+- 技術面：RSI 33、MACD 柱為負、貼近布林下軌，接近超賣但動能仍弱。
+- 恐懼貪婪指數 50（neutral）。
+- 與標普 30 日相關性 0.247（24 筆樣本）。
+
+**注意事項**
+- 這天有 25 則 RSS 新聞，不是靠回溯搜尋補的，所以沒有「以價格趨勢為主」的報告。
+- `pnpm collect-news` 跑到一半有一個 RSS 來源出現 XML 解析錯誤，其餘來源正常。我沒查是哪個來源壞掉。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-02
+[cron-eco-analyze] 2026-11-02T09:00:49+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天：**2026-11-02**。其他日期都沒有缺漏。報告已寫入 SQLite，讀回驗證通過，4 個 ticker 的價格趨勢都有存入。暫時腳本也已刪除。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-11-02 | **avoid** | 3.5 | 28 |
+
+**判斷依據**
+- **新聞：** 週五美股科技股大跌。費半跌 7.2%，英特爾因財測失色暴跌近 29%，標普把 Meta 展望調為負面。台股隨之重挫 1156 點，失守半年線。
+- **價格：** 0050 的 30 日跌幅為 -4.29%，距 52 週高點約 10%。RSI 為 34.6，MACD 柱狀為負，布林位置只有 4.9%，已逼近下軌。
+- **補充指標：** 恐懼貪婪指數為 51（中性）。0050 與標普的 30 日相關性為 0.43，但只有 24 個交易日的資料。
+- **訊號取捨：** 因為已接近超賣，所以沒有給最低檔的 strong-avoid。AI 資本支出疑慮還沒解除，所以也不建議買進。
+
+**需留意的事**
+- **價格資料：** 價格資料最新只到 10/30（週五）。11/2 是週一，盤中收盤價尚未出爐，所以報告用的是上週五收盤價。
+- **RSS 失敗：** `collect-news` 時有一個 RSS 來源解析失敗，錯誤是 XML 格式不合法。其餘來源仍收到 28 則新聞，流程沒有中斷。我沒有查是哪個來源出問題。
+- **回溯補漏：** 這次沒有回溯補漏的日期，所以沒有以「價格趨勢為主」產生的報告。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-03
+[cron-eco-analyze] 2026-11-03T09:00:55+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+本次補齊 1 天：**2026-11-03**。這份報告已存入 SQLite，暫時腳本也都刪掉了。
+
+| 日期 | 訊號 | 情緒分數 | 新聞數 |
+|---|---|---|---|
+| 2026-11-03 | avoid | 3 / 10 | 26 |
+
+- **新聞面（偏空）：** 費半重挫 3.37%，創逾半年新低。台指期夜盤跌 917 點，KOSPI 開盤急挫 3.1%。Oracle、Meta、Alphabet 大舉發債，市場質疑 AI 支出能否持續。
+- **價格面（0050.TW）：**
+  - 近 30 日 -5.06%，近 90 日 +3.84%。
+  - RSI14 為 32.7，布林位置 5.7%，已接近超賣。
+  - MACD 柱狀體為負，動能轉弱。
+  - 收盤價在 52 週區間約 82% 的位置，沒有靠近低點。
+- **相關性與恐懼貪婪：** 與標普 24 日相關性 0.387。以情緒分數 3 估算，恐懼貪婪指數約 48，屬中性。這兩項只用來輔助分析，不在報告 JSON 欄位內。
+- **判斷：** 新聞偏空，價格動能也向下，所以給 avoid。技術面已接近超賣，所以只給 3 分，沒有給更低。
+
+- **新聞來源：** 全部來自 RSS，沒有用 WebSearch 回溯。因為只缺今天，沒有需要靠價格趨勢補寫的日期。
+- **RSS 解析錯誤：** 蒐集時有一個 feed 出現 XML 解析錯誤（`sax` 回報 Line 75 / Column 38 / Char `;`）。我沒有確認是哪一個來源。其餘 feed 仍取得 26 則相關新聞。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-04
+[cron-eco-analyze] 2026-11-04T10:00:01+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 6 days at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+本次只補了一天：**2026-11-04**。14 天回溯範圍內沒有其他缺漏日，temp 腳本已刪除。
+
+**2026-11-04：hold，情緒分數 5/10**
+- 新聞有 31 則，是用 RSS 抓的即時新聞，所以不需要標註「價格趨勢為主」的回溯補漏日。
+- 美股費半反彈 2.63%，台股開高，台積電回到 2,300 元以上，記憶體和 AI 財報也強。
+- 風險面是台股 11/3 重挫 1,612 點、Anthropic 算力投資疑慮、美國期中選舉的 AI 監管不確定性。
+- 價格面，0050 收 100.35：
+  - 30 日跌 6.8%，RSI 約 26（超賣），跌破布林下軌。
+  - MACD 柱狀體為負，動能仍弱。
+  - 位置在 52 週區間約 77%。
+- 技術面超賣，但趨勢未翻，所以判斷觀望分批。
+- 恐懼貪婪指數 53（neutral）。
+- 與標普 30 日相關性 0.405，但只有 23 筆資料。
+- 近期情緒是 11/2 和 11/3 都為 avoid（3.5、3.0），今天回到 5。
+
+**資料注意事項**
+- 價格資料裡 11/4 那筆只有約 6,300 萬股成交量，是盤中快照，收盤價 100.35 不是最終收盤。
+- 價格資料缺 11/3 這一筆，但台股當天有開盤，建議之後補抓。
+- `collect-news` 執行時有一個 RSS 來源出現 XML 解析錯誤，其餘來源正常。
+
+報告已寫入 SQLite，讀回確認是 `2026-11-04 hold 5`。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-05
+[cron-eco-analyze] 2026-11-05T10:00:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 5 days at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+補齊 1 天：**2026-11-05**，報告已寫入 SQLite，暫時腳本都已刪除。
+
+| 日期 | 訊號 | 情緒分數 |
+|---|---|---|
+| 2026-11-05 | avoid | 3.8 |
+
+- **新聞面**：美國期中選舉後，市場擔心 AI 資料中心管制趨嚴。費半跌 3.13%，台股一度跌逾千點，KOSPI 盤中跌近 5%。AMD 和美超微財報亮眼，但蓋不過賣壓。台灣松下湖口廠爆炸也影響高階 CCL（AI 伺服器用銅箔基板）供應。
+- **價格與技術面**：
+  - 0050 收 98.25（11/5 當天尚在盤中，收盤價可能再變），30 日跌 7.9%，90 日跌 3.6%。
+  - RSI14 約 23（超賣），MACD 柱狀體為負，價格跌破布林下軌。
+  - 技術分數約 6.9，只會對買進級訊號降級，因此訊號維持 avoid。
+- **補充指標**：恐懼貪婪指數 46（neutral）。0050 與標普 500 的 30 日相關性只有 0.079，且只有 23 個交易日的資料。
+- **新聞資料**：今天有 23 則新聞，不是搜尋不到新聞、以價格為主的報告。
+- **蒐集警告**：`pnpm collect-news` 有一個 RSS 來源解析失敗（XML 格式錯誤，錯誤訊息只顯示到 Line 75），其他來源正常，不影響這次分析。我沒有查是哪個來源出問題。
+
+訊號沒有照 `/eco-analyze` 說明單憑我的判斷，而是依 `lib/signal.ts` 的規則（`scoreToSignal` 加技術面降級）算出。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-06
+[cron-eco-analyze] 2026-11-06T09:00:25+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 4 days at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+補齊 1 天：**2026-11-06**。報告已寫入 SQLite，讀回驗證正常。暫時腳本已刪除。
+
+| 日期 | 訊號 | 分數 |
+|---|---|---|
+| 2026-11-06 | avoid | 2.5 / 10 |
+
+**判斷依據**
+- **新聞：** 蒐集到 36 則，極度負面。費半單日暴跌 12.25%，台積電 ADR 挫 10.78%，日韓股熔斷，台指期夜盤重挫 2,946 點。起因是美國期中選舉後，民主黨主張暫停興建 AI 資料中心。
+- **價格：** 價格資料只到 11/05，0050 收 97.15，30 日跌 8.95%，90 日跌 4.71%。RSI 21.8 深度超賣，MACD 柱為負，布林位置 −9%，已跌破下軌。
+- **為何不是 strong-avoid：** 技術面已嚴重超賣，有反彈空間。夜盤的大跌也還沒反映在收盤價裡，所以我不建議搶接。
+- **其他指標：** 恐懼貪婪指數 40（neutral，貼近 fear）。0050 與標普 30 日相關性 0.324，只有 23 筆資料。
+
+**注意事項**
+- 這份報告用的是即時 RSS 新聞，不是回溯搜尋，所以沒有「新聞不足」的情況。
+- `pnpm collect-news` 有一個 RSS 源解析失敗（XML 錯誤，第 75 行），不過其餘來源仍抓到 36 則。我沒查是哪個源，需要的話可以再查。
+- 11/06 當天盤中價格還沒進資料庫，11/06 的實際跌幅要等隔天更新價格才看得到。
+- 工作區還有 `data/eco-news.db`、`logs/eco-analyze.log` 的變更，和未追蹤的 `data/weekly/2026-W41.json`，我沒有提交。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過

@@ -1,0 +1,38 @@
+[check-session] 2026-11-06 midday 尚未分析
+Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback if you haven't already; for more info see https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.  This will only be shown once, but you can suppress this message in future with `new YahooFinance({ suppressNotices: ['yahooSurvey'] })`.
+[intraday] 0050.TW 93.4 (-3.86%)
+[intraday] 00692.TW 81.7 (-3.31%)
+[intraday] 00878.TW 31.98 (-3.18%)
+[intraday] ^TWII 40052.1 (-3.66%)
+[intraday] ^GSPC 7353.73 (-4.36%)
+[cron-eco-session] 2026-11-06T11:00:06+08:00 running /eco-analyze midday
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 4 days at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+盤中（midday）報告已存進 `report_snapshots` 和 `reports`，日期 2026-11-06。
+
+| 項目 | 結果 |
+|---|---|
+| 訊號 | **hold** |
+| 情緒分數 | **4 / 10** |
+| 恐懼貪婪指數 | 42（中性），是我用分數 4 試算的參考值，沒有寫進報告 |
+| 新聞數 | 本時段新增 22 則，當日累計 69 則 |
+
+**盤中價格（相對前收）：**
+- 0050 為 93.4（-3.86%）。
+- 00692 為 81.45（-3.61%）。
+- 00878 為 32（-3.12%）。
+- 加權指數約 40,060（-3.64%），早盤一度重挫 3,737 點、低見 37,837。
+- 標普 500 為 7,353.73（-4.36%）。
+
+**判斷依據：**
+- **利空：** 美國期中選舉後，市場擔心 AI 資料中心監管，費半單日暴跌約 12%。融資斷頭、處置股流動性受限，新台幣也貶破 33。
+- **支撐：** 0050 的 RSI 為 18，股價已跌破布林通道下軌，技術面極度超賣。大盤從低點被台積電拉回近 2,000 點，散戶也在大量撿 0050 零股。
+- **結論：** 超賣但政策利空未明，所以訂 hold，等金管會下午的救市措施和量價落底再看。
+- **與標普的相關性：** 近 23 個交易日的相關性只有 0.32。
+
+**需要留意：**
+- **沒有盤前快照：** 今天 DB 裡沒有 morning 快照，所以這份報告沒辦法和盤前情緒比較，`summary` 裡已註明。
+- **RSS 解析錯誤：** `collect-news` 有一個來源出現 XML 解析錯誤（`Line: 75, Column: 38`）。其餘來源正常蒐集了 22 則，我沒有追查是哪個來源。
+- **收盤報價：** `currentClose` 填的是盤中價，14:30 的 close 時段會用收盤價覆寫。
+
+暫時腳本 `tmp-midday.ts` 和 `tmp-save-midday.ts` 都已刪除。
