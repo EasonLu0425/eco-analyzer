@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
 import { runMigrations } from '@/lib/db'
-import { getPriceHistory, getPriceTrend } from '@/lib/price-store'
+import { countTradingDays, getPriceHistory, getPriceTrend } from '@/lib/price-store'
 
 function makeDb() {
   const db = new Database(':memory:')
@@ -137,5 +137,38 @@ describe('getPriceTrend', () => {
     const trend = getPriceTrend('QQQ', db, records[10].date)
 
     expect(trend).toBeNull()
+  })
+})
+
+describe('countTradingDays', () => {
+  let db: Database.Database
+
+  beforeEach(() => {
+    db = makeDb()
+  })
+
+  const rec = (date: string): PriceRecord => ({
+    date, open: 100, high: 101, low: 99, close: 100, volume: 1000,
+  })
+
+  it('returns 0 when no price rows exist in range', () => {
+    expect(countTradingDays('2026-10-01', '2026-10-31', db)).toBe(0)
+  })
+
+  it('counts distinct dates across tickers (union), not rows', () => {
+    seedPrices(db, '0050.TW', [rec('2026-10-01'), rec('2026-10-02')])
+    seedPrices(db, '^TWII', [rec('2026-10-02'), rec('2026-10-05')])
+    expect(countTradingDays('2026-10-01', '2026-10-31', db)).toBe(3)
+  })
+
+  it('respects the inclusive date range', () => {
+    seedPrices(db, '0050.TW', [rec('2026-09-30'), rec('2026-10-01'), rec('2026-10-31'), rec('2026-11-02')])
+    expect(countTradingDays('2026-10-01', '2026-10-31', db)).toBe(2)
+  })
+
+  it('ignores non-Taiwan market tickers such as ^GSPC', () => {
+    seedPrices(db, '^GSPC', [rec('2026-10-01'), rec('2026-10-02')])
+    seedPrices(db, '0050.TW', [rec('2026-10-01')])
+    expect(countTradingDays('2026-10-01', '2026-10-31', db)).toBe(1)
   })
 })

@@ -1,5 +1,22 @@
 執行台灣財經新聞蒐集與 ETF 分析。若中間有幾天沒跑到（電腦沒開機等），本流程會一次補齊所有缺漏日的報告，直到今天。
 
+用法：`/eco-analyze [morning|midday|close]`（省略 = `morning`）
+
+## 時段（session）
+
+每個交易日分三個時段各產生一份分析，後一份會參考前面時段已蒐集的新聞與報價：
+
+| session | 時間（Asia/Taipei） | 行為 |
+|---|---|---|
+| `morning` | 開盤前（08:30 起） | 原本流程：補齊缺漏日 + 今日報告 |
+| `midday` | 盤中約 11:00 | **只處理今天**，不回溯補漏；使用盤中報價 |
+| `close` | 收盤後約 14:30 | **只處理今天**，使用收盤價，產生當日最終分析 |
+
+`midday` / `close` 由 `scripts/cron-eco-session.sh` 觸發，跳過下方 Step 0.5（缺漏日判斷），`targetDate` 固定為今天（情況 A）。
+
+**儲存規則**：今天的報告一律用 `saveReportSnapshot(report, session)`（見 Step 4）。`reports` 表每天只留一筆（最新時段），
+各時段的完整分析保留在 `report_snapshots`，供日後比較盤前、盤中、收盤的情緒變化。
+
 ## Step 0 — 更新價格資料
 
 執行：
@@ -7,10 +24,16 @@
 pnpm fetch-prices
 ```
 
-這會對 0050.TW、00692.TW、00878.TW、^TWII、^GSPC 進行增量更新（首次執行抓取近一年；之後只補最新一天）。
+這會對 0050.TW、00692.TW、00878.TW、^TWII、^GSPC 進行增量更新（首次執行抓取近一年；之後會從最後一筆日期**重抓**並覆寫，確保盤中存入的未收盤資料被修正為收盤價）。
 若 `data/prices/` 目錄尚不存在或無資料，正常繼續，後續步驟以「無價格資料」處理。
 
-## Step 0.5 — 判斷缺漏日期
+**`midday` / `close`**：再執行
+```bash
+pnpm fetch-intraday --session=<session>
+```
+把當下報價存進 `intraday_prices`（cron 腳本已先跑過一次，重跑無害）。若 exit code 為 2，代表今天台股休市，回報「今日休市」並結束。
+
+## Step 0.5 — 判斷缺漏日期（僅 `morning`）
 
 寫一個暫時腳本（例如 `scripts/tmp-missing-dates.ts`）呼叫：
 
@@ -31,9 +54,10 @@ console.log(JSON.stringify(getMissingReportDates(14)))
 
 **情況 A：`targetDate` 為今天**（即時新聞，走原本流程）
 ```bash
-pnpm collect-news
+pnpm collect-news --session=<session>
 ```
-這會抓取 RSS 財經新聞並存到 `data/news/YYYY-MM-DD.json`（日期為今天）。
+這會抓取 RSS 財經新聞，**合併**（依 URL 去重）進 `data/news/YYYY-MM-DD.json`（日期為今天，台北時間），
+同時寫入 `news_items` 資料表，標記該則新聞「第一次被看到」的時段。同一天後面的時段不會覆蓋前面的新聞。
 
 **情況 B：`targetDate` 早於今天**（回溯補漏日 — RSS feed 只反映當下，抓不到過去日期的新聞）
 
@@ -50,6 +74,13 @@ pnpm collect-news
 `source` 固定填 `"web-search"`，用來與即時 RSS 蒐集的新聞區隔，方便日後追溯這份報告的新聞是回溯搜尋而來。
 
 ## Step 2 — 讀取新聞
+
+**`midday` / `close` 額外讀取**（寫暫時腳本，用完刪除）：
+- `getNewsForDate(today, session)`（`lib/news-store.ts`）：**本時段新增**的新聞，是這份分析要特別強調的新資訊
+- `getIntradayQuotes(today)`（`lib/intraday-store.ts`）：今天各時段的報價；盤中用 `price` 相對 `prevClose` 的漲跌幅，不要用 DB 裡尚未收盤的日線
+- `getReportSnapshots(today)`（`lib/report-store.ts`）：今天前面時段的分析（情緒分、訊號、摘要），用來說明「相較盤前／盤中，市場情緒有何變化」
+
+`morning` 與補漏日維持原樣，只讀 `data/news/<targetDate>.json`。
 
 讀取 `data/news/<targetDate>.json`，取得該日期的新聞列表（可能為空陣列，見上）。
 
@@ -156,7 +187,12 @@ topHeadlines 選取最重要的 5 則新聞（若不足 5 則，全部列出；�
 
 ## Step 4 — 儲存結果
 
-呼叫 `saveReport(report)` from `lib/report-store.ts`（`report.date` 設為 `targetDate`）將 Step 3 產出的報告寫入 SQLite。
+- **`targetDate` 為今天**：呼叫 `saveReportSnapshot(report, session)` from `lib/report-store.ts`
+  （`report.date` 設為 `targetDate`）。它會同時寫入 `report_snapshots`（保留各時段）與 `reports`（當天最新一筆，網頁與 API 讀這張）。
+- **回溯補漏日（早於今天）**：呼叫 `saveReport(report)`，不建立快照。
+
+`midday` / `close` 的 `summary` 需點出與前一時段的差異（例如「盤中跌幅擴大至 X%」「收盤前買盤進場」）；
+盤中報價尚未收盤時，`priceTrends[].currentClose` 填盤中價，並在 `summary` 註明「盤中價」。
 
 寫入後確認成功（無例外）。
 

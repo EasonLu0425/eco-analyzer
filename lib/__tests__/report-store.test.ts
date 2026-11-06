@@ -2,7 +2,19 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import Database from 'better-sqlite3'
 import { randomUUID } from 'crypto'
 import { runMigrations } from '@/lib/db'
-import { getMissingReportDates, saveReport } from '@/lib/report-store'
+import {
+  getLastMonth,
+  getReportByDate,
+  getReportSnapshots,
+  hasReportSnapshot,
+  saveReportSnapshot,
+  getLastWeekStart,
+  getMissingReportDates,
+  isMonthlyReportMissing,
+  isWeeklyReportMissing,
+  saveReport,
+  saveWeeklyReport,
+} from '@/lib/report-store'
 import type { AnalysisReport } from '@/types'
 
 function makeDb() {
@@ -88,5 +100,151 @@ describe('getMissingReportDates', () => {
     const missing = getMissingReportDates(14, db, '2026-07-22')
 
     expect(missing).toEqual(['2026-07-21', '2026-07-22'])
+  })
+})
+
+describe('getLastWeekStart', () => {
+  it('returns previous Monday when today is Monday', () => {
+    expect(getLastWeekStart('2026-11-02')).toBe('2026-10-26')
+  })
+
+  it('returns previous Monday when today is mid-week', () => {
+    expect(getLastWeekStart('2026-11-06')).toBe('2026-10-26')
+  })
+
+  it('returns previous Monday when today is Sunday', () => {
+    expect(getLastWeekStart('2026-11-08')).toBe('2026-10-26')
+  })
+})
+
+describe('isWeeklyReportMissing', () => {
+  let db: Database.Database
+
+  beforeEach(() => {
+    db = makeDb()
+  })
+
+  it('is false when last week has no daily reports (nothing to summarize)', () => {
+    expect(isWeeklyReportMissing('2026-11-06', db)).toBe(false)
+  })
+
+  it('is true when last week has daily reports but no weekly report', () => {
+    seedReport(db, '2026-10-28')
+    expect(isWeeklyReportMissing('2026-11-06', db)).toBe(true)
+  })
+
+  it('is false when the weekly report already exists', () => {
+    seedReport(db, '2026-10-28')
+    saveWeeklyReport(
+      {
+        id: randomUUID(),
+        weekStart: '2026-10-26',
+        weekEnd: '2026-11-01',
+        avgSentimentScore: 5,
+        dominantSignal: 'hold',
+        tradingDays: 1,
+        pricePerformance: [],
+        keyThemes: [],
+        topRisks: [],
+        weeklyInsight: 'x',
+        vsLastWeek: 'x',
+        createdAt: new Date().toISOString(),
+      },
+      db,
+    )
+    expect(isWeeklyReportMissing('2026-11-06', db)).toBe(false)
+  })
+})
+
+describe('getLastMonth', () => {
+  it('returns previous month mid-year', () => {
+    expect(getLastMonth('2026-11-06')).toBe('2026-10')
+  })
+
+  it('rolls back across the year boundary', () => {
+    expect(getLastMonth('2027-01-01')).toBe('2026-12')
+  })
+
+  it('handles the 31st of a month after a shorter month', () => {
+    expect(getLastMonth('2026-03-31')).toBe('2026-02')
+  })
+})
+
+describe('isMonthlyReportMissing', () => {
+  let db: Database.Database
+
+  beforeEach(() => {
+    db = makeDb()
+  })
+
+  it('is false when last month has no daily reports', () => {
+    expect(isMonthlyReportMissing('2026-11-01', db)).toBe(false)
+  })
+
+  it('is true when last month has daily reports but no monthly report', () => {
+    seedReport(db, '2026-10-28')
+    expect(isMonthlyReportMissing('2026-11-01', db)).toBe(true)
+  })
+
+  it('is false when the monthly report already exists', () => {
+    seedReport(db, '2026-10-28')
+    db.prepare('INSERT INTO monthly_reports (id, month, data, created_at) VALUES (?, ?, ?, ?)')
+      .run(randomUUID(), '2026-10', '{}', new Date().toISOString())
+    expect(isMonthlyReportMissing('2026-11-01', db)).toBe(false)
+  })
+})
+
+describe('report snapshots', () => {
+  let db: Database.Database
+
+  beforeEach(() => {
+    db = makeDb()
+  })
+
+  const makeReport = (date: string, score: number): AnalysisReport => ({
+    id: randomUUID(),
+    date,
+    sentimentScore: score,
+    signal: 'hold',
+    summary: `score ${score}`,
+    risks: [],
+    topHeadlines: [],
+    newsCount: 0,
+    createdAt: new Date().toISOString(),
+  })
+
+  it('stores a snapshot and also makes it the canonical report for the date', () => {
+    saveReportSnapshot(makeReport('2026-11-06', 4), 'morning', db)
+    expect(getReportByDate('2026-11-06', db)?.sentimentScore).toBe(4)
+    expect(hasReportSnapshot('2026-11-06', 'morning', db)).toBe(true)
+  })
+
+  it('keeps every session in history while reports holds only the latest', () => {
+    saveReportSnapshot(makeReport('2026-11-06', 4), 'morning', db)
+    saveReportSnapshot(makeReport('2026-11-06', 3), 'midday', db)
+    saveReportSnapshot(makeReport('2026-11-06', 2), 'close', db)
+
+    expect(getReportByDate('2026-11-06', db)?.sentimentScore).toBe(2)
+    const snaps = getReportSnapshots('2026-11-06', db)
+    expect(snaps.map(s => [s.session, s.report.sentimentScore])).toEqual([
+      ['morning', 4],
+      ['midday', 3],
+      ['close', 2],
+    ])
+    const { count } = db.prepare('SELECT COUNT(*) as count FROM reports').get() as { count: number }
+    expect(count).toBe(1)
+  })
+
+  it('replaces the same session snapshot when re-run', () => {
+    saveReportSnapshot(makeReport('2026-11-06', 4), 'midday', db)
+    saveReportSnapshot(makeReport('2026-11-06', 5), 'midday', db)
+    expect(getReportSnapshots('2026-11-06', db)).toHaveLength(1)
+    expect(getReportSnapshots('2026-11-06', db)[0].report.sentimentScore).toBe(5)
+  })
+
+  it('reports false for a session that has no snapshot', () => {
+    saveReportSnapshot(makeReport('2026-11-06', 4), 'morning', db)
+    expect(hasReportSnapshot('2026-11-06', 'close', db)).toBe(false)
+    expect(hasReportSnapshot('2026-11-05', 'morning', db)).toBe(false)
   })
 })

@@ -2,6 +2,27 @@ import type Database from 'better-sqlite3'
 import type { PriceRecord, PriceTrend } from '@/types'
 import { getDb } from './db'
 
+/** Tickers that define Taiwan market trading days (excludes ^GSPC, which follows the US calendar). */
+const TW_MARKET_TICKERS = ['0050.TW', '00692.TW', '00878.TW', '^TWII'] as const
+
+/**
+ * Number of distinct dates in [startDate, endDate] (inclusive) that have price rows
+ * for any Taiwan market ticker. This is the definition of `tradingDays` in weekly/monthly reports.
+ */
+export function countTradingDays(
+  startDate: string,
+  endDate: string,
+  db?: Database.Database,
+): number {
+  const d = db ?? getDb()
+  const placeholders = TW_MARKET_TICKERS.map(() => '?').join(',')
+  const row = d.prepare(
+    `SELECT COUNT(DISTINCT date) AS count FROM prices
+     WHERE date >= ? AND date <= ? AND ticker IN (${placeholders})`,
+  ).get(startDate, endDate, ...TW_MARKET_TICKERS) as { count: number }
+  return row.count
+}
+
 export function getPriceHistory(
   ticker: string,
   days: number,

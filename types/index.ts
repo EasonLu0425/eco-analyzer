@@ -8,6 +8,28 @@ export interface NewsItem {
   source: string
 }
 
+/** morning = 開盤前 (08:30), midday = 盤中 (~11:00), close = 收盤後 (~14:00) */
+export type ReportSession = 'morning' | 'midday' | 'close'
+
+export const REPORT_SESSIONS: readonly ReportSession[] = ['morning', 'midday', 'close']
+
+export interface StoredNewsItem extends NewsItem {
+  collectedDate: string      // YYYY-MM-DD (Asia/Taipei) when first seen
+  session: ReportSession     // session in which it was first seen
+  collectedAt: string        // ISO-8601
+}
+
+export interface IntradayQuote {
+  ticker: string
+  price: number
+  open: number
+  high: number
+  low: number
+  volume: number
+  prevClose: number
+  marketTime: string         // ISO-8601 of the quote's last trade time
+}
+
 export interface HeadlineDetail {
   title: string
   summary: string

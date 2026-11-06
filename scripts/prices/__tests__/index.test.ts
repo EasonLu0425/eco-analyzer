@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import Database from 'better-sqlite3'
 import type { PriceRecord } from '@/types'
 import { runMigrations } from '@/lib/db'
@@ -8,7 +8,7 @@ vi.mock('../fetcher', () => ({
 }))
 
 import { fetchPriceData } from '../fetcher'
-import { updatePrices, TICKERS } from '../index'
+import { backfillPrices, updatePrices, HISTORY_YEARS, TICKERS } from '../index'
 import { getMeta } from '@/lib/meta-store'
 
 const mockFetch = vi.mocked(fetchPriceData)
@@ -42,7 +42,7 @@ describe('updatePrices', () => {
     db = makeDb()
   })
 
-  it('bootstrap: fetches ~365 days when no rows exist for ticker', async () => {
+  it('bootstrap: fetches the full history window (~10 years) when no rows exist for ticker', async () => {
     mockFetch.mockResolvedValue([makeRecord('2026-06-09')])
 
     await updatePrices(db)
@@ -50,55 +50,61 @@ describe('updatePrices', () => {
     expect(mockFetch).toHaveBeenCalledTimes(TICKERS.length)
     const [, fromDate] = mockFetch.mock.calls[0] as [string, Date, Date]
     const daysDiff = Math.round((Date.now() - fromDate.getTime()) / 86400000)
-    expect(daysDiff).toBeGreaterThanOrEqual(360)
-    expect(daysDiff).toBeLessThanOrEqual(370)
+    expect(daysDiff).toBeGreaterThanOrEqual(HISTORY_YEARS * 365 - 5)
+    expect(daysDiff).toBeLessThanOrEqual(HISTORY_YEARS * 365 + 5)
   })
 
-  it('incremental: fetches only from lastDate+1 when rows already exist', async () => {
+  const seedRow = (ticker: string, date: string, close: number) =>
     db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-      '00662.TW', '2026-06-07', 99, 101, 98, 100, 500000,
-    )
-    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-      '00662.TW', '2026-06-08', 100, 102, 99, 101, 500000,
+      ticker, date, close - 1, close + 1, close - 2, close, 500000,
     )
 
-    mockFetch.mockResolvedValue([makeRecord('2026-06-09')])
+  it('incremental: re-fetches from the last stored date (inclusive) so a partial bar gets corrected', async () => {
+    seedRow('0050.TW', '2026-06-07', 100)
+    seedRow('0050.TW', '2026-06-08', 101)
+
+    mockFetch.mockResolvedValue([makeRecord('2026-06-08', 103), makeRecord('2026-06-09', 104)])
 
     await updatePrices(db)
 
-    const [, fromDate] = mockFetch.mock.calls[0] as [string, Date, Date]
-    expect(fromDate.toISOString().slice(0, 10)).toBe('2026-06-09')
+    const call = mockFetch.mock.calls.find(c => c[0] === '0050.TW') as [string, Date, Date]
+    expect(call[1].toISOString().slice(0, 10)).toBe('2026-06-08')
+  })
+
+  it('overwrites an in-progress bar with the final close from a later run', async () => {
+    seedRow('0050.TW', '2026-06-08', 101)
+
+    mockFetch.mockResolvedValue([makeRecord('2026-06-08', 103)])
+
+    await updatePrices(db)
+
+    const rows = getRows(db, '0050.TW')
+    expect(rows).toHaveLength(1)
+    expect(rows[0].close).toBe(103)
   })
 
   it('inserts new records into the database', async () => {
-    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-      '00662.TW', '2026-06-07', 99, 101, 98, 100, 500000,
-    )
-    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-      '00662.TW', '2026-06-08', 100, 102, 99, 101, 500000,
-    )
+    seedRow('0050.TW', '2026-06-07', 100)
+    seedRow('0050.TW', '2026-06-08', 101)
 
     mockFetch.mockResolvedValue([makeRecord('2026-06-09', 102)])
 
     await updatePrices(db)
 
-    const rows = getRows(db, '00662.TW')
+    const rows = getRows(db, '0050.TW')
     expect(rows).toHaveLength(3)
     expect(rows[2].date).toBe('2026-06-09')
     expect(rows[2].close).toBe(102)
   })
 
   it('skips insert when fetchPriceData returns empty', async () => {
-    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-      '00662.TW', '2026-06-09', 99, 101, 98, 100, 500000,
-    )
+    seedRow('0050.TW', '2026-06-09', 100)
 
     mockFetch.mockResolvedValue([])
 
     await updatePrices(db)
 
-    const rows = getRows(db, '00662.TW')
-    expect(rows).toHaveLength(1)
+    expect(getRows(db, '0050.TW')).toHaveLength(1)
   })
 
   it('continues with other tickers when one fails', async () => {
@@ -120,5 +126,86 @@ describe('updatePrices', () => {
     const fetchedAt = getMeta('prices_fetched_at', db)
     expect(fetchedAt).not.toBeNull()
     expect(Number.isNaN(new Date(fetchedAt as string).getTime())).toBe(false)
+  })
+})
+
+describe('backfillPrices', () => {
+  let db: Database.Database
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-11-06T06:00:00.000Z'))
+    db = makeDb()
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  const seedRow = (ticker: string, date: string, close: number) =>
+    db.prepare('INSERT INTO prices (ticker, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+      ticker, date, close - 1, close + 1, close - 2, close, 500000,
+    )
+
+  it('fetches the missing older range up to the earliest stored date', async () => {
+    seedRow('0050.TW', '2025-06-10', 90)
+    mockFetch.mockResolvedValue([])
+
+    await backfillPrices(10, db)
+
+    const call = mockFetch.mock.calls.find(c => c[0] === '0050.TW') as [string, Date, Date]
+    expect(call[1].toISOString().slice(0, 10)).toBe('2016-11-06')
+    expect(call[2].toISOString().slice(0, 10)).toBe('2025-06-10')
+  })
+
+  it('fetches the whole window when a ticker has no rows yet', async () => {
+    mockFetch.mockResolvedValue([])
+
+    await backfillPrices(10, db)
+
+    const call = mockFetch.mock.calls.find(c => c[0] === '^TWII') as [string, Date, Date]
+    expect(call[1].toISOString().slice(0, 10)).toBe('2016-11-06')
+    expect(call[2].toISOString().slice(0, 10)).toBe('2026-11-06')
+  })
+
+  it('skips a ticker whose history already reaches the target', async () => {
+    seedRow('0050.TW', '2016-11-08', 50)
+    mockFetch.mockResolvedValue([])
+
+    await backfillPrices(10, db)
+
+    expect(mockFetch.mock.calls.some(c => c[0] === '0050.TW')).toBe(false)
+  })
+
+  it('never overwrites rows that already exist', async () => {
+    seedRow('0050.TW', '2025-06-10', 90)
+    mockFetch.mockImplementation(async ticker =>
+      ticker === '0050.TW' ? [makeRecord('2025-06-10', 999), makeRecord('2025-06-09', 88)] : [],
+    )
+
+    await backfillPrices(10, db)
+
+    const rows = getRows(db, '0050.TW')
+    expect(rows.map(r => [r.date, r.close])).toEqual([['2025-06-09', 88], ['2025-06-10', 90]])
+  })
+
+  it('returns the number of rows inserted per ticker', async () => {
+    seedRow('0050.TW', '2025-06-10', 90)
+    mockFetch.mockImplementation(async ticker =>
+      ticker === '0050.TW' ? [makeRecord('2025-06-09'), makeRecord('2025-06-06'), makeRecord('2025-06-10')] : [],
+    )
+
+    const result = await backfillPrices(10, db)
+
+    expect(result['0050.TW']).toBe(2)
+    expect(result['^TWII']).toBe(0)
+  })
+
+  it('continues with other tickers when one fails', async () => {
+    mockFetch.mockRejectedValueOnce(new Error('rate limited')).mockResolvedValue([])
+
+    await expect(backfillPrices(10, db)).resolves.toBeDefined()
+    expect(mockFetch).toHaveBeenCalledTimes(TICKERS.length)
   })
 })

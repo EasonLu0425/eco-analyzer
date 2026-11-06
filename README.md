@@ -81,6 +81,22 @@ pnpm scheduler  # 啟動排程，每日 08:30 自動執行完整 pipeline
 
 pipeline 流程：`蒐集新聞 → 更新 ETF 價格 → Claude API 分析 → 寫入 SQLite`
 
+**日內三時段（crontab，Asia/Taipei）**：每個交易日分析三次，後者參考前者蒐集的新聞與報價
+- `morning` 開盤前 08:30 起：原有流程（`cron-eco-analyze.sh`，含補漏日）
+- `midday` 盤中 11:00（重試 11:30、12:00）、`close` 收盤後 14:30（重試 15:30、17:00）：`cron-eco-session.sh <session>`
+- 先存報價、判斷當天台股是否開市（休市就不呼叫 Claude），再執行 `/eco-analyze <session>`
+- 資料表：`news_items`（依 URL 去重並記錄首次出現時段）、`intraday_prices`（各時段報價）、
+  `report_snapshots`（各時段完整分析）；`reports` 仍每天一筆（最新時段），網頁與 API 不受影響
+- 所有排程共用 `flock /tmp/eco-news.lock`，避免兩個 Claude 同時跑；log 在 `logs/eco-session.log`
+
+**週報／月報排程（crontab）**：
+- 週報：每週一 09:15 / 12:15 / 15:15 / 18:15 / 21:15 執行 `scripts/cron-eco-weekly.sh`
+- 月報：每月 1 日同樣時段執行 `scripts/cron-eco-monthly.sh`
+- 各自先由 `check-missing-weekly.ts` / `check-missing-monthly.ts` 檢查「上週（月）有日報但無報告」才呼叫
+  `claude -p "/eco-weekly"` / `"/eco-monthly"`，已產生則略過；當天重複時段只是補跑保險。
+- 若當天整天沒開機就會錯過，需手動執行 `/eco-weekly` 或 `/eco-monthly`。
+- log 在 `logs/eco-weekly.log`、`logs/eco-monthly.log`。
+
 ### 其他指令
 
 ```bash

@@ -25,7 +25,8 @@
 
 - `avgSentimentScore`：所有日報 sentimentScore 的平均（四捨五入 2 位）
 - `dominantSignal`：出現最多的 signal（同頻取較看多者）
-- `tradingDays`：有日報的天數
+- `tradingDays`：期間內有價格資料的交易日數（`countTradingDays(weekStart, weekEnd)` from `lib/price-store.ts`，
+  以 0050/00692/00878/^TWII 任一有價格的日期聯集計算；不含週末、休市日，也不看日報數量）
 - `pricePerformance`：每個 ticker 的週漲跌幅、週高低點
 - `topRisks`：所有日報 risks 去重後取前 5 條
 - `keyThemes`：從 summary 中萃取 3～5 個關鍵主題詞（如「AI算力」、「Fed升息」）
@@ -43,6 +44,10 @@ vsLastWeek: 與上週比較的一句話總結（如有上週資料，否則省�
 
 產生符合 `WeeklyReport` 型別的 JSON，儲存至：
 `data/weekly/YYYY-WXX.json`（如 `2026-W24.json`，依 ISO 週數）
+
+**同時寫入 SQLite**（儀表板與排程 gate `scripts/check-missing-weekly.ts` 都讀 DB，漏寫會導致排程重複執行）：
+`weekly_reports(id, week_start, data, created_at)`，`INSERT OR REPLACE`，`data` 為整份 JSON 字串
+（可用 `lib/report-store.ts` 的 `saveWeeklyReport`）。
 
 ```json
 {

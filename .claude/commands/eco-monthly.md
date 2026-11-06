@@ -28,7 +28,8 @@
 - `avgSentimentScore`：所有日報 sentimentScore 平均（四捨五入 2 位）
 - `dominantSignal`：出現最多的 signal
 - `sentimentTrend`：按時間序列比較前半月與後半月平均，差距 > 0.5 → improving/declining，否則 stable
-- `tradingDays`：有日報的天數
+- `tradingDays`：期間內有價格資料的交易日數（`countTradingDays(monthStart, monthEnd)` from `lib/price-store.ts`，
+  以 0050/00692/00878/^TWII 任一有價格的日期聯集計算；不含週末、休市日，也不看日報數量）
 - `pricePerformance`：每個 ticker 的月漲跌幅、月高低點
 - `topRisks`：所有日報 risks 去重後取前 5 條
 - `keyEvents`：從週報 weeklyInsight 中萃取 3～5 個本月重大事件（一句話描述）
@@ -47,6 +48,10 @@ investmentOutlook: 下個月的投資展望，包含具體的 ETF 操作建議�
 
 產生符合 `MonthlyReport` 型別的 JSON，儲存至：
 `data/monthly/YYYY-MM.json`（如 `data/monthly/2026-05.json`）
+
+**同時寫入 SQLite**（排程 gate `scripts/check-missing-monthly.ts` 讀 DB，漏寫會導致重複執行）：
+`monthly_reports(id, month, data, created_at)`，`INSERT OR REPLACE`，`data` 為整份 JSON 字串
+（可用 `lib/report-store.ts` 的 `saveMonthlyReport`）。
 
 ```json
 {

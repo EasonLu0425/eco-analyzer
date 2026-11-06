@@ -1,5 +1,5 @@
 import YahooFinance from 'yahoo-finance2'
-import type { PriceRecord } from '@/types'
+import type { IntradayQuote, PriceRecord } from '@/types'
 
 const yf = new YahooFinance({ suppressNotices: ['ripHistorical'] })
 
@@ -25,4 +25,22 @@ export async function fetchPriceData(
       volume: q.volume ?? 0,
     }))
     .sort((a, b) => a.date.localeCompare(b.date))
+}
+
+/** Latest (possibly mid-session) quote. Returns null when Yahoo has no market price. */
+export async function fetchQuote(ticker: string): Promise<IntradayQuote | null> {
+  const q = await yf.quote(ticker)
+  if (!q || q.regularMarketPrice == null) return null
+
+  const price = q.regularMarketPrice
+  return {
+    ticker,
+    price,
+    open: q.regularMarketOpen ?? price,
+    high: q.regularMarketDayHigh ?? price,
+    low: q.regularMarketDayLow ?? price,
+    volume: q.regularMarketVolume ?? 0,
+    prevClose: q.regularMarketPreviousClose ?? price,
+    marketTime: q.regularMarketTime ? new Date(q.regularMarketTime).toISOString() : '',
+  }
 }

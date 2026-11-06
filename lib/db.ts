@@ -59,6 +59,41 @@ export function runMigrations(db: Database.Database): void {
     );
     CREATE INDEX IF NOT EXISTS idx_monthly_month ON monthly_reports(month DESC);
 
+    CREATE TABLE IF NOT EXISTS news_items (
+      url            TEXT PRIMARY KEY,
+      title          TEXT NOT NULL,
+      description    TEXT NOT NULL,
+      published_at   TEXT NOT NULL,
+      source         TEXT NOT NULL,
+      collected_date TEXT NOT NULL,
+      session        TEXT NOT NULL,
+      collected_at   TEXT NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_news_collected_date ON news_items(collected_date, session);
+
+    CREATE TABLE IF NOT EXISTS intraday_prices (
+      ticker      TEXT NOT NULL,
+      date        TEXT NOT NULL,
+      session     TEXT NOT NULL,
+      captured_at TEXT NOT NULL,
+      price       REAL NOT NULL,
+      open        REAL,
+      high        REAL,
+      low         REAL,
+      volume      INTEGER,
+      prev_close  REAL,
+      market_time TEXT,
+      PRIMARY KEY (ticker, date, session)
+    );
+
+    CREATE TABLE IF NOT EXISTS report_snapshots (
+      date       TEXT NOT NULL,
+      session    TEXT NOT NULL,
+      data       TEXT NOT NULL,
+      created_at TEXT NOT NULL,
+      PRIMARY KEY (date, session)
+    );
+
     CREATE TABLE IF NOT EXISTS meta (
       key   TEXT PRIMARY KEY,
       value TEXT NOT NULL

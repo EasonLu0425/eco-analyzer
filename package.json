@@ -11,6 +11,8 @@
     "analyze": "tsx scripts/scheduler.ts",
     "collect-news": "tsx scripts/collect-news.ts",
     "fetch-prices": "tsx scripts/fetch-prices.ts",
+    "fetch-intraday": "tsx scripts/fetch-intraday.ts",
+    "backfill-prices": "tsx scripts/backfill-prices.ts",
     "dev:db": "tsx scripts/scheduler.ts",
     "test": "vitest run",
     "test:watch": "vitest",
