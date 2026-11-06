@@ -45,13 +45,15 @@ export async function collectNews(): Promise<NewsItem[]> {
   )
 
   const all: NewsItem[] = []
-  for (const result of results) {
+  results.forEach((result, i) => {
     if (result.status === 'fulfilled') {
       all.push(...result.value)
     } else {
-      console.error('[rss] fetch failed:', result.reason)
+      const { name, url } = RSS_SOURCES[i]
+      const reason = result.reason instanceof Error ? result.reason.message : String(result.reason)
+      console.error(`[rss] fetch failed: ${name} (${url}): ${reason}`)
     }
-  }
+  })
 
   const relevant = all.filter(item => isRelevant(item.title, item.description))
 
