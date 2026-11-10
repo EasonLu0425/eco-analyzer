@@ -59,6 +59,12 @@ pnpm collect-news --session=<session>
 這會抓取 RSS 財經新聞，**合併**（依 URL 去重）進 `data/news/YYYY-MM-DD.json`（日期為今天，台北時間），
 同時寫入 `news_items` 資料表，標記該則新聞「第一次被看到」的時段。同一天後面的時段不會覆蓋前面的新聞。
 
+**新聞時效（程式強制，`lib/news-freshness.ts`）**：每個時段只收「發佈時間晚於上一次蒐集」的新聞，
+三個時窗首尾相接、互不重疊：`morning` = 上一個交易日最後一次蒐集之後（週一會含週末）、
+`midday` = 今天 morning 蒐集之後、`close` = 今天 midday 蒐集之後。
+發佈時間早於時窗起點、晚於現在（未來時間）或無法解析的新聞一律丟棄，log 會印出保留／排除數量。
+各時段蒐集時間存在 `meta` 表（`news_run_at:<date>:<session>`）。若 log 顯示本時段保留 0 則，如實回報「本時段無新新聞」，**不可**拿前一時段的新聞充數。
+
 **情況 B：`targetDate` 早於今天**（回溯補漏日 — RSS feed 只反映當下，抓不到過去日期的新聞）
 
 用 `WebSearch` 搜尋 `targetDate` 當天的台灣財經/科技股新聞（例如搜尋「台股 大盤 收盤 <targetDate>」「0050 ETF <targetDate>」「台積電 <targetDate> 新聞」等關鍵字），從搜尋結果整理出當天最相關的財經新聞標題與簡短描述（盡量 5–10 則，若確實搜尋不到任何相關結果，允許為空陣列，繼續往下走，不可因找不到新聞而跳過整個日期）。
@@ -80,7 +86,16 @@ pnpm collect-news --session=<session>
 - `getIntradayQuotes(today)`（`lib/intraday-store.ts`）：今天各時段的報價；盤中用 `price` 相對 `prevClose` 的漲跌幅，不要用 DB 裡尚未收盤的日線
 - `getReportSnapshots(today)`（`lib/report-store.ts`）：今天前面時段的分析（情緒分、訊號、摘要），用來說明「相較盤前／盤中，市場情緒有何變化」
 
-`morning` 與補漏日維持原樣，只讀 `data/news/<targetDate>.json`。
+**時效規則（`midday` / `close` 必守）**：
+- `topHeadlines`、`summary` 提到的「新消息」只能來自 `getNewsForDate(today, session)` 這批本時段新聞，
+  不可把早盤或盤中已經分析過的頭條再當新聞重複列出；前面時段的事件只能在 `summary` 中當作「背景／延續」一句帶過，並明講是先前已知。
+- 本時段新聞為 0 則時：`topHeadlines` 設為空陣列，`newsCount` 為 0，`summary` 註明「本時段無新增新聞」，判斷只依報價與前一時段分析。
+- 引用任何新聞時，要確認它的 `publishedAt` 晚於上一時段蒐集時間；過時的資訊不得當成當下的市場反應。
+
+`morning` 讀 `getNewsForDate(today, 'morning')`（與 `data/news/<today>.json` 中屬於 morning 的部分一致）；
+補漏日（早於今天）維持原樣，只讀 `data/news/<targetDate>.json`。
+
+網頁日報會把當天三個時段各自蒐集的新聞全部列出（分時段、標註發佈時間與來源）。
 
 讀取 `data/news/<targetDate>.json`，取得該日期的新聞列表（可能為空陣列，見上）。
 

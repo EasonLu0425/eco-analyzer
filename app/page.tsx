@@ -14,6 +14,8 @@ import { computeIndicators } from '@/lib/indicators'
 import { computeCorrelation } from '@/lib/correlation'
 import { getPriceHistory } from '@/lib/price-store'
 import { getMeta } from '@/lib/meta-store'
+import { getNewsForDate } from '@/lib/news-store'
+import { SessionNewsPanel } from '@/components/dashboard/SessionNewsPanel'
 import type { AnalysisReport } from '@/types'
 
 async function getLatestReport(): Promise<AnalysisReport | null> {
@@ -89,6 +91,12 @@ async function DashboardContent() {
           <p className="font-mono text-xs text-ghost mb-4">風險因素</p>
           <RiskList risks={report.risks} />
         </div>
+      </div>
+
+      <hr />
+      <div className="py-6">
+        <p className="font-mono text-xs text-ghost mb-4">分時段新聞（早盤 / 盤中 / 收盤，各時段只收上一時段之後發佈的新聞）</p>
+        <SessionNewsPanel news={getNewsForDate(report.date)} />
       </div>
 
       {hasPrices && (

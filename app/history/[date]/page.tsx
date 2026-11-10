@@ -6,6 +6,8 @@ import { Separator } from '@/components/ui/separator'
 import { SignalCard } from '@/components/dashboard/SignalCard'
 import { SentimentMeter } from '@/components/dashboard/SentimentMeter'
 import { HeadlineList } from '@/components/dashboard/HeadlineList'
+import { SessionNewsPanel } from '@/components/dashboard/SessionNewsPanel'
+import { getNewsForDate } from '@/lib/news-store'
 import type { AnalysisReport } from '@/types'
 
 async function getReport(date: string): Promise<AnalysisReport | null> {
@@ -57,6 +59,13 @@ export default async function ReportPage({ params }: { params: Promise<{ date: s
           </CardContent>
         </Card>
       </div>
+
+      <Card className="bg-[#0C1221] border-white/[0.06]">
+        <CardHeader className="pb-3"><CardTitle className="text-base text-slate-200">分時段新聞</CardTitle></CardHeader>
+        <CardContent>
+          <SessionNewsPanel news={getNewsForDate(report.date)} />
+        </CardContent>
+      </Card>
 
       <Card className="bg-[#0C1221] border-white/[0.06]">
         <CardHeader className="pb-3"><CardTitle className="text-base text-slate-200">風險因素</CardTitle></CardHeader>
