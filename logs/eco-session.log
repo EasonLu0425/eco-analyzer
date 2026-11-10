@@ -36,3 +36,133 @@ Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 4 days at the e
 - **收盤報價：** `currentClose` 填的是盤中價，14:30 的 close 時段會用收盤價覆寫。
 
 暫時腳本 `tmp-midday.ts` 和 `tmp-save-midday.ts` 都已刪除。
+[check-session] 2026-11-06 midday 已有分析，略過
+[check-session] 2026-11-06 midday 已有分析，略過
+[check-session] 2026-11-06 close 尚未分析
+Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback if you haven't already; for more info see https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.  This will only be shown once, but you can suppress this message in future with `new YahooFinance({ suppressNotices: ['yahooSurvey'] })`.
+[intraday] 0050.TW 92.5 (-4.79%)
+[intraday] 00692.TW 80.6 (-4.62%)
+[intraday] 00878.TW 31.99 (-3.15%)
+[intraday] ^TWII 39701.64 (-7.56%)
+[intraday] ^GSPC 7353.73 (-4.36%)
+[cron-eco-session] 2026-11-06T14:30:05+08:00 running /eco-analyze close
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 4 days at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+2026-11-06 的 `close` 報告已存好，DB 已寫入且沒有例外。`close` 只處理今天，所以沒有補漏日。
+
+| 項目 | 結果 |
+|---|---|
+| 訊號 / 分數 | **hold / 4.3**（盤中 `midday` 是 hold / 4.0） |
+| 大盤 | ^TWII 收 39,701.64，**−4.51%**，早盤一度崩 3,737 點（低 37,837） |
+| ETF 收盤 | 0050 92.5（−4.79%）、00692 80.6（−4.62%）、00878 31.99（−3.15%） |
+| 技術面 | 0050 RSI 17.4，布林位置 −13%（跌破下軌），MACD 柱狀為負 |
+| 新聞 | 今日共 43 則，其中收盤時段新增 21 則 |
+
+**判斷：**
+- **為什麼是 hold：** 技術面極度超賣，但政策利空未明、質押與融資斷頭風險還在，所以不給 buy。
+- **跟盤中比：** 尾盤抄底買盤進場，政院宣示護盤，跌幅比盤中收斂。
+- **風險：** AI 資料中心監管、槓桿與質押賣壓、日韓與美股連動。
+- **與恐慌指數的關係：** 我另外算了恐懼貪婪指數，約 43（中性，這是粗算），報告 JSON 裡沒有這個欄位。
+- **相關性：** 0050 與標普 30 日相關性是 0.324，只有 23 筆資料。
+
+**注意事項：**
+1. **`^TWII` 的 `prevClose` 有誤：** `intraday_prices` 裡 close 時段的 `prevClose` 是 42948.9，算出來 −7.56%，但新聞確認實際跌 1,873.08 點（−4.51%）。我在報告裡用 −4.51%，來源 `fetch-intraday` 還沒修。
+2. **RSS 來源解析失敗：** 有一個 RSS 來源出現 `Invalid character in tag name`（第 75 行），其他來源正常，22 則相關新聞仍蒐集到了。
+3. **新聞重複：** 同一則「幣安被假面試攻破」在收盤新增裡出現兩次。
+4. **52 週低點異常：** 0050 的 52 週低點 41.875 看起來像分割調整後的怪值，會影響 52 週位置的計算，我沒處理。
+
+暫時腳本已刪除。工作樹改動只有 `data/eco-news.db`、`data/news/2026-11-06.json` 和兩個 log，我沒有 commit。
+[check-session] 2026-11-06 close 已有分析，略過
+[check-session] 2026-11-06 close 已有分析，略過
+[check-session] 2026-11-09 midday 尚未分析
+Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback if you haven't already; for more info see https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.  This will only be shown once, but you can suppress this message in future with `new YahooFinance({ suppressNotices: ['yahooSurvey'] })`.
+[intraday] 0050.TW 98.55 (+6.54%)
+[intraday] 00692.TW 85.5 (+6.08%)
+[intraday] 00878.TW 33.13 (+3.56%)
+[intraday] ^TWII 42129 (+6.11%)
+[intraday] ^GSPC 7376.86 (+0.31%)
+[cron-eco-session] 2026-11-09T11:00:06+08:00 running /eco-analyze midday
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 1 day at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+Midday 報告已存入（`report_snapshots` 與 `reports`），暫時腳本已刪。
+
+**2026-11-09 midday：hold，情緒分 5.5（早盤 4.8）**
+
+| 標的 | 盤中價 | 漲跌 |
+|---|---|---|
+| 加權指數 | 42,156 | +6.2% |
+| 0050 | 98.5 | +6.5% |
+| 00692 | 85.5 | +6.1% |
+| 00878 | 33.13 | +3.6% |
+
+- **與早盤的差異：** 早盤只漲約 1,100 點，現在擴大到約 2,450 點。國安基金進場加上台積電漲逾 7%，帶動軋空。
+- **為什麼仍是 hold：** 0050 月線仍跌 9.7%，RSI 只回到 35（早盤 17），MACD 仍為負。
+- **主要風險：** 黃仁勳案的調查還沒結束，輝達盤前一度跌 3.5%。另外，護盤買盤退場後可能出現追價賣壓。
+- **其他指標：** 恐懼貪婪指數 52（中性）。與標普的 30 日相關性只有 0.24，但只有 23 筆資料。
+- **新聞量：** 本時段新增 29 則，當日累計 83 則。
+
+這次沒有補漏日，因為 midday 只處理今天。
+[check-session] 2026-11-09 midday 已有分析，略過
+[check-session] 2026-11-09 midday 已有分析，略過
+[check-session] 2026-11-09 close 尚未分析
+Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback if you haven't already; for more info see https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.  This will only be shown once, but you can suppress this message in future with `new YahooFinance({ suppressNotices: ['yahooSurvey'] })`.
+[intraday] 0050.TW 97.45 (+5.35%)
+[intraday] 00692.TW 84.7 (+5.09%)
+[intraday] 00878.TW 32.77 (+2.44%)
+[intraday] ^TWII 41661.7 (+4.94%)
+[intraday] ^GSPC 7376.86 (+0.31%)
+[cron-eco-session] 2026-11-09T14:30:05+08:00 running /eco-analyze close
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in ends between 2026-11-10 and 2026-11-13 (in 1 day at the earliest). Renewing it does not move those dates. Run claude auth login before then, or use claude setup-token for unattended jobs.
+收盤報告（2026-11-09）已存入 `report_snapshots` 和 `reports`，暫時腳本已刪除。
+
+**今日三個時段**
+
+| 時段 | 分數 | 訊號 |
+|---|---|---|
+| 盤前 | 4.8 | hold |
+| 盤中 | 5.5 | hold |
+| 收盤 | 5.6 | hold |
+
+**收盤要點**
+- **大盤與 0050**：加權指數收 41,661.70，漲 1,960 點（+4.94%），為史上第二大漲點。0050 收 97.45（+5.35%）。
+- **相較盤中**：盤中加權漲 6.2%、0050 漲 6.5%，收盤都回吐一部分。加權從高點 42,349 回落，尾盤追價力道轉弱。
+- **技術面**：0050 RSI 為 32.8，仍偏弱；MACD 柱狀體為負。30 日跌幅 -10.7%，月線下降趨勢未扭轉。
+- **利多**：國安基金第十次進場護盤、金管會限空令。
+- **風險**：輝達執行長黃仁勳的婚外情與疑似間諜風波，董事會調查和美國國會閉門簡報都還沒有結果。新台幣不升反貶，外資資金尚未回流。
+- **其他**：恐懼貪婪指數 53（中性），0050 與標普 30 日相關性 0.24。
+
+本時段新增 33 則新聞，當日累計 116 則。
+
+這次只處理今天，沒有補漏日；新聞都來自 RSS，沒有以價格趨勢為主的報告。
+
+`pnpm collect-news`、`pnpm fetch-prices` 和 `fetch-intraday` 都跑完；`data/eco-news.db` 與新聞 JSON 有變動，尚未 commit。
+[check-session] 2026-11-09 close 已有分析，略過
+[check-session] 2026-11-09 close 已有分析，略過
+[check-session] 2026-11-10 midday 尚未分析
+Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback if you haven't already; for more info see https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.  This will only be shown once, but you can suppress this message in future with `new YahooFinance({ suppressNotices: ['yahooSurvey'] })`.
+[intraday] 0050.TW 99.5 (+2.10%)
+[intraday] 00692.TW 86.5 (+2.13%)
+[intraday] 00878.TW 33.29 (+1.59%)
+[intraday] ^TWII 42713.86 (+2.53%)
+[intraday] ^GSPC 7549.94 (+2.35%)
+[cron-eco-session] 2026-11-10T11:00:05+08:00 running /eco-analyze midday
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in can end at any time from now until 2026-11-13. Renewing it does not move that date. Run claude auth login now, or use claude setup-token for unattended jobs.
+台股今天盤中報告（midday）已存進資料庫，訊號是 **hold，情緒分 5.0**。盤前（morning）是 hold、4.5 分，所以這次只算小幅轉好。這次是 midday，只處理今天，沒有補漏日。
+
+**盤中數據**
+- **價格：** 0050 盤中 99.6，漲 2.2%；加權指數 42,705，漲 2.5%，盤中最高到 43,136。
+- **美股：** 費半週一漲 6.88%，帶動亞股反彈；S&P 500 也漲約 2.3%。
+- **技術面：** 0050 的 RSI 約 38，MACD 還是偏弱，布林位置 22%，仍在偏低區。恐懼貪婪指數 51，中性。
+- **新聞：** 本時段新增 34 則，累計 84 則。
+
+**判斷**
+- 反彈主要來自國安基金護盤、限空措施和超跌。
+- 風險沒解除：輝達執行長黃仁勳的間諜風波有 FBI 介入和股東集體訴訟，美國可能收緊對中晶片管制。
+- 美國民主黨想限縮 AI 資料中心，已有外資開始降評雲端半導體。
+- 所以我維持觀望，不追價。
+
+這次沒有日期因搜不到新聞而改以價格為主。暫時腳本都已刪除，工作目錄裡沒有殘留。
+[check-session] 2026-11-10 midday 已有分析，略過
+[check-session] 2026-11-10 midday 已有分析，略過
