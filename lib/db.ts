@@ -118,6 +118,26 @@ export function runMigrations(db: Database.Database): void {
       source TEXT NOT NULL DEFAULT '',
       PRIMARY KEY (date, key)
     );
+
+    -- The user's own positions (moving-average cost). A row with shares = 0 is a watched ticker.
+    -- Cash lives in meta under 'portfolio_cash'.
+    CREATE TABLE IF NOT EXISTS holdings (
+      ticker   TEXT PRIMARY KEY,
+      shares   INTEGER NOT NULL,
+      avg_cost REAL NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS trades (
+      id         INTEGER PRIMARY KEY AUTOINCREMENT,
+      date       TEXT NOT NULL,
+      ticker     TEXT NOT NULL,
+      side       TEXT NOT NULL,
+      shares     INTEGER NOT NULL,
+      price      REAL NOT NULL,
+      fee        REAL NOT NULL DEFAULT 0,
+      created_at TEXT NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_trades_date ON trades(date DESC, id DESC);
   `)
 
   const watchCols = db.prepare('PRAGMA table_info(watch_signals)').all() as Array<{ name: string }>

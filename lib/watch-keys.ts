@@ -12,7 +12,12 @@ export const STALE_AFTER_DAYS = 30
 const MS_PER_DAY = 86_400_000
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/
 
-export const isIsoDate = (v: string): boolean => DATE_RE.test(v) && !Number.isNaN(Date.parse(`${v}T00:00:00Z`))
+/** A real calendar date: round-trips through Date, so 2026-02-31 (which Date.parse rolls over) is rejected. */
+export const isIsoDate = (v: string): boolean => {
+  if (!DATE_RE.test(v)) return false
+  const ms = Date.parse(`${v}T00:00:00Z`)
+  return !Number.isNaN(ms) && new Date(ms).toISOString().slice(0, 10) === v
+}
 
 /** Whole days from `from` to `to` (both YYYY-MM-DD). */
 export function daysSince(from: string, to: string): number {

@@ -27,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
             <div className="flex items-center gap-6 text-sm text-dim">
               <Link href="/" className="hover:text-ink transition-colors">今日</Link>
+              <Link href="/portfolio" className="hover:text-ink transition-colors">持倉</Link>
               <Link href="/history" className="hover:text-ink transition-colors">歷史</Link>
               <Link href="/weekly" className="hover:text-ink transition-colors">週報</Link>
               <Link href="/monthly" className="hover:text-ink transition-colors">月報</Link>

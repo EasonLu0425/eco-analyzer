@@ -1,6 +1,7 @@
 export const dynamic = 'force-dynamic'
 
 import { Suspense } from 'react'
+import Link from 'next/link'
 import { Skeleton } from '@/components/ui/skeleton'
 import { SignalCard } from '@/components/dashboard/SignalCard'
 import { HeadlineList } from '@/components/dashboard/HeadlineList'
@@ -21,6 +22,8 @@ import { volForecast } from '@/lib/vol-forecast'
 import { WatchSignalsPanel } from '@/components/dashboard/WatchSignalsPanel'
 import { getSeries } from '@/lib/macro-store'
 import { getLatestWatchSignals, revenueSignal } from '@/lib/watch-signals'
+import { AllocationPanel } from '@/components/portfolio/AllocationPanel'
+import { getAllocationAdvice } from '@/lib/allocation-advice'
 import type { AnalysisReport } from '@/types'
 
 const ALL_HISTORY = 100000   // price-store limit large enough to mean "every bar"
@@ -146,6 +149,15 @@ async function DashboardContent() {
       <div className="py-6">
         <p className="font-mono text-xs text-ghost mb-5">波動區間預估 · 0050.TW</p>
         <VolForecastPanel forecast={volatility} ticker="0050.TW" />
+      </div>
+
+      <hr />
+      <div className="py-6">
+        <div className="mb-5 flex items-baseline justify-between">
+          <p className="font-mono text-xs text-ghost">今日資金配置建議</p>
+          <Link href="/portfolio" className="font-mono text-xs text-ghost hover:text-dim transition-colors">管理持倉與預算 →</Link>
+        </div>
+        <AllocationPanel result={getAllocationAdvice()} />
       </div>
 
       <hr />
