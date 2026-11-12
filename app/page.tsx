@@ -16,7 +16,15 @@ import { getPriceHistory } from '@/lib/price-store'
 import { getMeta } from '@/lib/meta-store'
 import { getNewsForDate } from '@/lib/news-store'
 import { SessionNewsPanel } from '@/components/dashboard/SessionNewsPanel'
+import { VolForecastPanel } from '@/components/dashboard/VolForecastPanel'
+import { volForecast } from '@/lib/vol-forecast'
+import { WatchSignalsPanel } from '@/components/dashboard/WatchSignalsPanel'
+import { getSeries } from '@/lib/macro-store'
+import { getLatestWatchSignals, revenueSignal } from '@/lib/watch-signals'
 import type { AnalysisReport } from '@/types'
+
+const ALL_HISTORY = 100000   // price-store limit large enough to mean "every bar"
+const INDICATOR_DAYS = 90
 
 async function getLatestReport(): Promise<AnalysisReport | null> {
   try {
@@ -42,7 +50,8 @@ function DashboardSkeleton() {
 
 async function DashboardContent() {
   const report = await getLatestReport()
-  const priceRecords = getPriceHistory('0050.TW', 90)
+  const longHistory = getPriceHistory('0050.TW', ALL_HISTORY)
+  const priceRecords = longHistory.slice(-INDICATOR_DAYS)
   const indicators = computeIndicators(priceRecords, '0050.TW')
   const primaryTrend = report?.priceTrends?.find(t => t.ticker === '0050.TW') ?? null
   const fearGreed = report ? computeFearGreed(report.sentimentScore, primaryTrend, report.date) : null
@@ -64,6 +73,9 @@ async function DashboardContent() {
     year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
   })
   const hasPrices = (report.priceTrends ?? []).length > 0
+  const volatility = volForecast(longHistory.map(r => r.date), longHistory.map(r => r.close))
+  const tsmcRevenue = revenueSignal(getSeries('rev_yoy:2330'))
+  const watchSignals = getLatestWatchSignals()
 
   return (
     <div>
@@ -128,6 +140,18 @@ async function DashboardContent() {
             <CorrelationBadge correlation={correlation} benchmarkTicker="^GSPC" />
           </div>
         </div>
+      </div>
+
+      <hr />
+      <div className="py-6">
+        <p className="font-mono text-xs text-ghost mb-5">波動區間預估 · 0050.TW</p>
+        <VolForecastPanel forecast={volatility} ticker="0050.TW" />
+      </div>
+
+      <hr />
+      <div className="py-6">
+        <p className="font-mono text-xs text-ghost mb-5">長期觀察訊號 · AI 資本支出論述</p>
+        <WatchSignalsPanel revenue={tsmcRevenue} signals={watchSignals} today={report.date} />
       </div>
 
       <hr />
