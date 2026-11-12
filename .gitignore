@@ -40,6 +40,10 @@ yarn-error.log*
 # survive a machine switch — only exclude ad-hoc local backups
 /data/*.bak-*
 
+# personal portfolio (holdings, trades, cash) — never commit financial data
+/data/portfolio.db
+/data/portfolio.db-*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

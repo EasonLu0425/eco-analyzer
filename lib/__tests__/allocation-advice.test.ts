@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import Database from 'better-sqlite3'
 import { runMigrations } from '@/lib/db'
+import { runPortfolioMigrations } from '@/lib/portfolio-db'
 import { getAllocationAdvice, trendFromCloses } from '@/lib/allocation-advice'
 import { setCash, setHolding } from '@/lib/portfolio-store'
 
@@ -21,10 +22,13 @@ describe('trendFromCloses', () => {
 })
 
 describe('getAllocationAdvice', () => {
-  let db: Database.Database
+  let db: Database.Database          // market data + reports
+  let pdb: Database.Database         // personal holdings, separate file in production
   beforeEach(() => {
     db = new Database(':memory:')
     runMigrations(db)
+    pdb = new Database(':memory:')
+    runPortfolioMigrations(pdb)
   })
 
   const addPrices = (ticker: string, closes: number[]) => {
@@ -36,15 +40,15 @@ describe('getAllocationAdvice', () => {
   }
 
   it('returns null when nothing is tracked yet', () => {
-    expect(getAllocationAdvice(db)).toBeNull()
+    expect(getAllocationAdvice(db, pdb)).toBeNull()
   })
 
   it('prices each holding at its latest close and sizes a buy from the budget', () => {
     addPrices('0050.TW', ramp(700, 50, 0.05))
-    setCash(100_000, db)
-    setHolding({ ticker: '0050.TW', shares: 0, avgCost: 0 }, db)
+    setCash(100_000, pdb)
+    setHolding({ ticker: '0050.TW', shares: 0, avgCost: 0 }, pdb)
 
-    const result = getAllocationAdvice(db)!
+    const result = getAllocationAdvice(db, pdb)!
     expect(result.signal).toBe('hold')            // no report stored -> neutral pace, stated in the result
     expect(result.signalDate).toBeNull()
     expect(result.advice.lines[0].price).toBeCloseTo(50 + 699 * 0.05, 6)
@@ -54,10 +58,10 @@ describe('getAllocationAdvice', () => {
 
   it('flags a tracked ticker with no price data instead of throwing', () => {
     addPrices('0050.TW', ramp(700, 50, 0.05))
-    setCash(1_000, db)
-    setHolding({ ticker: '00878.TW', shares: 10, avgCost: 20 }, db)
+    setCash(1_000, pdb)
+    setHolding({ ticker: '00878.TW', shares: 10, avgCost: 20 }, pdb)
 
-    const result = getAllocationAdvice(db)!
+    const result = getAllocationAdvice(db, pdb)!
     expect(result.advice.lines[0].price).toBeNull()
     expect(result.advice.notes.some(n => n.includes('00878.TW'))).toBe(true)
   })

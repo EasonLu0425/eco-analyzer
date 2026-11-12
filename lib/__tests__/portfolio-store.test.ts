@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import Database from 'better-sqlite3'
-import { runMigrations } from '@/lib/db'
+import { runPortfolioMigrations } from '@/lib/portfolio-db'
 import {
   adjustCash, getCash, getHoldings, getPortfolio, getTrades, recordTrade, removeHolding, setCash, setHolding,
 } from '@/lib/portfolio-store'
@@ -9,7 +9,7 @@ let db: Database.Database
 
 beforeEach(() => {
   db = new Database(':memory:')
-  runMigrations(db)
+  runPortfolioMigrations(db)
 })
 
 const trade = (over: Record<string, unknown> = {}) => ({

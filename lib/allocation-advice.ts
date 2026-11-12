@@ -48,10 +48,13 @@ export interface AllocationResult {
   asOf: string | null          // date of the market (0050) data behind trend and volatility
 }
 
-/** Null when the user has not entered any holding or watched ticker yet. */
-export function getAllocationAdvice(db?: Database.Database): AllocationResult | null {
+/**
+ * Null when the user has not entered any holding or watched ticker yet.
+ * `db` holds prices and reports; `portfolioDb` holds the personal portfolio (a separate file).
+ */
+export function getAllocationAdvice(db?: Database.Database, portfolioDb?: Database.Database): AllocationResult | null {
   const d = db ?? getDb()
-  const portfolio = getPortfolio(d)
+  const portfolio = getPortfolio(portfolioDb)
   if (portfolio.holdings.length === 0) return null
 
   const market = getPriceHistory(MARKET_TICKER, ALL_HISTORY, d)

@@ -49,7 +49,9 @@ cp .env.example .env
 
 ```env
 ANTHROPIC_API_KEY=sk-ant-...      # Claude API 金鑰（排程自動分析用）
-DATABASE_PATH=./data/eco-news.db  # SQLite 路徑
+DATABASE_PATH=./data/eco-news.db  # SQLite 路徑（新聞、價格、報告；進 git）
+# PORTFOLIO_DB_PATH=./data/portfolio.db  # 選填：個人持倉資料庫（預設與上面同目錄，已加入 .gitignore，不會進 git）
+# PORTFOLIO_ALLOWED_HOSTS=nas.local:3000  # 選填：除 localhost 外允許存取持倉 API 的 Host
 ```
 
 ### 3. 啟動開發伺服器
@@ -135,6 +137,7 @@ pnpm test:coverage  # 測試 + 覆蓋率報告
 | `/history` | 歷史記錄：所有日報列表 + 近 30 日情緒走勢圖 |
 | `/weekly` | 週報列表：各週平均分數、主導訊號、ETF 週漲跌幅 |
 | `/monthly` | 月報列表：月度分析、情緒趨勢、投資展望 |
+| `/portfolio` | 持倉與預算：輸入庫存／成本、記錄買賣，依風險（趨勢＋波動）建議今日投入比例。資料存在 `data/portfolio.db`，不進 git |
 
 ---
 

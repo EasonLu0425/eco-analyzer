@@ -1,16 +1,15 @@
 /**
- * Persistence for the user's holdings, trades and cash budget.
- * Every write validates its input and runs in one transaction, so a rejected trade
- * (not enough cash, selling more than held) leaves holdings, cash and the trade log untouched.
+ * Persistence for the user's holdings, trades and cash budget, in the separate portfolio database
+ * (see portfolio-db.ts). Every write validates its input and runs in one transaction, so a rejected
+ * trade (not enough cash, selling more than held) leaves holdings, cash and the trade log untouched.
  */
 import type Database from 'better-sqlite3'
-import { getDb } from './db'
-import { getMeta, setMeta } from './meta-store'
+import { getPortfolioDb } from './portfolio-db'
 import {
   InputError, MAX_MONEY, applyTrade, cashDelta, parseHoldingInput, parseMoney, parseTradeInput, type Position, type Trade,
 } from './portfolio'
 
-const CASH_KEY = 'portfolio_cash'
+const CASH_KEY = 'cash'
 
 export interface Portfolio {
   cash: number
@@ -21,18 +20,20 @@ export interface StoredTrade extends Trade {
   id: number
 }
 
-const dbOrDefault = (db?: Database.Database): Database.Database => db ?? getDb()
+const dbOrDefault = (db?: Database.Database): Database.Database => db ?? getPortfolioDb()
 
 export function getCash(db?: Database.Database): number {
-  const raw = getMeta(CASH_KEY, dbOrDefault(db))
-  const value = raw == null ? 0 : Number(raw)
+  const row = dbOrDefault(db).prepare('SELECT value FROM settings WHERE key = ?').get(CASH_KEY) as { value: string } | undefined
+  const value = row == null ? 0 : Number(row.value)
   return Number.isFinite(value) ? value : 0
 }
 
 function writeCash(amount: number, db: Database.Database): void {
   if (amount < 0) throw new InputError('預算不足：金額不能低於 0')
   if (amount > MAX_MONEY) throw new InputError('預算超過上限')
-  setMeta(CASH_KEY, String(amount), db)
+  db.prepare(
+    'INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+  ).run(CASH_KEY, String(amount))
 }
 
 export function setCash(amount: unknown, db?: Database.Database): void {
