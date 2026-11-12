@@ -3109,3 +3109,96 @@ npm notice
 [check-missing-dates] 無缺漏，略過
 [check-missing-dates] 無缺漏，略過
 [check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-11
+[cron-eco-analyze] 2026-11-11T08:30:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in can end at any time from now until 2026-11-13. Renewing it does not move that date. Run claude auth login now, or use claude setup-token for unattended jobs.
+今天（2026-11-11）的早盤報告已存入，只補了今天，沒有其他缺漏日。
+
+**2026-11-11：hold，情緒分數 5.0/10**（前一日 5.5）
+
+- **新聞面：**本時段 54 則，全部符合新聞時窗，沒有排除。利多是台積電 10 月營收年增 59.7%、季股利調升到 9 元，以及日月光營收創高。利空有三項：
+  - 美國 CPI 高於預期，Fed 12 月可能升息 2 碼，10 年債殖利率突破 5%。
+  - 輝達黃仁勳醜聞讓輝達股價大跌。
+  - AI 融資轉冷，加上外資連 9 賣。
+- **價格面：**
+  - 0050 收 99.70，30 日 -8.8%，距 52 週高點還差約 14%。
+  - RSI 14 為 38.4，布林位置 22.6%，偏弱但還沒到超賣。
+  - MACD 柱狀體為負，動能轉弱。
+- **補充指標：**
+  - 恐懼貪婪指數 52（中性）。
+  - 0050 與標普 500 的 30 日相關性 0.377。
+
+報告已用 `saveReportSnapshot(report, 'morning')` 寫入，沒有例外。兩支暫時腳本都已刪除，也沒有回溯補漏日，所以沒有任何報告是靠搜尋補新聞的。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 缺漏 1 天：2026-11-12
+[cron-eco-analyze] 2026-11-12T09:00:02+08:00 running /eco-analyze
+Permission allow rule (.claude/settings.local.json): Write(//home/eason/eason/playground/eco-news/**) is not matched by file permission checks — only Edit(path) rules are. Use Edit(//home/eason/eason/playground/eco-news/**) instead (Edit rules cover all file-editing tools).
+Warning: this sign-in can end at any time from now until 2026-11-13. Renewing it does not move that date. Run claude auth login now, or use claude setup-token for unattended jobs.
+今天（2026-11-12）的 morning 報告已存入，訊號 **hold**、情緒分 **6.3**。
+
+**補漏**：`getMissingReportDates(14)` 只回傳今天，所以只補了今天這一份，沒有其他缺漏日。
+
+**新聞**：蒐集到 51 則，時窗內全部保留，沒有排除。
+
+**判斷**
+- **基本面偏多，但有雜訊。** AI 需求有具體數字支撐：CoreWeave 上修財測、費半大漲 5.66%、台積電 ADR 漲逾 4%、廣達前三季 EPS 20.03 元、台積電說先進製程需求「永無止境」。
+- **風險同時存在。**
+  - 輝達董事會據報討論撤換黃仁勳，盤後跌逾 8%，Baird 降評並砍目標價 60%。
+  - Fed 理事沃勒提出 12 月升息兩碼。
+  - 美國晶片出口管制出現漏洞。
+- **技術面不過熱。**
+  - 0050 收 103.2，在 MA200（93.99）之上，MA60（107.30）仍向上，但收盤低於 MA60。
+  - RSI 45.9，布林位置 38%，MACD 柱為負，距 252 日高點回檔約 11.3%。
+  - 恐懼貪婪指數 55（中性），與標普相關性 0.42。
+- **結論。** 訊息混雜，依決策矩陣維持 hold，等輝達事件落地再看。這和前幾天的 hold（5.5–5.6）一致。
+
+**備註**
+- 報告裡的 `priceTrends` 是以 11/11 收盤價為基準。
+- 暫時腳本都已刪除，沒有留下 `tmp-*` 檔。
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
+[check-missing-dates] 無缺漏，略過
