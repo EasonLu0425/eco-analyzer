@@ -109,6 +109,22 @@ pnpm test:coverage  # 測試 + 覆蓋率報告
 ```
 
 ---
+### 研究腳本（訊號有沒有預測力）
+
+報告輸出到 `data/studies/`。以下都用 `npx tsx --tsconfig scripts/tsconfig.json <script>` 執行。
+
+| 腳本 | 用途 |
+|---|---|
+| `scripts/study-signals.ts` | 技術指標買賣規則在 10 年價格上的回測 |
+| `scripts/study-scores.ts` | 日報新聞分數 × 價格位置的交叉表 |
+| `scripts/study-pit-prepare.ts <dir>` | 產生逐日「只含當時可見資訊」的盲測輸入（新聞 15:00 前、指標到當日收盤） |
+| `scripts/study-pit-backtest.ts <預測目錄>` | 評估逐日盲測預測；`--from-db` 改評估新邏輯起算日（meta `logic_v2_start`）之後的 close 快照，即真正的事前預測 |
+| `scripts/fetch-macro.ts` | 抓結構化因子的 10 年歷史：費半/那指/VIX/美債/匯率（Yahoo）、法人與融資（FinMind）、權值股月營收 YoY |
+| `scripts/study-structured.ts` | 預先登記 7 個結構化因子，檢定其對 5/20 日報酬的預測力（Bonferroni 校正） |
+| `scripts/study-vol-calibration.ts` | 波動區間的逐日校準：名目 80% 區間在 ^TWII / 0050 / ^GSPC 的 5/20/60 日實際涵蓋率 |
+
+注意：LLM 盲測只在模型知識截止日（約 2026-06）之後的資料才乾淨；更早的期間模型可能記得後續走勢。
+
 
 ## 頁面
 

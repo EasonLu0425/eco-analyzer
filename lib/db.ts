@@ -98,7 +98,32 @@ export function runMigrations(db: Database.Database): void {
       key   TEXT PRIMARY KEY,
       value TEXT NOT NULL
     );
+
+    -- Point-in-time market series (institutional flows, margin balance, monthly revenue YoY, ...).
+    -- date is when the value became publicly known, so a lookup "as of D" cannot see the future.
+    CREATE TABLE IF NOT EXISTS macro_series (
+      series TEXT NOT NULL,
+      date   TEXT NOT NULL,
+      value  REAL NOT NULL,
+      PRIMARY KEY (series, date)
+    );
+
+    -- Long-horizon qualitative watch signals judged from each day's news (see eco-analyze Step 2.7).
+    -- Only days where the news actually said something are stored; no row means "no news", not "steady".
+    CREATE TABLE IF NOT EXISTS watch_signals (
+      date   TEXT NOT NULL,
+      key    TEXT NOT NULL,
+      status TEXT NOT NULL,
+      note   TEXT NOT NULL,
+      source TEXT NOT NULL DEFAULT '',
+      PRIMARY KEY (date, key)
+    );
   `)
+
+  const watchCols = db.prepare('PRAGMA table_info(watch_signals)').all() as Array<{ name: string }>
+  if (!watchCols.some(c => c.name === 'source')) {
+    db.exec("ALTER TABLE watch_signals ADD COLUMN source TEXT NOT NULL DEFAULT ''")
+  }
 
   // Add price_trends to existing reports tables that predate this column
   const cols = db.prepare('PRAGMA table_info(reports)').all() as Array<{ name: string }>
